@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Data/" />
+  <Folder Name="/Data/save_1/" />
+  <Folder Name="/Data/save_2/" />
+  <Folder Name="/Data/save_3/" />
+  <Project Path="GameLibrary/GameLibrary.csproj" />
+  <Project Path="OOPFinal/GameUI.csproj" />
+</Solution>
