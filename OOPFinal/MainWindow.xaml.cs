@@ -16,6 +16,8 @@ namespace GameUI
         public MainWindow()
         {
             InitializeComponent();
+            Test test = new Test();
+            test.Show();
         }
     }
 }

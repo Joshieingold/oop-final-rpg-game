@@ -1,0 +1,10 @@
+{
+  "Items": [
+    {
+      "Name": "ItemOne",
+      "Description":  "This is the first item added to the game",
+      "Damage": 69,
+      "DamageType": "True"
+    }
+  ]
+}
