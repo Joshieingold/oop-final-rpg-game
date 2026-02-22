@@ -12,10 +12,4 @@
     <ProjectReference Include="..\GameLibrary\GameLibrary.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="GameData\Jsons\Items.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
