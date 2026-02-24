@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Core.State;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI;
 
 namespace GameUI 
 {
@@ -16,8 +18,8 @@ namespace GameUI
         public MainWindow()
         {
             InitializeComponent();
-            PlayerView otherTest = new PlayerView();
-            otherTest.Show();
+            BattleWindow test = new BattleWindow();
+            test.Show();
         }
     }
 }

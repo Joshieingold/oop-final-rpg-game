@@ -6,10 +6,26 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <StartupObject></StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GameLibrary\GameLibrary.csproj" />
+    <None Remove="image.psd.png" />
+    <None Remove="pixil-frame-0%281%29.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CustomControls\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GameData\GameData.csproj" />
+    <ProjectReference Include="..\GameLibrary\Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="image.psd.png" />
+    <Resource Include="pixil-frame-0(1).png" />
   </ItemGroup>
 
 </Project>

@@ -1,13 +1,7 @@
 <Solution>
-  <Folder Name="/Data/" />
-  <Folder Name="/Data/Assets/">
-    <File Path="OOPFinal/GameData/Assets/pixil-frame-0(2).png" />
-    <File Path="OOPFinal/GameData/Assets/pixil-frame-0(3).png" />
-  </Folder>
-  <Folder Name="/Data/Jsons/">
-    <File Path="OOPFinal/GameData/Jsons/Items.json" />
-    <File Path="OOPFinal/GameData/Jsons/Locations.json" />
-  </Folder>
+  <Project Path="GameData/GameData.csproj" Id="76e338a8-b163-472e-8908-c35b3753d989" />
   <Project Path="GameLibrary/Core.csproj" />
-  <Project Path="OOPFinal/UI.csproj" />
+  <Project Path="OOPFinal/UI.csproj">
+    <BuildDependency Project="GameLibrary/Core.csproj" />
+  </Project>
 </Solution>

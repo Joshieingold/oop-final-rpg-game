@@ -11,17 +11,32 @@ namespace Core.Characters
         // Crit chances
         private const int NAT20 = 20;
         private const int HIGHROLL = 16;
-            // Crit chance multipliers
+        // Crit chance multipliers
         private const double NATURAL20MULT = 5.0; 
         private const double HIGHROLLMULT = 3.5;
         private const double NORMALROLLMULT = 1;
 
         private const double EFFECTIVEHITMULT = 2; 
+        private Random critChance = new Random();
 
         public int Mana { get; set; }
         public int MaxMana { get; set; }
         public List<Ability> Abilities { get; set; } = new();
-        private Random critChance = new Random();
+
+        public Player(string inName)
+        {
+            Name = inName;
+            Mana = 12;
+            MaxMana = 12;
+            Health = 12;
+            MaxHealth = 12;
+            Attack = 22;
+            Defense = 22;
+        }
+        public override string ToString()
+        {
+            return $"{Name} has {Health} Health";
+        }
         public void UseAttack(Ability inAbility, Entity loser)
         {
             // Check to see if we have that ability
@@ -47,7 +62,7 @@ namespace Core.Characters
             // Deal the damage
             loser.Health -= FindDamage(crit, attackVal, effective, defenderDefense);
         }
-        public double CheckEffective(Ability inAbility, Entity inEntity)
+        private double CheckEffective(Ability inAbility, Entity inEntity)
         {
             if (inEntity is Enemy inEnemy)
             {
@@ -59,7 +74,7 @@ namespace Core.Characters
             }
             return NORMALROLLMULT;
         } 
-        public int FindDamage(double crit, int attackVal, double effecitve, int defenderDefence)
+        private int FindDamage(double crit, int attackVal, double effecitve, int defenderDefence)
         {
             int damage = Convert.ToInt32(((attackVal * crit) * effecitve) - defenderDefence);
             if (damage < 0) damage = 0;
