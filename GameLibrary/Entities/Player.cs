@@ -1,5 +1,6 @@
 ﻿using Core.Abilities;
 using Core.Entities;
+using Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,8 +22,7 @@ namespace Core.Characters
 
         public int Mana { get; set; }
         public int MaxMana { get; set; }
-        public List<Ability> Abilities { get; set; } = new();
-
+        public List<Ability> Abilities { get; set; }
         public Player(string inName)
         {
             Name = inName;
@@ -32,6 +32,7 @@ namespace Core.Characters
             MaxHealth = 12;
             Attack = 22;
             Defense = 22;
+            Abilities = GetFourAbilities();
         }
         public override string ToString()
         {
@@ -65,8 +66,12 @@ namespace Core.Characters
         }
         private List<Ability> GetFourAbilities()
         {
-
-
+            List<Ability> returnList = new List<Ability>();
+            returnList.Add(ObjectFactory.CreateAbility("ObjectOrientedProgramming"));
+            returnList.Add(ObjectFactory.CreateAbility("SystemProgramming"));
+            returnList.Add(ObjectFactory.CreateAbility("Performance"));
+            returnList.Add(ObjectFactory.CreateAbility("DeveloperProductivity"));
+            return returnList;
         }
         private double CheckEffective(Ability inAbility, Entity inEntity)
         {

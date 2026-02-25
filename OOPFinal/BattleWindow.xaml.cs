@@ -20,28 +20,33 @@ namespace UI
     {
         private Player currentPlayer {get; set;}
         private Enemy currentEnemy {get; set;}
+        private Battle thisFight { get; set; }
 
         public BattleWindow(ref Player inPlayer)
         {
+            InitializeComponent();
             currentPlayer = inPlayer;
             currentEnemy = ObjectFactory.CreateEnemy(ProgLang.Javascript);
-            InitializeComponent();
+            PlayerLabel.Content = currentPlayer.ToString();
+            SetEnemyData();
+            thisFight = new Battle(currentPlayer, currentEnemy);
         }
 
-        private void Window_Initialized(object sender, EventArgs e)
+        private void SetEnemyData( )
         {
-            PlayerLabel.Content = currentPlayer.ToString();
-            SetEnemyData(currentEnemy);
-            Battle thisFight = new Battle(currentPlayer, currentEnemy);
-        }
-        private void SetEnemyData(Enemy inEnemy )
-        {
-            lblEnemyName.Content= inEnemy.Name;
-            progEnemyHealth.Maximum = inEnemy.MaxHealth;
+            lblEnemyName.Content= currentEnemy.Name;
+            progEnemyHealth.Maximum = currentEnemy.MaxHealth;
             progEnemyHealth.Minimum = 0;
-            progEnemyHealth.Value = inEnemy.Health;
-            lblEnemyAtk.Content += inEnemy.Attack.ToString();
-            lblEnemyDef.Content += inEnemy.Defense.ToString();
+            progEnemyHealth.Value = currentEnemy.Health;
+            lblEnemyAtk.Content += currentEnemy.Attack.ToString();
+            lblEnemyDef.Content += currentEnemy.Defense.ToString();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Hello");
+            thisFight.PlayerAttack(currentPlayer.Abilities[0]);
+            SetEnemyData();
         }
     }
 }

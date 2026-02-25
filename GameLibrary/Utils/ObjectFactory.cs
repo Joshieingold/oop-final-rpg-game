@@ -16,8 +16,8 @@ namespace Core.Utils
             string path = DataPasser.AbilityLocation();
             using (StreamReader stream = new StreamReader(path))
             {
-                string currentLine = stream.ReadLine();
-                while (currentLine != null)
+                string currentLine;
+                while ((currentLine = stream.ReadLine()) != null)
                 {
                     string[] lineArray = currentLine.Split(" | ");
                     if (lineArray[0] == inName)
