@@ -9,8 +9,8 @@
         Title="Battle" Height="450" Width="800" >
     <Grid Background="#FFFFA5A5">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="470"></ColumnDefinition>
-            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -22,12 +22,15 @@
                     <RowDefinition Height="100"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                    <Grid Background="PaleVioletRed">
+                <Grid Background="PaleVioletRed">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <ProgressBar x:Name="progEnemyHealth" Grid.Row="0" Margin="20,20,20,20"/>
+                    <Grid Grid.Row="0">
+                        <Label x:Name="lblEnemyHealth" Margin="20,0,0,20"></Label>
+                        <ProgressBar x:Name="progEnemyHealth" Grid.Row="0" Margin="20,20,20,20"/>
+                    </Grid>
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
@@ -35,8 +38,8 @@
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Label x:Name="lblEnemyName" Content="Enemy" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
-                        <Label x:Name="lblEnemyAtk" Content="⚔︎: " HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
-                        <Label x:Name="lblEnemyDef" Content="⛉: " HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2"/>
+                        <Label x:Name="lblEnemyAtk" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                        <Label x:Name="lblEnemyDef" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2"/>
                     </Grid>
                 </Grid>
                 <Grid Grid.Row="1">
@@ -50,10 +53,61 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Label x:Name="PlayerLabel" Content=""  HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Width="154" Height="26"/>
-        <Label Content="Player" HorizontalAlignment="Left" Margin="0,191,0,0" VerticalAlignment="Top" Width="141" Height="26"/>
-        <Image HorizontalAlignment="Left" Margin="0,249,0,0" Width="158" Source="/player.png"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="184,116,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
-
+        <Grid Grid.Column="0" Margin="20,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid Background="Azure">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="lblPlayerName" Content="Name" Grid.Column="1" HorizontalAlignment="Center"></Label>
+                            <Label x:Name="lblTurn" Content="Turn?" Grid.Column="0" HorizontalAlignment="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid Margin="20,0,20,10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label x:Name="lblPlayerHealth" Content="Health" Grid.Row="0"></Label>
+                                <ProgressBar x:Name="progPlayerHealth" Grid.Row="1"></ProgressBar>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid Margin="20,0,20,10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label x:Name="lblPlayerMana" Content="Mana?" Grid.Row="0"></Label>
+                                <ProgressBar x:Name="progPlayerMana" Grid.Row="1" Foreground="#FF0647B0"></ProgressBar>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/Player.png" Margin="10,10,10,0"></Image>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="292,373,0,0" VerticalAlignment="Top" Width="217" Grid.ColumnSpan="2" Click="Button_Click"/>
     </Grid>
 </Window>

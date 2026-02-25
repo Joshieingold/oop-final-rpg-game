@@ -27,29 +27,38 @@ namespace UI
             InitializeComponent();
             currentPlayer = inPlayer;
             currentEnemy = ObjectFactory.CreateEnemy(ProgLang.Javascript);
-            PlayerLabel.Content = currentPlayer.ToString();
-            SetEnemyData();
             thisFight = new Battle(currentPlayer, currentEnemy);
+            lblTurn.Content = thisFight.State.ToString();
+            SetEnemyData();
+            SetPlayerData();
         }
 
-        private void SetEnemyData( )
+        private void SetEnemyData()
         {
+            lblTurn.Content = thisFight.State.ToString();
             lblEnemyName.Content= currentEnemy.Name;
             progEnemyHealth.Maximum = currentEnemy.MaxHealth;
             progEnemyHealth.Minimum = 0;
             progEnemyHealth.Value = currentEnemy.Health;
-            lblEnemyAtk.Content += currentEnemy.Attack.ToString();
-            lblEnemyDef.Content += currentEnemy.Defense.ToString();
+            lblEnemyHealth.Content = $"{currentEnemy.Health}/{currentEnemy.MaxHealth}";
+            lblEnemyAtk.Content = $"⚔: {currentEnemy.Attack.ToString()}";
+            lblEnemyDef.Content = $"⛉: {currentEnemy.Defense.ToString()}";
         }
         private void SetPlayerData()
         {
-            PlayerLabel.Content = currentPlayer.ToString(); 
-
+            lblTurn.Content = thisFight.State.ToString();
+            lblPlayerName.Content = currentPlayer.Name;
+            lblPlayerHealth.Content = $"{currentPlayer.Health}/{currentPlayer.MaxHealth}";
+            lblPlayerMana.Content = $"{currentPlayer.Mana}/{currentPlayer.MaxMana}";
+            progPlayerHealth.Maximum = currentPlayer.MaxHealth;
+            progPlayerHealth.Minimum = 0;
+            progPlayerHealth.Value = currentPlayer.Health;
+            progPlayerMana.Maximum = currentPlayer.MaxMana;
+            progPlayerMana.Minimum = 0;
+            progPlayerMana.Value = currentPlayer.Mana;
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Hello");
             thisFight.PlayerAttack(currentPlayer.Abilities[0]);
             SetEnemyData();
             SetPlayerData();

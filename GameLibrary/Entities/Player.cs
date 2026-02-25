@@ -29,9 +29,9 @@ namespace Core.Characters
             Mana = 10002;
             MaxMana = 10002;
             Health = 9012;
-            MaxHealth = 12;
+            MaxHealth = Health;
             Attack = 22;
-            Defense = 22;
+            Defense = 100;
             Abilities = GetFourAbilities();
         }
         public override string ToString()
