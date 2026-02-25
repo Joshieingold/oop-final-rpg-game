@@ -1,5 +1,6 @@
 ﻿using Core.Characters;
 using Core.Entities;
+using Core.State;
 using Core.Utils;
 using System;
 using System.Collections.Generic;
@@ -17,18 +18,19 @@ namespace UI
 {
     public partial class BattleWindow : Window
     {
-        public BattleWindow()
+        Player currentPlayer;
+        public BattleWindow(ref Player inPlayer)
         {
+            currentPlayer = inPlayer;
             InitializeComponent();
         }
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-        Player me = new Player("Josh");
-        Enemy notMe = ObjectFactory.CreateEnemy(ProgLang.Javascript);
-            PlayerLabel.Content = me.ToString();
+            Enemy notMe = ObjectFactory.CreateEnemy(ProgLang.Javascript);
+            PlayerLabel.Content = currentPlayer.ToString();
             EnemyLabel.Text = notMe.ToString();
-
+            Battle thisFight = new Battle(currentPlayer, notMe);
         }
     }
 }

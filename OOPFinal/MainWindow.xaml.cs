@@ -1,4 +1,5 @@
-﻿using Core.State;
+﻿using Core.Characters;
+using Core.State;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,6 +16,7 @@ namespace GameUI
 {
     public partial class MainWindow : Window
     {
+        Player localPlayer; 
         public MainWindow()
         {
             InitializeComponent();
@@ -22,7 +24,9 @@ namespace GameUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            BattleWindow newBattle = new BattleWindow();
+            localPlayer = new Player(txtUsername.Text);
+            Console.WriteLine(localPlayer.Name);
+            BattleWindow newBattle = new BattleWindow(ref localPlayer);
             newBattle.Show();
         }
     }
