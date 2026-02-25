@@ -9,7 +9,7 @@
     <Grid HorizontalAlignment="Center" VerticalAlignment="Stretch">
         <TextBlock Text="GAME NAME" HorizontalAlignment="Center"></TextBlock>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <Button Content="New Game"></Button>
+            <Button Content="New Game" Click="Button_Click"></Button>
             <Button Content="Continue"></Button>
             <Button Content="Story"></Button>
             <Button Content="Memo"></Button>

@@ -34,7 +34,7 @@ namespace Core.Entities
         }
         public override string ToString()
         {
-            return $"{Name} is a {LanguageType.ToString()} Enemy with {Health}";
+            return $"{Name}\nProgramming Language: {LanguageType}\nHP: {Health}\nAtk: {Attack}\nDef: {Defense}";
         }
         // Make random Assortment of enemy abilities
     }

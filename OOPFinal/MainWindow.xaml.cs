@@ -18,8 +18,12 @@ namespace GameUI
         public MainWindow()
         {
             InitializeComponent();
-            BattleWindow test = new BattleWindow();
-            test.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            BattleWindow newBattle = new BattleWindow();
+            newBattle.Show();
         }
     }
 }
