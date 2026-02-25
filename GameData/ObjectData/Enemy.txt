@@ -1,0 +1,3 @@
+﻿Name | MaxHealth | Attack | Defense | LanguageType
+JsGoblin | 100 | 20 | 20 | Javascript
+JsGhoul | 90 | 70 | 5 | Javascript

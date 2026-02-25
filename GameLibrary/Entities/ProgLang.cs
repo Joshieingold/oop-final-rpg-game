@@ -6,9 +6,12 @@ namespace Core.Entities
 {
     public enum ProgLang 
     {
-        Js,
-        CS,
+        Javascript,
+        Cs,
         Java,
         Bash,
+        Python,
+        Cpp,
+        LanguageType
     }
 }

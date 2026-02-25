@@ -11,13 +11,6 @@ namespace Core.Entities
         public ProgLang LanguageType { get; set; }
         public List<Ability> Abilities { get; set; } = new(); // Make this based on the language type
         private Random enemyAttackRandomizer = new Random();
-        public Enemy(string inName, ProgLang inLang)
-        {
-            Name = inName;
-            LanguageType = inLang;
-
-
-        }
         private Ability ChooseRandomAbility()
         {
             int choice = enemyAttackRandomizer.Next(1, Abilities.Count());
@@ -43,5 +36,6 @@ namespace Core.Entities
         {
             return $"{Name} is a {LanguageType.ToString()} Enemy with {Health}";
         }
+        // Make random Assortment of enemy abilities
     }
 }

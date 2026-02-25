@@ -9,8 +9,8 @@
         Title="Battle" Height="450" Width="800" Initialized="Window_Initialized">
     <Grid Background="#FFFFA5A5">
         <Label Content="Enemy" HorizontalAlignment="Left" Margin="528,-2,0,0" VerticalAlignment="Top" Width="196"/>
-        <Label x:Name="EnemyLabel" Content="" HorizontalAlignment="Left" Margin="528,21,0,0" VerticalAlignment="Top" Width="196"/>
-        <Label x:Name="PlayerLabel" Content=""  HorizontalAlignment="Left" Margin="0,217,0,0" VerticalAlignment="Top" Width="141"/>
+        <TextBlock x:Name="EnemyLabel" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="230,29,0,0" VerticalAlignment="Top" Width="196" Height="116"/>
+        <Label x:Name="PlayerLabel" Content=""  HorizontalAlignment="Left" Margin="0,217,0,0" VerticalAlignment="Top" Width="154"/>
         <Label Content="Player" HorizontalAlignment="Left" Margin="0,191,0,0" VerticalAlignment="Top" Width="141"/>
         <Ellipse Height="52" Margin="546,215,94,0" Stroke="Black" VerticalAlignment="Top" Fill="Black"/>
         <Image HorizontalAlignment="Left" Height="185" Margin="0,249,0,0" VerticalAlignment="Top" Width="158" Source="/image.psd.png">
