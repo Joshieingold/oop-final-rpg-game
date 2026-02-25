@@ -47,7 +47,7 @@
                         <RowDefinition Height="3*"></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Ellipse Stroke="Black" Fill="Black" Margin="40,199,40,67" Grid.RowSpan="2"/>
+                    <Ellipse Fill="{StaticResource bubbleColor}" Margin="40,199,40,67" Grid.RowSpan="2"/>
                     <Image x:Name="picEnemySprite" Grid.Row="0" />
                 </Grid>
             </Grid>
@@ -57,8 +57,8 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"></RowDefinition>
-                    <RowDefinition Height="2*"></RowDefinition>
-                    <RowDefinition Height="4*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="1">
                     <Grid Background="{StaticResource bubbleColor}">
