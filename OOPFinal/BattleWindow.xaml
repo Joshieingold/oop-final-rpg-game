@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         RenderOptions.BitmapScalingMode="NearestNeighbor"
         Title="Battle" Height="450" Width="800" >
-    <Grid Background="#FFFFA5A5">
+    <Grid Background="{StaticResource backgroundColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -22,14 +22,14 @@
                     <RowDefinition Height="100"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid Background="PaleVioletRed">
+                <Grid Background="{StaticResource bubbleColor}">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
-                        <Label x:Name="lblEnemyHealth" Margin="20,0,0,20"></Label>
-                        <ProgressBar x:Name="progEnemyHealth" Grid.Row="0" Margin="20,20,20,20"/>
+                        <Label x:Name="lblEnemyHealth" Foreground="{StaticResource forgroundColor}" Margin="20,0,0,20"></Label>
+                        <ProgressBar x:Name="progEnemyHealth" Background="{StaticResource barColor}" Foreground="{StaticResource healthColor}" Grid.Row="0" Margin="20,20,20,20" BorderBrush="{x:Null}"/>
                     </Grid>
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
@@ -37,9 +37,9 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Label x:Name="lblEnemyName" Content="Enemy" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
-                        <Label x:Name="lblEnemyAtk" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
-                        <Label x:Name="lblEnemyDef" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2"/>
+                        <Label x:Name="lblEnemyName" Foreground="{StaticResource forgroundColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
+                        <Label x:Name="lblEnemyAtk" Foreground="{StaticResource forgroundColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                        <Label x:Name="lblEnemyDef" Foreground="{StaticResource forgroundColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2"/>
                     </Grid>
                 </Grid>
                 <Grid Grid.Row="1">
@@ -47,21 +47,21 @@
                         <RowDefinition Height="3*"></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-
                     <Ellipse Stroke="Black" Fill="Black" Margin="40,199,40,67" Grid.RowSpan="2"/>
-                    <Image Source="/pixil-frame-0(1).png" Grid.Row="0" />
+                    <Image x:Name="picEnemySprite" Grid.Row="0" />
                 </Grid>
             </Grid>
         </Grid>
+        <!-- Player Location -->
         <Grid Grid.Column="0" Margin="20,0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"></RowDefinition>
                     <RowDefinition Height="2*"></RowDefinition>
-                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="4*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="1">
-                    <Grid Background="Azure">
+                    <Grid Background="{StaticResource bubbleColor}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1*"></RowDefinition>
                             <RowDefinition Height="2*"></RowDefinition>
@@ -72,27 +72,27 @@
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Label x:Name="lblPlayerName" Content="Name" Grid.Column="1" HorizontalAlignment="Center"></Label>
-                            <Label x:Name="lblTurn" Content="Turn?" Grid.Column="0" HorizontalAlignment="Center"></Label>
+                            <Label x:Name="lblPlayerName" Foreground="{StaticResource forgroundColor}" Grid.Column="1" HorizontalAlignment="Center"></Label>
+                            <Label x:Name="lblTurn" Foreground="{StaticResource forgroundColor}" Grid.Column="0" HorizontalAlignment="Center"></Label>
                         </Grid>
                         <Grid Grid.Row="1">
                             <Grid Margin="20,0,20,10">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition Height="3*"></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Label x:Name="lblPlayerHealth" Content="Health" Grid.Row="0"></Label>
-                                <ProgressBar x:Name="progPlayerHealth" Grid.Row="1"></ProgressBar>
+                                <Label x:Name="lblPlayerHealth" Foreground="{StaticResource forgroundColor}" Grid.Row="0"></Label>
+                                <ProgressBar x:Name="progPlayerHealth" Foreground="{StaticResource healthColor}" Background="{StaticResource barColor}" Grid.Row="1" BorderBrush="{x:Null}"></ProgressBar>
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="2">
                             <Grid Margin="20,0,20,10">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition Height="3*"></RowDefinition>
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Label x:Name="lblPlayerMana" Content="Mana?" Grid.Row="0"></Label>
-                                <ProgressBar x:Name="progPlayerMana" Grid.Row="1" Foreground="#FF0647B0"></ProgressBar>
+                                <Label x:Name="lblPlayerMana" Foreground="{StaticResource forgroundColor}" Grid.Row="0"></Label>
+                                <ProgressBar x:Name="progPlayerMana" Foreground="{StaticResource manaColor}" Background="{StaticResource barColor}" Grid.Row="1" BorderBrush="{x:Null}"></ProgressBar>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -103,12 +103,16 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Image Source="/Player.png" Margin="10,10,10,0"></Image>
+                        <Image x:Name="picPlayerSprite"  Margin="10,10,10,0"></Image>
                     </Grid>
                 </Grid>
             </Grid>
         </Grid>
-        <Button Content="CPU Attack" HorizontalAlignment="Left" Margin="291,398,0,0" VerticalAlignment="Top" Width="217" Grid.ColumnSpan="2" Click="Button_Click_1"/>
-        <Button Content="Player Attack" HorizontalAlignment="Left" Margin="291,373,0,0" VerticalAlignment="Top" Width="216" Click="Button_Click" Grid.ColumnSpan="2"/>
+
+        <!-- 
+        DEBUG BUTTONS
+            <Button Content="CPU Attack" HorizontalAlignment="Left" Margin="291,398,0,0" VerticalAlignment="Top" Width="217" Grid.ColumnSpan="2" Click="Button_Click_1"/>
+            <Button Content="Player Attack" HorizontalAlignment="Left" Margin="291,373,0,0" VerticalAlignment="Top" Width="216" Click="Button_Click" Grid.ColumnSpan="2"/>
+        -->
     </Grid>
 </Window>
