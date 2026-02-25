@@ -8,14 +8,51 @@
         RenderOptions.BitmapScalingMode="NearestNeighbor"
         Title="Battle" Height="450" Width="800" Initialized="Window_Initialized">
     <Grid Background="#FFFFA5A5">
-        <Label Content="Enemy" HorizontalAlignment="Left" Margin="528,-2,0,0" VerticalAlignment="Top" Width="196"/>
-        <TextBlock x:Name="EnemyLabel" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="230,29,0,0" VerticalAlignment="Top" Width="196" Height="116"/>
-        <Label x:Name="PlayerLabel" Content=""  HorizontalAlignment="Left" Margin="0,217,0,0" VerticalAlignment="Top" Width="154"/>
-        <Label Content="Player" HorizontalAlignment="Left" Margin="0,191,0,0" VerticalAlignment="Top" Width="141"/>
-        <Ellipse Height="52" Margin="546,215,94,0" Stroke="Black" VerticalAlignment="Top" Fill="Black"/>
-        <Image HorizontalAlignment="Left" Height="185" Margin="0,249,0,0" VerticalAlignment="Top" Width="158" Source="/image.psd.png">
-        </Image>
-        <Image HorizontalAlignment="Left" Height="196" Margin="528,47,0,0" VerticalAlignment="Top" Width="203" Source="/pixil-frame-0(1).png"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="470"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- Enemy Location -->
+        <Grid x:Name="EnemySide" Grid.Row="0" Grid.Column="1" Margin="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                    <Grid Background="PaleVioletRed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <ProgressBar x:Name="progEnemyHealth" Grid.Row="0" Margin="20,20,20,20"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="lblEnemyName" Content="Enemy" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
+                        <Label x:Name="lblEnemyAtk" Content="⚔︎: " HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                        <Label x:Name="lblEnemyDef" Content="⛉: " HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Ellipse Stroke="Black" Fill="Black" Margin="40,199,40,67" Grid.RowSpan="2"/>
+                    <Image Source="/pixil-frame-0(1).png" Grid.Row="0" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <Label x:Name="PlayerLabel" Content=""  HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Width="154" Height="26"/>
+        <Label Content="Player" HorizontalAlignment="Left" Margin="0,191,0,0" VerticalAlignment="Top" Width="141" Height="26"/>
+        <Image HorizontalAlignment="Left" Margin="0,249,0,0" Width="158" Source="/player.png"/>
 
     </Grid>
 </Window>

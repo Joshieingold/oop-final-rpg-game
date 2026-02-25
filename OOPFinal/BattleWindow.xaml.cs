@@ -18,19 +18,30 @@ namespace UI
 {
     public partial class BattleWindow : Window
     {
-        Player currentPlayer;
+        private Player currentPlayer {get; set;}
+        private Enemy currentEnemy {get; set;}
+
         public BattleWindow(ref Player inPlayer)
         {
             currentPlayer = inPlayer;
+            currentEnemy = ObjectFactory.CreateEnemy(ProgLang.Javascript);
             InitializeComponent();
         }
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-            Enemy notMe = ObjectFactory.CreateEnemy(ProgLang.Javascript);
             PlayerLabel.Content = currentPlayer.ToString();
-            EnemyLabel.Text = notMe.ToString();
-            Battle thisFight = new Battle(currentPlayer, notMe);
+            SetEnemyData(currentEnemy);
+            Battle thisFight = new Battle(currentPlayer, currentEnemy);
+        }
+        private void SetEnemyData(Enemy inEnemy )
+        {
+            lblEnemyName.Content= inEnemy.Name;
+            progEnemyHealth.Maximum = inEnemy.MaxHealth;
+            progEnemyHealth.Minimum = 0;
+            progEnemyHealth.Value = inEnemy.Health;
+            lblEnemyAtk.Content += inEnemy.Attack.ToString();
+            lblEnemyDef.Content += inEnemy.Defense.ToString();
         }
     }
 }

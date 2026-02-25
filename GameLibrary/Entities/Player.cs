@@ -37,6 +37,7 @@ namespace Core.Characters
         {
             return $"{Name} has {Health} Health";
         }
+        
         public void UseAttack(Ability inAbility, Entity loser)
         {
             // Check to see if we have that ability
@@ -61,6 +62,11 @@ namespace Core.Characters
 
             // Deal the damage
             loser.Health -= FindDamage(crit, attackVal, effective, defenderDefense);
+        }
+        private List<Ability> GetFourAbilities()
+        {
+
+
         }
         private double CheckEffective(Ability inAbility, Entity inEntity)
         {
