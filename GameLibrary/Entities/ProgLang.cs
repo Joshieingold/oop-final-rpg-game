@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Core.Entities
 {
-    public enum ProgLang 
+    public enum ProgLang
     {
         Javascript,
         Cs,
@@ -12,6 +12,7 @@ namespace Core.Entities
         Bash,
         Python,
         Cpp,
-        LanguageType
+        LanguageType,
+        C
     }
 }

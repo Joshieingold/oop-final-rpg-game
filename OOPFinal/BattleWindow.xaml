@@ -6,16 +6,109 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         RenderOptions.BitmapScalingMode="NearestNeighbor"
-        Title="Battle" Height="450" Width="800" Initialized="Window_Initialized">
+        Title="Battle" Height="450" Width="800" >
     <Grid Background="#FFFFA5A5">
-        <Label Content="Enemy" HorizontalAlignment="Left" Margin="528,-2,0,0" VerticalAlignment="Top" Width="196"/>
-        <TextBlock x:Name="EnemyLabel" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="230,29,0,0" VerticalAlignment="Top" Width="196" Height="116"/>
-        <Label x:Name="PlayerLabel" Content=""  HorizontalAlignment="Left" Margin="0,217,0,0" VerticalAlignment="Top" Width="154"/>
-        <Label Content="Player" HorizontalAlignment="Left" Margin="0,191,0,0" VerticalAlignment="Top" Width="141"/>
-        <Ellipse Height="52" Margin="546,215,94,0" Stroke="Black" VerticalAlignment="Top" Fill="Black"/>
-        <Image HorizontalAlignment="Left" Height="185" Margin="0,249,0,0" VerticalAlignment="Top" Width="158" Source="/image.psd.png">
-        </Image>
-        <Image HorizontalAlignment="Left" Height="196" Margin="528,47,0,0" VerticalAlignment="Top" Width="203" Source="/pixil-frame-0(1).png"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- Enemy Location -->
+        <Grid x:Name="EnemySide" Grid.Row="0" Grid.Column="1" Margin="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Background="PaleVioletRed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Label x:Name="lblEnemyHealth" Margin="20,0,0,20"></Label>
+                        <ProgressBar x:Name="progEnemyHealth" Grid.Row="0" Margin="20,20,20,20"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="lblEnemyName" Content="Enemy" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
+                        <Label x:Name="lblEnemyAtk" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                        <Label x:Name="lblEnemyDef" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
 
+                    <Ellipse Stroke="Black" Fill="Black" Margin="40,199,40,67" Grid.RowSpan="2"/>
+                    <Image Source="/pixil-frame-0(1).png" Grid.Row="0" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="0" Margin="20,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid Background="Azure">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                            <RowDefinition Height="2*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="lblPlayerName" Content="Name" Grid.Column="1" HorizontalAlignment="Center"></Label>
+                            <Label x:Name="lblTurn" Content="Turn?" Grid.Column="0" HorizontalAlignment="Center"></Label>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid Margin="20,0,20,10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label x:Name="lblPlayerHealth" Content="Health" Grid.Row="0"></Label>
+                                <ProgressBar x:Name="progPlayerHealth" Grid.Row="1"></ProgressBar>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid Margin="20,0,20,10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label x:Name="lblPlayerMana" Content="Mana?" Grid.Row="0"></Label>
+                                <ProgressBar x:Name="progPlayerMana" Grid.Row="1" Foreground="#FF0647B0"></ProgressBar>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/Player.png" Margin="10,10,10,0"></Image>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Button Content="CPU Attack" HorizontalAlignment="Left" Margin="291,398,0,0" VerticalAlignment="Top" Width="217" Grid.ColumnSpan="2" Click="Button_Click_1"/>
+        <Button Content="Player Attack" HorizontalAlignment="Left" Margin="291,373,0,0" VerticalAlignment="Top" Width="216" Click="Button_Click" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

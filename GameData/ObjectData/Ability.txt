@@ -1,20 +1,20 @@
 ﻿Name | Power | ManaCost | StrongAgainst
-ObjectOrientedProgramming | 65 | 20 | Java, CSharp, Python, C++
-ScriptingFlexibility | 55 | 14 | Python, JavaScript, Ruby
-CompileTimeSafety | 80 | 30 | CSharp, Java
-RapidPrototyping | 60 | 15 | Python, JavaScript
-LowLevelControl | 90 | 40 | C, C++ 
-CrossPlatformSupport | 68 | 22 | Java, CSharp, Python
-StrongStandardLibrary | 58 | 16 | Python, JavaScript 
-ToolingEcosystem | 62 | 18 | CSharp, Java 
-WebDominance | 75 | 26 | JavaScript
-EnterpriseSupport | 72 | 25 | Java, CSharp
-SystemProgramming | 88 | 38 | C, C++
+ObjectOrientedProgramming | 65 | 20 | Java, Cs, Python, Cpp
+ScriptingFlexibility | 55 | 14 | Python, Javascript
+CompileTimeSafety | 80 | 30 | Cs, Java
+RapidPrototyping | 60 | 15 | Python, Javascript
+LowLevelControl | 90 | 40 | C, Cpp 
+CrossPlatformSupport | 68 | 22 | Java, Cs, Python
+StrongStandardLibrary | 58 | 16 | Python, Javascript
+ToolingEcosystem | 62 | 18 | Cs, Java 
+WebDominance | 75 | 26 | Javascript
+EnterpriseSupport | 72 | 25 | Java, Cs
+SystemProgramming | 88 | 38 | C, Cpp 
 ConcurrencyModel | 83 | 34 | Go, Java
-MemoryManagement | 78 | 28 | C++, C
+MemoryManagement | 78 | 28 | Cpp, C
 Readability | 50 | 12 | Python
 Portability | 64 | 19 | C, Java
-Performance | 85 | 36 | C, C++
-DeveloperProductivity | 59 | 15 | Python, JavaScript, CSharp
+Performance | 85 | 36 | C, Cpp
+DeveloperProductivity | 59 | 15 | Python, Javascript, Cs
 BackwardCompatibility | 54 | 13 | C, Java
-MassiveCommunity | 52 | 12 | JavaScript, Java
+MassiveCommunity | 52 | 12 | Javascript, Java

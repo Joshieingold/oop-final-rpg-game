@@ -1,5 +1,6 @@
 ﻿using Core.Abilities;
 using Core.Entities;
+using Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,22 +22,23 @@ namespace Core.Characters
 
         public int Mana { get; set; }
         public int MaxMana { get; set; }
-        public List<Ability> Abilities { get; set; } = new();
-
+        public List<Ability> Abilities { get; set; }
         public Player(string inName)
         {
             Name = inName;
-            Mana = 12;
-            MaxMana = 12;
-            Health = 12;
-            MaxHealth = 12;
+            Mana = 100;
+            MaxMana = 100;
+            Health = 100;
+            MaxHealth = Health;
             Attack = 22;
-            Defense = 22;
+            Defense = 20;
+            Abilities = GetFourAbilities();
         }
         public override string ToString()
         {
             return $"{Name} has {Health} Health";
         }
+        
         public void UseAttack(Ability inAbility, Entity loser)
         {
             // Check to see if we have that ability
@@ -61,6 +63,15 @@ namespace Core.Characters
 
             // Deal the damage
             loser.Health -= FindDamage(crit, attackVal, effective, defenderDefense);
+        }
+        private List<Ability> GetFourAbilities()
+        {
+            List<Ability> returnList = new List<Ability>();
+            returnList.Add(ObjectFactory.CreateAbility("ObjectOrientedProgramming"));
+            returnList.Add(ObjectFactory.CreateAbility("SystemProgramming"));
+            returnList.Add(ObjectFactory.CreateAbility("Performance"));
+            returnList.Add(ObjectFactory.CreateAbility("DeveloperProductivity"));
+            return returnList;
         }
         private double CheckEffective(Ability inAbility, Entity inEntity)
         {

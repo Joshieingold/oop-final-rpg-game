@@ -16,8 +16,8 @@ namespace Core.Utils
             string path = DataPasser.AbilityLocation();
             using (StreamReader stream = new StreamReader(path))
             {
-                string currentLine = stream.ReadLine();
-                while (currentLine != null)
+                string currentLine;
+                while ((currentLine = stream.ReadLine()) != null)
                 {
                     string[] lineArray = currentLine.Split(" | ");
                     if (lineArray[0] == inName)
@@ -59,10 +59,6 @@ namespace Core.Utils
                 while ((currentLine = stream.ReadLine())!= null)
                 {
                     string[] lineArray = currentLine.Split(" | ");
-                    for (int i = 0; i < lineArray.Length; i++)
-                    {
-                        Console.WriteLine(lineArray[i]);
-                    }
                     ProgLang lang = (ProgLang)Enum.Parse(typeof(ProgLang), lineArray[4]);
                     if (lang == inLang)
                     {
@@ -75,7 +71,7 @@ namespace Core.Utils
                         thisEnemy.Name = enemyName;
                         thisEnemy.MaxHealth = enemyHealth;
                         thisEnemy.Health = enemyHealth;
-                        thisEnemy.Attack = enemyHealth;
+                        thisEnemy.Attack = enemyAttack;
                         thisEnemy.Defense = enemyDefense;
                         thisEnemy.LanguageType = lang;
                         allEnemies.Add(thisEnemy);
