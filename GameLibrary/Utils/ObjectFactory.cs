@@ -71,7 +71,7 @@ namespace Core.Utils
                         thisEnemy.Name = enemyName;
                         thisEnemy.MaxHealth = enemyHealth;
                         thisEnemy.Health = enemyHealth;
-                        thisEnemy.Attack = enemyHealth;
+                        thisEnemy.Attack = enemyAttack;
                         thisEnemy.Defense = enemyDefense;
                         thisEnemy.LanguageType = lang;
                         allEnemies.Add(thisEnemy);

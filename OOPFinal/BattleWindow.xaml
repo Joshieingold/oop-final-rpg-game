@@ -108,6 +108,7 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="292,373,0,0" VerticalAlignment="Top" Width="217" Grid.ColumnSpan="2" Click="Button_Click"/>
+        <Button Content="CPU Attack" HorizontalAlignment="Left" Margin="291,398,0,0" VerticalAlignment="Top" Width="217" Grid.ColumnSpan="2" Click="Button_Click_1"/>
+        <Button Content="Player Attack" HorizontalAlignment="Left" Margin="291,373,0,0" VerticalAlignment="Top" Width="216" Click="Button_Click" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

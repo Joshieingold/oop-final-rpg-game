@@ -25,7 +25,6 @@ namespace Core.State
             {
                 // Show Error Message;
                 Console.WriteLine("It's not your turn");
-                EnemyAttack();
                 return;
             }
             CurrentPlayer.UseAttack(chosenAbility, CurrentEnemy); // PROBABLY NEED TO USE REF HERE BUT HAD TO REMOVE IT TO GET THE CODE WORKING WE WILL SEE WHEN THE GAME IS ACTUALLY IN A PLAYABLE STATE
@@ -34,9 +33,14 @@ namespace Core.State
             Console.WriteLine($"state is {State}");
         }
 
-        private void EnemyAttack()
+        public void EnemyAttack()
         {
             // Probably want to make it delay here at some point 
+            if (State != BattleState.EnemyTurn)
+            {
+                Console.WriteLine("I tried to attack but I realized its not my turn!");
+                return;
+            }
             Console.WriteLine("I attacked!");
             CurrentEnemy.UseAttack(CurrentPlayer); // SAME REF STUFF HERE
             CheckState();
@@ -72,8 +76,6 @@ namespace Core.State
                 }
                 else if (State == BattleState.EnemyTurn)
                 {
-                    EnemyAttack();
-                    Console.WriteLine("I did try to attack");
                     State = BattleState.PlayerTurn;
                 }
             }

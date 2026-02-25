@@ -26,12 +26,12 @@ namespace Core.Characters
         public Player(string inName)
         {
             Name = inName;
-            Mana = 10002;
-            MaxMana = 10002;
-            Health = 9012;
+            Mana = 100;
+            MaxMana = 100;
+            Health = 100;
             MaxHealth = Health;
             Attack = 22;
-            Defense = 100;
+            Defense = 20;
             Abilities = GetFourAbilities();
         }
         public override string ToString()

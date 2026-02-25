@@ -63,5 +63,13 @@ namespace UI
             SetEnemyData();
             SetPlayerData();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            thisFight.EnemyAttack();
+            SetEnemyData();
+            SetPlayerData();
+
+        }
     }
 }
