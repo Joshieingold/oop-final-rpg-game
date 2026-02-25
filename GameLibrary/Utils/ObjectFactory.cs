@@ -59,10 +59,6 @@ namespace Core.Utils
                 while ((currentLine = stream.ReadLine())!= null)
                 {
                     string[] lineArray = currentLine.Split(" | ");
-                    for (int i = 0; i < lineArray.Length; i++)
-                    {
-                        Console.WriteLine(lineArray[i]);
-                    }
                     ProgLang lang = (ProgLang)Enum.Parse(typeof(ProgLang), lineArray[4]);
                     if (lang == inLang)
                     {

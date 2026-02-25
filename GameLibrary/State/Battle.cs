@@ -25,16 +25,19 @@ namespace Core.State
             {
                 // Show Error Message;
                 Console.WriteLine("It's not your turn");
+                EnemyAttack();
                 return;
             }
             CurrentPlayer.UseAttack(chosenAbility, CurrentEnemy); // PROBABLY NEED TO USE REF HERE BUT HAD TO REMOVE IT TO GET THE CODE WORKING WE WILL SEE WHEN THE GAME IS ACTUALLY IN A PLAYABLE STATE
             RoundNumber++;
             CheckState();
+            Console.WriteLine($"state is {State}");
         }
 
         private void EnemyAttack()
         {
             // Probably want to make it delay here at some point 
+            Console.WriteLine("I attacked!");
             CurrentEnemy.UseAttack(CurrentPlayer); // SAME REF STUFF HERE
             CheckState();
         }
@@ -70,6 +73,7 @@ namespace Core.State
                 else if (State == BattleState.EnemyTurn)
                 {
                     EnemyAttack();
+                    Console.WriteLine("I did try to attack");
                     State = BattleState.PlayerTurn;
                 }
             }

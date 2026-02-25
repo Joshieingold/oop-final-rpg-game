@@ -41,12 +41,18 @@ namespace UI
             lblEnemyAtk.Content += currentEnemy.Attack.ToString();
             lblEnemyDef.Content += currentEnemy.Defense.ToString();
         }
+        private void SetPlayerData()
+        {
+            PlayerLabel.Content = currentPlayer.ToString(); 
+
+        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("Hello");
             thisFight.PlayerAttack(currentPlayer.Abilities[0]);
             SetEnemyData();
+            SetPlayerData();
         }
     }
 }

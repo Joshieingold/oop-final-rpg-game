@@ -26,9 +26,9 @@ namespace Core.Characters
         public Player(string inName)
         {
             Name = inName;
-            Mana = 12;
-            MaxMana = 12;
-            Health = 12;
+            Mana = 10002;
+            MaxMana = 10002;
+            Health = 9012;
             MaxHealth = 12;
             Attack = 22;
             Defense = 22;
