@@ -6,13 +6,9 @@
         xmlns:local="clr-namespace:OOPFinal"
         mc:Ignorable="d"
         Title="RPG GAME - Title Screen" Height="450" Width="800">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Stretch">
-        <TextBlock Text="GAME NAME" HorizontalAlignment="Center"></TextBlock>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <Button Content="New Game"></Button>
-            <Button Content="Continue"></Button>
-            <Button Content="Story"></Button>
-            <Button Content="Memo"></Button>
-        </StackPanel>
+    <Grid Margin="10,0,10,0">
+        <TextBlock Text="Just a normal week at NBCC" TextAlignment="Center" Margin="10,101,10,250" FontSize="36" ></TextBlock>
+        <TextBox x:Name="txtUsername" Margin="244,217,244,0" Height="35" VerticalAlignment="Top" />
+        <Button Content="New Game" Click="Button_Click" Margin="244,328,244,0" Height="32" VerticalAlignment="Top"></Button>
     </Grid>
 </Window>

@@ -10,5 +10,9 @@ namespace GameData
         {
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ObjectData", "Ability.txt");
         }
+        public static string EnemyLocation()
+        {
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ObjectData", "Enemy.txt");
+        }
     }
 }

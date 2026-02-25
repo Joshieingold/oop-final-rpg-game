@@ -4,11 +4,15 @@ using System.Text;
 
 namespace Core.Entities
 {
-    public enum ProgLang 
+    public enum ProgLang
     {
-        Js,
-        CS,
+        Javascript,
+        Cs,
         Java,
         Bash,
+        Python,
+        Cpp,
+        LanguageType,
+        C
     }
 }

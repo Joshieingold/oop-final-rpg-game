@@ -16,8 +16,8 @@ namespace Core.Utils
             string path = DataPasser.AbilityLocation();
             using (StreamReader stream = new StreamReader(path))
             {
-                string currentLine = stream.ReadLine();
-                while (currentLine != null)
+                string currentLine;
+                while ((currentLine = stream.ReadLine()) != null)
                 {
                     string[] lineArray = currentLine.Split(" | ");
                     if (lineArray[0] == inName)
@@ -45,10 +45,43 @@ namespace Core.Utils
                 return new Ability();
             }
         }
-        public static Enemy CreateEnemy(string inName, ProgLang inLang)
+        // Creates a random Enemy from a programming langauge
+        public static Enemy CreateEnemy(ProgLang inLang)
         {
-            return new Enemy(inName, inLang);
+            Random rand = new Random();
+
+            string path = DataPasser.EnemyLocation();
+            List<Enemy> allEnemies = new List<Enemy>();
+
+            using (StreamReader stream = new StreamReader(path))
+            {
+                string currentLine;
+                while ((currentLine = stream.ReadLine())!= null)
+                {
+                    string[] lineArray = currentLine.Split(" | ");
+                    ProgLang lang = (ProgLang)Enum.Parse(typeof(ProgLang), lineArray[4]);
+                    if (lang == inLang)
+                    {
+                        string enemyName = lineArray[0];
+                        int enemyHealth = Convert.ToInt32(lineArray[1]);
+                        int enemyAttack = Convert.ToInt32(lineArray[2]);
+                        int enemyDefense = Convert.ToInt32(lineArray[3]);
+
+                        Enemy thisEnemy = new Enemy();
+                        thisEnemy.Name = enemyName;
+                        thisEnemy.MaxHealth = enemyHealth;
+                        thisEnemy.Health = enemyHealth;
+                        thisEnemy.Attack = enemyAttack;
+                        thisEnemy.Defense = enemyDefense;
+                        thisEnemy.LanguageType = lang;
+                        allEnemies.Add(thisEnemy);
+                    }
+                }
+            }
+            int randomIndex = rand.Next(0, allEnemies.Count());
+            return allEnemies[randomIndex];
         }
+        // Creates a Specific Enemy from their name 
         public static Player CreatePlayer(string inName)
         {
             return new Player(inName);

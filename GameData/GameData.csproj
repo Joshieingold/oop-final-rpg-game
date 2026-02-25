@@ -8,12 +8,16 @@
 
   <ItemGroup>
     <None Remove="Items.txt" />
+    <None Remove="ObjectData\Enemy.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="ObjectData\Ability.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Content Include="ObjectData\Ability.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ObjectData\Enemy.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
