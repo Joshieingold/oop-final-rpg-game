@@ -28,7 +28,7 @@ namespace UI
         private Enemy currentEnemy {get; set;}
         private Battle thisFight { get; set; }
 
-        public BattleWindow(ref Player inPlayer) // Gets reference for the player, this will be useful for the shop
+        public BattleWindow(ref Player inPlayer) // Uses reference for the player, this will be useful for the shop
         {
             InitializeComponent();
 

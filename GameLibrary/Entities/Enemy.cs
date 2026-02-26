@@ -7,49 +7,55 @@ using System.Text;
 
 namespace Core.Entities
 {
+    // FIX:
+    // Abilities should be based on the Created enemies language
     public class Enemy : Entity
     {
+        private const int NUM_MOVES = 4;
         public ProgLang LanguageType { get; set; }
         public List<Ability> Abilities { get; set; } 
         private Random enemyAttackRandomizer = new Random();
-        public Enemy()
+        public Enemy() // Defaults to JS
         {
-            Abilities = GetFourAbilities();
+            Abilities = GetMoveSet(ProgLang.Javascript);
         }
-        private Ability ChooseRandomAbility()
+        public Enemy(ProgLang inLang) // Defaults to JS
         {
-            int choice = enemyAttackRandomizer.Next(0, Abilities.Count());
-            return Abilities[choice];
+            Abilities = GetMoveSet(inLang);
         }
-        private List<Ability> GetFourAbilities()
+        // For Attacking
+        public void UseAttack(Entity defender)
         {
-            List<Ability> returnList = new List<Ability>();
-            returnList.Add(ObjectFactory.CreateAbility("ObjectOrientedProgramming"));
-            returnList.Add(ObjectFactory.CreateAbility("SystemProgramming"));
-            returnList.Add(ObjectFactory.CreateAbility("Performance"));
-            returnList.Add(ObjectFactory.CreateAbility("DeveloperProductivity"));
-            return returnList;
-        }
-        public void UseAttack(Entity loser)
-        {
-            // Check to see if we have that ability
-
             int attackVal = ChooseRandomAbility().Power + Attack;
-            int damage = attackVal - loser.Defense;
+            int damage = attackVal - defender.Defense;
 
             // Deal the damage
             if (damage < 0) damage = 0;
-            loser.Health -= damage;
+            defender.Health -= damage;
         }
+        // For Giving ability on victory
         public Ability RequestAbility()
         {
-            int choice = enemyAttackRandomizer.Next(1, Abilities.Count());
+            int choice = enemyAttackRandomizer.Next(0, (Abilities.Count()));
             return Abilities[choice];
         }
         public override string ToString()
         {
             return $"{Name}\nProgramming Language: {LanguageType}\nHP: {Health}\nAtk: {Attack}\nDef: {Defense}";
         }
-        // Make random Assortment of enemy abilities
+        private Ability ChooseRandomAbility()
+        {
+            int choice = enemyAttackRandomizer.Next(0, Abilities.Count());
+            return Abilities[choice];
+        }
+        private List<Ability> GetMoveSet(ProgLang inLang)
+        {
+            List<Ability> returnList = new List<Ability>();
+            for (int i = 0; i < NUM_MOVES; i++)
+            {
+                returnList.Add(ObjectFactory.CreateAbilityByLang(inLang));
+            }
+            return returnList;
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿Name | Power | ManaCost | StrongAgainst
-ObjectOrientedProgramming | 65 | 20 | Java, Cs, Python, Cpp
+﻿ObjectOrientedProgramming | 65 | 20 | Java, Cs, Python, Cpp
 ScriptingFlexibility | 55 | 14 | Python, Javascript
 CompileTimeSafety | 80 | 30 | Cs, Java
 RapidPrototyping | 60 | 15 | Python, Javascript
@@ -10,7 +9,7 @@ ToolingEcosystem | 62 | 18 | Cs, Java
 WebDominance | 75 | 26 | Javascript
 EnterpriseSupport | 72 | 25 | Java, Cs
 SystemProgramming | 88 | 38 | C, Cpp 
-ConcurrencyModel | 83 | 34 | Go, Java
+ConcurrencyModel | 83 | 34 | Java
 MemoryManagement | 78 | 28 | Cpp, C
 Readability | 50 | 12 | Python
 Portability | 64 | 19 | C, Java
