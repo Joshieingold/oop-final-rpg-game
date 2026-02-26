@@ -1,4 +1,5 @@
-﻿using Core.Characters;
+﻿using Core.Abilities;
+using Core.Characters;
 using Core.Entities;
 using Core.State;
 using Core.Utils;
@@ -14,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UI.BattleUI;
 using UI.Helpers;
 
 
@@ -39,8 +41,17 @@ namespace UI
 
             // Update UI
             UpdateUI();
+
+            AbilityWindow abilities = new AbilityWindow(thisFight);
+            abilities.UiUpdate += AbilityWindow_UiUpdate;
+            abilities.Show();
         }
 
+        // Updates the UI from the childs ping
+        private void AbilityWindow_UiUpdate(object sender, EventArgs e)
+        {
+            UpdateUI();
+        }
         // Updates all UI Elements with reference data
         private void UpdateUI()
         {

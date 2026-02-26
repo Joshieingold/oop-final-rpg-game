@@ -40,7 +40,7 @@ namespace Core.Characters
             return $"{Name} has {Health} Health";
         }
         
-        public void UseAttack(Ability inAbility, Entity loser)
+        public void UseAttack(Ability inAbility, Entity defender)
         {
             // Check to see if we have that ability
             if (! Abilities.Contains(inAbility))
@@ -58,12 +58,12 @@ namespace Core.Characters
 
             // Find values
             double crit = CheckCrit();
-            double effective = CheckEffective(inAbility, loser);
+            double effective = CheckEffective(inAbility, defender);
             int attackVal = inAbility.Power + Attack;
-            int defenderDefense = loser.Defense;
+            int defenderDefense = defender.Defense;
 
             // Deal the damage
-            loser.Health -= FindDamage(crit, attackVal, effective, defenderDefense);
+            defender.Health -= FindDamage(crit, attackVal, effective, defenderDefense);
         }
         private List<Ability> GetStartingAbilities()
         {
