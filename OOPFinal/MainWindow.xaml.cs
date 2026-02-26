@@ -25,7 +25,6 @@ namespace GameUI
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             localPlayer = new Player(txtUsername.Text);
-            Console.WriteLine(localPlayer.Name);
             BattleWindow newBattle = new BattleWindow(ref localPlayer);
             newBattle.Show();
         }

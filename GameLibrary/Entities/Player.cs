@@ -7,19 +7,20 @@ using System.Text;
 
 namespace Core.Characters
 {
+    // Abilities should be determined by the class that the user chooses at the beginning of the game IE prog analyst, web dev, etc
     public class Player : Entity
     {
         // Crit chances
-        private const int NAT20 = 20;
-        private const int HIGHROLL = 16;
+        private const int NAT_20 = 20;
+        private const int HIGH_ROLL = 16;
         // Crit chance multipliers
-        private const double NATURAL20MULT = 5.0; 
-        private const double HIGHROLLMULT = 3.5;
-        private const double NORMALROLLMULT = 1;
+        private const double NATURAL_20_MULT = 5.0; 
+        private const double HIGH_ROLL_MULT = 3.5;
+        private const double NORMAL_ROLL_MULT = 1;
+        private const double EFFECTIVE_HIT_MULT = 2;
 
-        private const double EFFECTIVEHITMULT = 2; 
+        private const int NUM_MOVES = 4;
         private Random critChance = new Random();
-
         public int Mana { get; set; }
         public int MaxMana { get; set; }
         public List<Ability> Abilities { get; set; }
@@ -32,7 +33,7 @@ namespace Core.Characters
             MaxHealth = Health;
             Attack = 22;
             Defense = 20;
-            Abilities = GetFourAbilities();
+            Abilities = GetStartingAbilities();
         }
         public override string ToString()
         {
@@ -64,13 +65,17 @@ namespace Core.Characters
             // Deal the damage
             loser.Health -= FindDamage(crit, attackVal, effective, defenderDefense);
         }
-        private List<Ability> GetFourAbilities()
+        private List<Ability> GetStartingAbilities()
         {
+            List<ProgLang> allLangs = Enum.GetValues(typeof(ProgLang)).Cast<ProgLang>().ToList();
             List<Ability> returnList = new List<Ability>();
-            returnList.Add(ObjectFactory.CreateAbility("ObjectOrientedProgramming"));
-            returnList.Add(ObjectFactory.CreateAbility("SystemProgramming"));
-            returnList.Add(ObjectFactory.CreateAbility("Performance"));
-            returnList.Add(ObjectFactory.CreateAbility("DeveloperProductivity"));
+
+            for (int i = 0; i < NUM_MOVES; i++)
+            {
+                int currentIndex = critChance.Next(0, allLangs.Count());
+                ProgLang currentLang = allLangs[currentIndex];
+                returnList.Add(ObjectFactory.CreateAbilityByLang(currentLang));
+            }
             return returnList;
         }
         private double CheckEffective(Ability inAbility, Entity inEntity)
@@ -79,11 +84,11 @@ namespace Core.Characters
             {
             if (inAbility.StrongAgainst.Contains(inEnemy.LanguageType))
             {
-                return EFFECTIVEHITMULT;
+                return EFFECTIVE_HIT_MULT;
             }
-            return NORMALROLLMULT;
+            return NORMAL_ROLL_MULT;
             }
-            return NORMALROLLMULT;
+            return NORMAL_ROLL_MULT;
         } 
         private int FindDamage(double crit, int attackVal, double effecitve, int defenderDefence)
         {
@@ -94,15 +99,15 @@ namespace Core.Characters
         private double CheckCrit() // returns the results values for our crit;
         {
             int diceRoll = critChance.Next(1, 20);
-            if (diceRoll == NAT20)
+            if (diceRoll == NAT_20)
             {
-                return NATURAL20MULT;
+                return NATURAL_20_MULT;
             }
-            else if (diceRoll > HIGHROLL)
+            else if (diceRoll > HIGH_ROLL)
             {
-                return HIGHROLLMULT;
+                return HIGH_ROLL_MULT;
             }
-            return NORMALROLLMULT;
+            return NORMAL_ROLL_MULT;
         }
     }
 }

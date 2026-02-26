@@ -10,20 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="image.psd.png" />
-    <None Remove="pixil-frame-0%281%29.png" />
-    <None Remove="Player.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\GameData\GameData.csproj" />
     <ProjectReference Include="..\GameLibrary\Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="image.psd.png" />
-    <Resource Include="pixil-frame-0(1).png" />
-    <Resource Include="Player.png" />
   </ItemGroup>
 
 </Project>

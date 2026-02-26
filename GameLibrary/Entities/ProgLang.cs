@@ -12,7 +12,6 @@ namespace Core.Entities
         Bash,
         Python,
         Cpp,
-        LanguageType,
-        C
+        C,
     }
 }

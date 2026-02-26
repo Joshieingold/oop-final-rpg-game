@@ -11,6 +11,40 @@ namespace Core.Utils
 {
     public static class ObjectFactory
     {
+        private static Random rand = new Random();
+        // Creates Random Abilitiy from the language
+        public static Ability CreateAbilityByLang(ProgLang inLang)
+        {
+            List<Ability> allAbilities = new List<Ability>();
+            string path = DataPasser.AbilityLocation();
+            using (StreamReader stream = new StreamReader(path))
+            {
+                string currentLine;
+                while ((currentLine = stream.ReadLine()) != null)
+                {
+                    string[] lineArray = currentLine.Split(" | ");
+                    List<ProgLang> strongAgainst = new List<ProgLang>();
+                    string[] strStrongAgainstList = lineArray[3].Split(", ");
+                    for (int i = 0; i < strStrongAgainstList.Length; i++)
+                    {
+                        string strLang = strStrongAgainstList[i].Trim();
+                        ProgLang lang = (ProgLang)Enum.Parse(typeof(ProgLang), strLang);
+                        strongAgainst.Add(lang);
+                    }
+                    if (strongAgainst.Contains(inLang))
+                    {
+                        string name = lineArray[0];
+                        int power = Convert.ToInt32(lineArray[1]);
+                        int manaCost = Convert.ToInt32(lineArray[2]);
+                        Ability viableAbility = new Ability(name, power, manaCost, strongAgainst);
+                        allAbilities.Add(viableAbility);
+                    }
+                }
+                int randomIndex = rand.Next(0, allAbilities.Count());
+                return allAbilities[randomIndex];
+            }
+        }
+        // Creates a specific ability from its name
         public static Ability CreateAbility(string inName)
         {
             string path = DataPasser.AbilityLocation();
@@ -81,7 +115,7 @@ namespace Core.Utils
             int randomIndex = rand.Next(0, allEnemies.Count());
             return allEnemies[randomIndex];
         }
-        // Creates a Specific Enemy from their name 
+        // Creates a Specific Enemy from their name TBI
         public static Player CreatePlayer(string inName)
         {
             return new Player(inName);

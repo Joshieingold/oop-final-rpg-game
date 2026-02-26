@@ -11,11 +11,11 @@ namespace Core.Abilities
         public int Power { get; set; }
         public int ManaCost { get; set; }
         public List<ProgLang> StrongAgainst { get; set; }
-        public Ability()
+        public Ability() // To Create blank ability for the user to customize.
         {
-            Name = "Null";
-            Power = 69;
-            ManaCost = 67;
+            Name = "";
+            Power = 0;
+            ManaCost = 0;
             StrongAgainst = new List<ProgLang>();
         }
         public Ability(string inName, int inPower, int inManaCost, List<ProgLang> inStrongAgainst )
@@ -28,7 +28,7 @@ namespace Core.Abilities
 
         public override string ToString()
         {
-            return $"{Name}: !{Power} - %{ManaCost}";
+            return $"{Name}: ⚔{Power} - ⛉{ManaCost}";
         }
     }
 }
