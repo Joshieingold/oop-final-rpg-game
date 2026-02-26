@@ -29,6 +29,7 @@ namespace UI
         private Player currentPlayer {get; set;}
         private Enemy currentEnemy {get; set;}
         private Battle thisFight { get; set; }
+        private AbilityWindow CurrentAbilities { get; set; }
 
         public BattleWindow(ref Player inPlayer) // Uses reference for the player, this will be useful for the shop
         {
@@ -42,9 +43,9 @@ namespace UI
             // Update UI
             UpdateUI();
 
-            AbilityWindow abilities = new AbilityWindow(thisFight);
-            abilities.UiUpdate += AbilityWindow_UiUpdate;
-            abilities.Show();
+            CurrentAbilities = new AbilityWindow(thisFight);
+            CurrentAbilities.UiUpdate += AbilityWindow_UiUpdate;
+            CurrentAbilities.Show();
         }
 
         // Updates the UI from the childs ping
@@ -88,6 +89,11 @@ namespace UI
             progPlayerMana.Maximum = currentPlayer.MaxMana;
             progPlayerMana.Minimum = 0;
             progPlayerMana.Value = currentPlayer.Mana;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            CurrentAbilities.Close();
         }
     }
 }
