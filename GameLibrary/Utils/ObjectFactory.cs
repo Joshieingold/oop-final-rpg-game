@@ -120,6 +120,5 @@ namespace Core.Utils
         {
             return new Player(inName);
         }
-
     }
 }
