@@ -8,9 +8,10 @@ namespace Core
     {
         private Fighter attacker { get; set; }
         private Fighter defender { get; set; }
-        private void OnFinsh()
+        public List<Fighter> OnFinsh()
         {
-            return; 
+            StartFight();
+            return new List<Fighter>() { attacker,defender};
         }
         private void StartFight()
         {
