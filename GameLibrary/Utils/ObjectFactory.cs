@@ -40,7 +40,18 @@ namespace Core.Utils
                         allAbilities.Add(viableAbility);
                     }
                 }
-                int randomIndex = rand.Next(0, allAbilities.Count());
+                int countAbilities = allAbilities.Count();
+                int randomIndex = rand.Next(0, countAbilities);
+                if (countAbilities == 0)
+                {
+
+                    Ability debug = new Ability();
+                    debug.Name = "Error :(";
+                    debug.ManaCost = 69;
+                    debug.Power = 69;
+                    debug.StrongAgainst.Add(ProgLang.Javascript); // everything is good against js
+                    return debug;
+                }
                 return allAbilities[randomIndex];
             }
         }
