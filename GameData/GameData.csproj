@@ -7,11 +7,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\CreatureArt\coders_crypt_bash_creatures.png" />
+    <None Remove="Images\CreatureArt\coders_crypt_C#_creatures.png" />
+    <None Remove="Images\CreatureArt\coders_crypt_c++_creatures.png" />
+    <None Remove="Images\CreatureArt\coders_crypt_c++_creatures.recolour.png" />
+    <None Remove="Images\CreatureArt\coders_crypt_javascript_creatures.png" />
+    <None Remove="Images\CreatureArt\coders_crypt_java_creatures.png" />
+    <None Remove="Images\CreatureArt\coders_crypt_python_creatures.png" />
     <None Remove="Items.txt" />
     <None Remove="ObjectData\Enemy.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Images\CreatureArt\coders_crypt_c++_creatures.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CreatureArt\coders_crypt_c++_creatures.recolour.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CreatureArt\coders_crypt_javascript_creatures.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CreatureArt\coders_crypt_java_creatures.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CreatureArt\coders_crypt_python_creatures.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ObjectData\Ability.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -25,6 +47,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Player.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\CreatureArt\coders_crypt_bash_creatures.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\CreatureArt\coders_crypt_C#_creatures.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

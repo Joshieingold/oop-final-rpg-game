@@ -47,7 +47,7 @@ namespace UI
         // Updates all UI Elements with reference data
         private void UpdateUI()
         {
-            lblTurn.Content = CurrentSession.CurrentBattleManager.CurrentFight.ToString();
+            //lblTurn.Content = CurrentSession.CurrentBattleManager.CurrentFight.ToString();
             SetEnemyData();
             SetPlayerData();
         }
@@ -55,12 +55,12 @@ namespace UI
         // Sets UI Elements for the Enemy 
         private void SetEnemyData()
         {
-            picEnemySprite.Source = SpriteHandler.CreateSprite("CreatureArt/coders_crypt_C#_creatures.png"); // TEMP, THIS SHOULD BE SET BASED ON THE ENEMY NAME 
-            lblEnemyName.Content= currentEnemy.Name;
-            progEnemyHealth.Maximum = currentEnemy.MaxHealth;
-            progEnemyHealth.Minimum = 0;
-            progEnemyHealth.Value = currentEnemy.Health;
-            lblEnemyHealth.Content = $"{currentEnemy.Health}/{currentEnemy.MaxHealth}";
+            picEnemySprite.Source = SpriteHandler.CreateSprite("/CreatureArt/coders_crypt_javascript_creatures.png"); // TEMP, THIS SHOULD BE SET BASED ON THE ENEMY NAME 
+            // lblEnemyName.Content= currentEnemy.Name;
+            // progEnemyHealth.Maximum = currentEnemy.MaxHealth;
+            // progEnemyHealth.Minimum = 0;
+             // progEnemyHealth.Value = currentEnemy.Health;
+            // lblEnemyHealth.Content = $"{currentEnemy.Health}/{currentEnemy.MaxHealth}";
             // lblEnemyAtk.Content = $"⚔: {currentEnemy.Attack.ToString()}";
             // lblEnemyDef.Content = $"⛉: {currentEnemy.Defense.ToString()}";
         }
