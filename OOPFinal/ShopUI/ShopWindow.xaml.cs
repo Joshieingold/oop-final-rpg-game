@@ -1,6 +1,7 @@
 ﻿using Core;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,10 +20,12 @@ namespace UI.ShopUI
     public partial class ShopWindow : Window
     {
         GameManager CurrentSession { get; set; }
+        int Money { get; set; } 
         public ShopWindow(GameManager inSession)
         {
             InitializeComponent();
             CurrentSession = inSession;
+            Money = CurrentSession.CurrentPlayer.Money;
         }
     }
 }

@@ -7,6 +7,96 @@
         mc:Ignorable="d"
         Title="ShopWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="This is the shop window"></Label> 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Background="IndianRed" Margin="20px">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" x:Name="lblRoundInfo" Content="Round #" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                <Label Grid.Row="1" x:Name="lblUpcomingFight" Content="Enemy Type" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+            </Grid>
+            <Grid Grid.Row="1" Background="IndianRed" Margin="20px">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" x:Name="lblPlayerMoney" Content="Time Left To Study" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Margin="10px" Content="ReRoll"></Button>
+                    <Button Grid.Column="1" Margin="10px" Content="Next Round"></Button>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="2" Background="IndianRed" Margin="20px">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Content="Player Attack" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    <Label Grid.Row="1" Content="Player Defense" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    <Label Grid.Row="2" Content="Player Best Language" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    <Label Grid.Row="3" Content="Player Worst Language" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!-- These will be their own card control-->
+                <Rectangle Grid.Column="0" Fill="IndianRed" Margin="10px" Height="70px" Width="70px"></Rectangle>
+                <Rectangle Grid.Column="1" Fill="IndianRed" Margin="10px" Height="70px" Width="70px"></Rectangle>
+                <Rectangle Grid.Column="2" Fill="IndianRed" Margin="10px" Height="70px" Width="70px"></Rectangle>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!-- These will be their own card control-->
+                <Rectangle Grid.Column="0" Fill="IndianRed" Margin="10px" Height="70px" Width="70px"></Rectangle>
+                <Rectangle Grid.Column="1" Fill="IndianRed" Margin="10px" Height="70px" Width="70px"></Rectangle>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition> 
+                    <RowDefinition Height="9*"></RowDefinition> 
+                </Grid.RowDefinitions>
+                <Label Background="IndianRed" Grid.Row="0" Content="Your Skills" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                <ListBox Margin="20px" Grid.Row="1" x:Name="lstPlayerSkill" Background="IndianRed"></ListBox>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

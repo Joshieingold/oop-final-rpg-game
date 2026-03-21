@@ -25,7 +25,7 @@ namespace GameUI
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             gameSession = new GameManager(txtUsername.Text);
-            BattleWindow window = new BattleWindow(gameSession);
+            ShopWindow window = new ShopWindow(gameSession);
             window.Show();
             this.Close();
         }
