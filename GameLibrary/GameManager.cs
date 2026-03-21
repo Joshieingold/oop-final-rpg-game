@@ -8,11 +8,34 @@ namespace Core
 {
     public class GameManager
     {
-        private Object CurrentWindow { get; set; } // IM SURE I CAN BE MORE SPECIFIC
-        private GameState CurrentState { get; set; }
-        private Fighter CurrentPlayer { get; set; }
-        private BattleManager CurrentBattleManager { get; set; }
+        public GameState CurrentState { get; private set; }
+        public Player CurrentPlayer { get; set; }
+        public BattleManager CurrentBattleManager { get; set; }
         private ShopManager CurrentShopManager { get; set; }
+
+        public GameManager(string playerName)
+        {
+            CurrentPlayer = new Player(playerName);
+            CurrentState = GameState.Shop;
+            CurrentShopManager = new ShopManager(CurrentPlayer);
+        }
+        // This doesnt need to be like that can jsut be a get set.
+        public void UpdateState(GameState newState)
+        {
+            switch (newState)
+            {
+                case GameState.Battle:
+                    CurrentState = GameState.Battle;
+                    CurrentBattleManager = new BattleManager(CurrentPlayer);
+                    break;
+                case GameState.Shop:
+                    CurrentState = GameState.Shop;
+                    CurrentShopManager = new ShopManager(CurrentPlayer);
+                    break;
+                    // Oviously we need the defeat and victory case some day
+            }
+
+        }
         private void OnGameOver()
         {
 

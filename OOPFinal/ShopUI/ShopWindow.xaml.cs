@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +18,11 @@ namespace UI.ShopUI
     /// </summary>
     public partial class ShopWindow : Window
     {
-        public ShopWindow()
+        GameManager CurrentSession { get; set; }
+        public ShopWindow(GameManager inSession)
         {
             InitializeComponent();
+            CurrentSession = inSession;
         }
     }
 }

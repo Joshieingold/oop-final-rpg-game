@@ -7,10 +7,15 @@ namespace Core
 {
     public class BattleManager
     {
-        private Fighter CurrentPlayer { get; set; }
+        public Fighter CurrentPlayer { get; set; }
         public Fighter CurrentEnemy { get; set; }
-        private Fight CurrentFight { get; set; }
-        private BattleState CurrentState { get; set; }
+        public Fight CurrentFight { get; set; }
+        public BattleState CurrentState { get; set; }
+        public BattleManager(Player inPlayer)
+        {
+            CurrentPlayer = inPlayer;
+            CurrentState = BattleState.PlayerTurn;
+        }
         private void UpdateState()
         {
             return;

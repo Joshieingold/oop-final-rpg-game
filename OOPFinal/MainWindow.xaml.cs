@@ -1,5 +1,4 @@
-﻿using Core.Characters;
-using Core.State;
+﻿using Core;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,12 +10,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UI;
+using UI.ShopUI;
 
 namespace GameUI 
 {
     public partial class MainWindow : Window
     {
-        Player localPlayer; 
+        GameManager gameSession { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -24,9 +24,10 @@ namespace GameUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            localPlayer = new Player(txtUsername.Text);
-            BattleWindow newBattle = new BattleWindow(ref localPlayer);
-            newBattle.Show();
+            gameSession = new GameManager(txtUsername.Text);
+            ShopWindow window = new ShopWindow(gameSession);
+            window.Show();
+            this.Close();
         }
     }
 }

@@ -1,8 +1,5 @@
-﻿using Core.Abilities;
-using Core.Characters;
-using Core.Entities;
+﻿using Core;
 using Core.State;
-using Core.Utils;
 using GameData;
 using System;
 using System.Collections.Generic;
@@ -15,8 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using UI.BattleUI;
-using UI.Helpers;
 
 
 // ISSUES //
@@ -26,26 +21,22 @@ namespace UI
 {
     public partial class BattleWindow : Window
     {
+        GameManager CurrentSession { get; set; }
         private Player currentPlayer {get; set;}
         private Enemy currentEnemy {get; set;}
-        private Battle thisFight { get; set; }
-        private AbilityWindow CurrentAbilities { get; set; }
 
-        public BattleWindow(ref Player inPlayer) // Uses reference for the player, this will be useful for the shop
+        public BattleWindow(GameManager inManager) // Uses reference for the player, this will be useful for the shop
         {
             InitializeComponent();
+            CurrentSession = inManager;
 
             // Initialize the current Variables
-            currentPlayer = inPlayer;
-            currentEnemy = ObjectFactory.CreateEnemy(ProgLang.Javascript); // This needs to be based on some round system
-            thisFight = new Battle(currentPlayer, currentEnemy);
+            currentPlayer = inManager.CurrentPlayer;
+            currentEnemy = new Enemy();
+            CurrentSession.UpdateState(GameState.Battle);
 
             // Update UI
             UpdateUI();
-
-            CurrentAbilities = new AbilityWindow(thisFight);
-            CurrentAbilities.UiUpdate += AbilityWindow_UiUpdate;
-            CurrentAbilities.Show();
         }
 
         // Updates the UI from the childs ping
@@ -56,7 +47,7 @@ namespace UI
         // Updates all UI Elements with reference data
         private void UpdateUI()
         {
-            lblTurn.Content = thisFight.State.ToString();
+            lblTurn.Content = CurrentSession.CurrentBattleManager.CurrentFight.ToString();
             SetEnemyData();
             SetPlayerData();
         }
@@ -64,22 +55,21 @@ namespace UI
         // Sets UI Elements for the Enemy 
         private void SetEnemyData()
         {
-            picEnemySprite.Source = SpriteHandler.CreateSprite("JavascriptGirl.png"); // TEMP, THIS SHOULD BE SET BASED ON THE ENEMY NAME 
-            lblTurn.Content = thisFight.State.ToString();
+            picEnemySprite.Source = SpriteHandler.CreateSprite("CreatureArt/coders_crypt_C#_creatures.png"); // TEMP, THIS SHOULD BE SET BASED ON THE ENEMY NAME 
             lblEnemyName.Content= currentEnemy.Name;
             progEnemyHealth.Maximum = currentEnemy.MaxHealth;
             progEnemyHealth.Minimum = 0;
             progEnemyHealth.Value = currentEnemy.Health;
             lblEnemyHealth.Content = $"{currentEnemy.Health}/{currentEnemy.MaxHealth}";
-            lblEnemyAtk.Content = $"⚔: {currentEnemy.Attack.ToString()}";
-            lblEnemyDef.Content = $"⛉: {currentEnemy.Defense.ToString()}";
+            // lblEnemyAtk.Content = $"⚔: {currentEnemy.Attack.ToString()}";
+            // lblEnemyDef.Content = $"⛉: {currentEnemy.Defense.ToString()}";
         }
 
         // Sets UI Elements for the player
         private void SetPlayerData()
         {
             picPlayerSprite.Source = SpriteHandler.CreateSprite("Player.png");
-            lblTurn.Content = thisFight.State.ToString();
+            //lblTurn.Content = thisFight.State.ToString();
             lblPlayerName.Content = currentPlayer.Name;
             lblPlayerHealth.Content = $"{currentPlayer.Health}/{currentPlayer.MaxHealth}";
             lblPlayerMana.Content = $"{currentPlayer.Mana}/{currentPlayer.MaxMana}";
@@ -93,7 +83,6 @@ namespace UI
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            CurrentAbilities.Close();
         }
     }
 }
