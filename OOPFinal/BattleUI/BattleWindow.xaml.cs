@@ -55,7 +55,7 @@ namespace UI
         // Sets UI Elements for the Enemy 
         private void SetEnemyData()
         {
-            picEnemySprite.Source = SpriteHandler.CreateSprite("/CreatureArt/coders_crypt_javascript_creatures.png"); // TEMP, THIS SHOULD BE SET BASED ON THE ENEMY NAME 
+            picEnemySprite.Source = SpriteHandler.CreateSprite("/CreatureArt/javacup.png"); // TEMP, THIS SHOULD BE SET BASED ON THE ENEMY NAME 
             // lblEnemyName.Content= currentEnemy.Name;
             // progEnemyHealth.Maximum = currentEnemy.MaxHealth;
             // progEnemyHealth.Minimum = 0;
@@ -68,7 +68,7 @@ namespace UI
         // Sets UI Elements for the player
         private void SetPlayerData()
         {
-            picPlayerSprite.Source = SpriteHandler.CreateSprite("/ProtagonistSprites/coders_crypt_nanon_male_protag.png");
+            picPlayerSprite.Source = SpriteHandler.CreateSprite("/ProtagonistSprites/nanon.png");
             //lblTurn.Content = thisFight.State.ToString();
             lblPlayerName.Content = currentPlayer.Name;
             lblPlayerHealth.Content = $"{currentPlayer.Health}/{currentPlayer.MaxHealth}";
