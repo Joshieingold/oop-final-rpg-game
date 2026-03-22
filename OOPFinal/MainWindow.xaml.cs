@@ -27,6 +27,8 @@ namespace GameUI
             gameSession = new GameManager(txtUsername.Text);
             ShopWindow window = new ShopWindow(gameSession);
             window.Show();
+            BattleWindow bw = new BattleWindow(gameSession);
+            bw.Show();
             this.Close();
         }
     }

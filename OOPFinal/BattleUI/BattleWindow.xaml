@@ -101,7 +101,6 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Image x:Name="picPlayerSprite"  Margin="10,10,10,0"></Image>
                     </Grid>

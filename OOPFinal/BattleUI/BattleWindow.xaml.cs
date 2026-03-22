@@ -68,7 +68,7 @@ namespace UI
         // Sets UI Elements for the player
         private void SetPlayerData()
         {
-            picPlayerSprite.Source = SpriteHandler.CreateSprite("Player.png");
+            picPlayerSprite.Source = SpriteHandler.CreateSprite("/ProtagonistSprites/coders_crypt_nanon_male_protag.png");
             //lblTurn.Content = thisFight.State.ToString();
             lblPlayerName.Content = currentPlayer.Name;
             lblPlayerHealth.Content = $"{currentPlayer.Health}/{currentPlayer.MaxHealth}";

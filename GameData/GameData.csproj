@@ -14,6 +14,8 @@
     <None Remove="Images\CreatureArt\coders_crypt_javascript_creatures.png" />
     <None Remove="Images\CreatureArt\coders_crypt_java_creatures.png" />
     <None Remove="Images\CreatureArt\coders_crypt_python_creatures.png" />
+    <None Remove="Images\ProtagonistSprites\coders_crypt_nanon_male_protag.png" />
+    <None Remove="Images\ProtagonistSprites\coders_crypt_vimmi_female_protag_.png" />
     <None Remove="Items.txt" />
     <None Remove="ObjectData\Enemy.txt" />
   </ItemGroup>
@@ -32,6 +34,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\CreatureArt\coders_crypt_python_creatures.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ProtagonistSprites\coders_crypt_nanon_male_protag.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ProtagonistSprites\coders_crypt_vimmi_female_protag_.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ObjectData\Ability.txt">
