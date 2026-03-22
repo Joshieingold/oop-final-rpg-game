@@ -27,5 +27,11 @@ namespace UI.ShopUI
             CurrentSession = inSession;
             Money = CurrentSession.CurrentPlayer.Money;
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            BattleWindow bw = new BattleWindow(CurrentSession);
+            bw.Show();
+        }
     }
 }

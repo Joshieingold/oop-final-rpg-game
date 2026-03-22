@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UI.ShopUI;
 
 
 // ISSUES //
@@ -83,6 +84,8 @@ namespace UI
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            ShopWindow sw = new ShopWindow(CurrentSession);
+            sw.Show();
         }
     }
 }
