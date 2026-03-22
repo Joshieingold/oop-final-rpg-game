@@ -7,39 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\CreatureArt\coders_crypt_bash_creatures.png" />
-    <None Remove="Images\CreatureArt\coders_crypt_C#_creatures.png" />
-    <None Remove="Images\CreatureArt\coders_crypt_c++_creatures.png" />
-    <None Remove="Images\CreatureArt\coders_crypt_c++_creatures.recolour.png" />
-    <None Remove="Images\CreatureArt\coders_crypt_javascript_creatures.png" />
-    <None Remove="Images\CreatureArt\coders_crypt_java_creatures.png" />
-    <None Remove="Images\CreatureArt\coders_crypt_python_creatures.png" />
-    <None Remove="Images\ProtagonistSprites\coders_crypt_nanon_male_protag.png" />
-    <None Remove="Images\ProtagonistSprites\coders_crypt_vimmi_female_protag_.png" />
     <None Remove="Items.txt" />
     <None Remove="ObjectData\Enemy.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\CreatureArt\coders_crypt_c++_creatures.png">
+    <Content Include="Images\CreatureArt\OLD_DONOTUSE_pluscritters.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\CreatureArt\coders_crypt_c++_creatures.recolour.png">
+    <Content Include="Images\CreatureArt\pluscritters.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\CreatureArt\coders_crypt_javascript_creatures.png">
+    <Content Include="Images\CreatureArt\scriptbeard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\CreatureArt\coders_crypt_java_creatures.png">
+    <Content Include="Images\CreatureArt\javacup.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\CreatureArt\coders_crypt_python_creatures.png">
+    <Content Include="Images\CreatureArt\systemsnakes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\ProtagonistSprites\coders_crypt_nanon_male_protag.png">
+    <Content Include="Images\ProtagonistSprites\nanon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\ProtagonistSprites\coders_crypt_vimmi_female_protag_.png">
+    <Content Include="Images\ProtagonistSprites\vimmi.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ObjectData\Ability.txt">
@@ -60,10 +51,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\CreatureArt\coders_crypt_bash_creatures.png">
+    <Content Include="Images\CreatureArt\basher.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\CreatureArt\coders_crypt_C#_creatures.png">
+    <Content Include="Images\CreatureArt\princesharp.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
