@@ -34,7 +34,7 @@ namespace UI
             // Initialize the current Variables
             currentPlayer = inManager.CurrentPlayer;
             Random rand = new Random(); // PLACEHOLDER FOR LATER IN LIFE
-            currentEnemy = new EnemyFactory().RequestRandomEnemy(rand.Next(1, 8)); // ROUND ONE
+            currentEnemy = CurrentSession.GetCurrentEnemy();
             CurrentSession.UpdateState(GameState.Battle);
 
             // Update UI

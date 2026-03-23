@@ -24,10 +24,15 @@ namespace GameUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            gameSession = new GameManager(txtUsername.Text);
+            gameSession = new GameManager(txtUsername.Text, (bool)radMale.IsChecked);
             BattleWindow bw = new BattleWindow(gameSession);
             bw.Show();
             this.Close();
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -11,8 +11,10 @@
             <RowDefinition Height="39*"/>
             <RowDefinition Height="23*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Just a normal week at NBCC" TextAlignment="Center" Margin="10,101,10,89" FontSize="36" ></TextBlock>
+        <TextBlock Text="Coders Crypt" TextAlignment="Center" Margin="10,101,10,89" FontSize="36" ></TextBlock>
         <TextBox x:Name="txtUsername" Margin="244,217,244,0" Height="35" VerticalAlignment="Top" />
         <Button Content="New Game" Click="Button_Click" Margin="244,55,244,0" Height="32" VerticalAlignment="Top" Grid.Row="1"></Button>
+        <RadioButton x:Name="radMale" Content="Male" HorizontalAlignment="Left" Margin="77,96,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" IsChecked="True"/>
+        <RadioButton x:Name="radFemale" Content="Female" HorizontalAlignment="Left" Margin="77,0,0,0" VerticalAlignment="Center"/>
     </Grid>
 </Window>
