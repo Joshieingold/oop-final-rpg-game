@@ -38,5 +38,13 @@ namespace Core
             Name = inName;
             IsMale = false;
         }
+        public bool CheckCanAfford(int cost)
+        {
+            if (Money - cost >= 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -6,25 +6,16 @@ namespace Core
 {
     public class ShopManager
     {
+        public int CurrentRollCost { get; set; }
+        public List<IShopItem> AvailableItems { get; set; }
         public ShopManager(Fighter inPlayer)
         {
-            currentPlayer = inPlayer;
+            CurrentRollCost = 1;
         }
-        private Fighter currentPlayer { get; set; }
-        private int _rollNumber = 0;
-        public int RollNumber
+        public void IncreaseRollCost()
         {
-            get { return _rollNumber; }
-            set
-            {
-                if (value < 0)
-                {
-                    value = 0;
-                }
-                _rollNumber = value;
-            }
+            CurrentRollCost = CurrentRollCost * 2;
         }
-        public List<IShopItem> AvailableItems { get; set; }
         public void Roll()
         {
             return;

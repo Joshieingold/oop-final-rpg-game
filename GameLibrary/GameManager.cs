@@ -11,12 +11,14 @@ namespace Core
         public GameState CurrentState { get; private set; }
         public Player CurrentPlayer { get; set; }
         public BattleManager CurrentBattleManager { get; set; }
-        private ShopManager CurrentShopManager { get; set; }
+        public ShopManager CurrentShopManager { get; set; }
+        public int Round { get; set; }
 
-        public GameManager(string playerName)
+        public GameManager(string playerName, bool gender)
         {
-            CurrentPlayer = new Player(playerName, false);
+            CurrentPlayer = new Player(playerName, gender);
             CurrentState = GameState.Shop;
+            Round = 1;
             CurrentShopManager = new ShopManager(CurrentPlayer);
         }
         // This doesnt need to be like that can jsut be a get set.
