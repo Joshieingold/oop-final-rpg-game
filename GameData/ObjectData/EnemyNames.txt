@@ -1,0 +1,7 @@
+﻿Ghoul
+Villian
+Zapper
+CodeBreaker
+Bug
+Exception
+Null
