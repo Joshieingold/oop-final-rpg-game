@@ -5,16 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOPFinal"
         mc:Ignorable="d"
-        Title="RPG GAME - Title Screen" Height="450" Width="800">
-    <Grid Margin="10,0,10,0">
+        Title="Coders Crypt - Title Screen" Height="450" Width="800">
+    <Grid Background="{DynamicResource backgroundColor}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="39*"/>
-            <RowDefinition Height="23*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Coders Crypt" TextAlignment="Center" Margin="10,101,10,89" FontSize="36" ></TextBlock>
-        <TextBox x:Name="txtUsername" Margin="244,217,244,0" Height="35" VerticalAlignment="Top" />
-        <Button Content="New Game" Click="Button_Click" Margin="244,55,244,0" Height="32" VerticalAlignment="Top" Grid.Row="1"></Button>
-        <RadioButton x:Name="radMale" Content="Male" HorizontalAlignment="Left" Margin="77,96,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" IsChecked="True"/>
-        <RadioButton x:Name="radFemale" Content="Female" HorizontalAlignment="Left" Margin="77,0,0,0" VerticalAlignment="Center"/>
+        <!-- THIS CAN BE REPLACE WITH TITLE ART SHOULD WE GET THERE -->
+        <TextBlock Text="Coders Crypt" Foreground="{DynamicResource forgroundColor}" TextAlignment="Center" Grid.Row="0" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" Background="{DynamicResource bubbleColor}" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Content="Name" HorizontalAlignment="Center" Foreground="{DynamicResource forgroundColor}" VerticalAlignment="Center"></Label>
+                <TextBox Grid.Row="1" Background="{DynamicResource backgroundColor}" Foreground="{DynamicResource forgroundColor}" x:Name="txtUsername" Width="150" Height="25" VerticalAlignment="Center" />
+            </Grid>
+            <Grid Grid.Column="2" Background="{DynamicResource bubbleColor}" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Foreground="{DynamicResource forgroundColor}" Grid.Row="0" Content="Gender" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                <RadioButton Foreground="{DynamicResource forgroundColor}" Width="75"  Grid.Row="1" x:Name="radMale" Content="Male" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="RadioButton_Checked" IsChecked="True"/>
+                <RadioButton Foreground="{DynamicResource forgroundColor}" Width="75" Grid.Row="2" x:Name="radFemale" Content="Female" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                
+            </Grid>
+            
+        </Grid>
+        <Button Foreground="{DynamicResource forgroundColor}" Background="{DynamicResource bubbleColor}"  Grid.Row="2" Content="New Game" Click="Button_Click" Height="32" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center" ></Button>
     </Grid>
 </Window>
