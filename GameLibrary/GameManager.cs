@@ -15,7 +15,7 @@ namespace Core
 
         public GameManager(string playerName)
         {
-            CurrentPlayer = new Player(playerName);
+            CurrentPlayer = new Player(playerName, false);
             CurrentState = GameState.Shop;
             CurrentShopManager = new ShopManager(CurrentPlayer);
         }
