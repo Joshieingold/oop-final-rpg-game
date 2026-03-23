@@ -8,9 +8,23 @@ namespace Core
 {
     public class Enemy : Fighter
     {
-        public int MaxMoves { get; set; }
+        private int _maxMoves;
+        public int MaxMoves
+        {
+            get { return _maxMoves; }
+            set
+            {
+                Abilities = new AbilityFactory().GetXNewAbilities(value);
+                _maxMoves = value;
+            }
+        }
         public string EnemySprite { get; private set; } // this is determined by their prog lang
         private ProgLang _errorType;
+        public List<IAbility> Abilities { get; set; }
+        public Enemy()
+        {
+            Abilities = new AbilityFactory().GetXNewAbilities(4);
+        }
         public ProgLang ErrorType
         {
             get { return _errorType; }

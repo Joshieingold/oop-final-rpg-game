@@ -1,0 +1,9 @@
+﻿Vim
+Breakpoints
+For Loop
+Vs Code
+Code Completion
+Database Power
+Debug
+Recurssion
+Linked List

@@ -6,10 +6,22 @@ namespace Core
 {
     public sealed class HealthAbility : Ability
     {
-        private int Boost { get; set; }
-        public override void Use()
+        public int Boost { get; set; }
+
+        public override string ToString()
         {
-            throw new NotImplementedException();
+            return $"{Name}: Use this to heal {Boost}!";
+        }
+        public override void Use(Fighter player)
+        {
+            if (player.MaxHealth + Boost > player.MaxHealth)
+            {
+                player.Health = player.MaxHealth;
+            }
+            else
+            {
+                player.Health += Boost;
+            }
         }
     }
 }

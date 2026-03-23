@@ -31,7 +31,7 @@ namespace Core
             Money = 5;
             Name = inName;
             IsMale = true;
-            Abilities = new List<IAbility>();
+            Abilities = new AbilityFactory().GetXNewAbilities(4);
         }
         public Player(string inName, bool inIsMale)
         {
@@ -39,6 +39,7 @@ namespace Core
             Name = inName;
             IsMale = inIsMale;
             Abilities = new List<IAbility>();
+            Abilities = new AbilityFactory().GetXNewAbilities(4);
         }
         public bool CheckCanAfford(int cost)
         {

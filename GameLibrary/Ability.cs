@@ -9,10 +9,10 @@ namespace Core
         public string Name { get; set; }
         public int ManaCost { get; set; } 
         public int Price { get; set; }
-        public abstract void Use();
+        public abstract void Use(Fighter player);
         public virtual void Buy(Fighter player) 
         {
-            // give the player the item at its cost!
+            player.Abilities.Add(this);
         }
     }
 }
