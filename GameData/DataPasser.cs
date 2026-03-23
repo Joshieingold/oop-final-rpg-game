@@ -14,6 +14,10 @@ namespace GameData
         {
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ObjectData", "Enemy.txt");
         }
+        public static string EntityDataLocation(string specificFile)
+        {
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ObjectData/", specificFile);
+        }
         public static string PictureLocation()
         {
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");

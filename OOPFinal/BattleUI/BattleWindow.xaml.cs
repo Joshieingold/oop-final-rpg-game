@@ -33,7 +33,8 @@ namespace UI
 
             // Initialize the current Variables
             currentPlayer = inManager.CurrentPlayer;
-            currentEnemy = new Enemy();
+            Random rand = new Random(); // PLACEHOLDER FOR LATER IN LIFE
+            currentEnemy = new EnemyFactory().RequestRandomEnemy(rand.Next(1, 8)); // ROUND ONE
             CurrentSession.UpdateState(GameState.Battle);
 
             // Update UI
@@ -56,14 +57,14 @@ namespace UI
         // Sets UI Elements for the Enemy 
         private void SetEnemyData()
         {
-            picEnemySprite.Source = SpriteHandler.CreateSprite("/CreatureArt/javacup.png"); // TEMP, THIS SHOULD BE SET BASED ON THE ENEMY NAME 
-            // lblEnemyName.Content= currentEnemy.Name;
-            // progEnemyHealth.Maximum = currentEnemy.MaxHealth;
-            // progEnemyHealth.Minimum = 0;
-             // progEnemyHealth.Value = currentEnemy.Health;
-            // lblEnemyHealth.Content = $"{currentEnemy.Health}/{currentEnemy.MaxHealth}";
-            // lblEnemyAtk.Content = $"⚔: {currentEnemy.Attack.ToString()}";
-            // lblEnemyDef.Content = $"⛉: {currentEnemy.Defense.ToString()}";
+            picEnemySprite.Source = SpriteHandler.CreateSprite(currentEnemy.EnemySprite); // TEMP, THIS SHOULD BE SET BASED ON THE ENEMY NAME 
+            lblEnemyName.Content= currentEnemy.Name;
+            progEnemyHealth.Maximum = currentEnemy.MaxHealth;
+            progEnemyHealth.Minimum = 0;
+            progEnemyHealth.Value = currentEnemy.Health;
+            lblEnemyHealth.Content = $"{currentEnemy.Health}/{currentEnemy.MaxHealth}";
+            lblEnemyAtk.Content = $"⚔: {currentEnemy.Attack.ToString()}";
+            lblEnemyDef.Content = $"⛉: {currentEnemy.Defense.ToString()}";
         }
 
         // Sets UI Elements for the player

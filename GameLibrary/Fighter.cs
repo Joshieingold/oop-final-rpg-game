@@ -11,11 +11,15 @@ namespace Core
         public int MaxMana { get; set; }
         public int Mana { get; set; }
         public string Name { get; set; }
+        public int Attack { get; set; }
+        public int Defense { get; set; }
         public List<IAbility> Abilities { get; set; }
         public Fighter()
         {
             MaxHealth = 100;
             MaxMana = 100;
+            Defense = 40;
+            Attack = 20;
             Health = MaxHealth;
             Mana = MaxMana;
         }
