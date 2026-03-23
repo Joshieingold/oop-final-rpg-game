@@ -8,9 +8,10 @@ namespace Core
     {
         public int CurrentRollCost { get; set; }
         public List<IShopItem> AvailableItems { get; set; }
-        public ShopManager(Fighter inPlayer)
+        public ShopManager()
         {
             CurrentRollCost = 1;
+            AvailableItems = new List<IShopItem>(); //PLACEHOLDER
         }
         public void IncreaseRollCost()
         {

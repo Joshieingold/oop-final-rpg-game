@@ -36,18 +36,26 @@ namespace UI.ShopUI
         }
         private void UpdateUI()
         {
+            lblRoundInfo.Content = $"Round {CurrentSession.Round + 1}";
             lblPlayerMoney.Content = $"Time Left To Study {CurrentPlayer.Money} hrs";
+            lblPlayerAttack.Content = $"⚔: {CurrentPlayer.Attack}";
+            lblPlayerDefense.Content = $"⛉: {CurrentPlayer.Defense}";
+            
             btnRoll.Content = $"Search Google {CurrentShop.CurrentRollCost} hrs";
+            PopulateAbilitiesList();
+            if (CurrentSession.Round == CurrentSession.AllEnemies.Count())
+            {
+                lblUpcomingFight.Content = "Game Over!";
+            }
+            else
+            {
+                lblUpcomingFight.Content = $"Next Class: {CurrentSession.AllEnemies[CurrentSession.Round].ErrorType}"; // THIS WILL CAUSE AN EXEPTION ON
+            }
 
-        }
-        private void UpdateSession()
-        {
-            CurrentSession.Round++;
-            CurrentSession.CurrentPlayer = CurrentPlayer;
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            UpdateSession();
+            CurrentSession.OnShopOver(CurrentPlayer);
             BattleWindow bw = new BattleWindow(CurrentSession);
             bw.Show();
         }
@@ -60,6 +68,14 @@ namespace UI.ShopUI
         private void btnBattle_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        private void PopulateAbilitiesList()
+        {
+            lstPlayerSkill.Items.Clear();
+            foreach (IAbility ia in CurrentPlayer.Abilities )
+            {
+                lstPlayerSkill.Items.Add(ia.ToString());
+            }
         }
 
         private void btnRoll_Click(object sender, RoutedEventArgs e)

@@ -31,12 +31,14 @@ namespace Core
             Money = 5;
             Name = inName;
             IsMale = true;
+            Abilities = new List<IAbility>();
         }
         public Player(string inName, bool inIsMale)
         {
             Money = 5;
             Name = inName;
-            IsMale = false;
+            IsMale = inIsMale;
+            Abilities = new List<IAbility>();
         }
         public bool CheckCanAfford(int cost)
         {
