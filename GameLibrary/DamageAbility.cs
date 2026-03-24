@@ -8,13 +8,13 @@ namespace Core
     public sealed class DamageAbility : Ability
     {
         public int Damage { get; set; }
-        List<ProgLang> StrongAgainst { get; set; } 
+        public List<ProgLang> StrongAgainst { get; set; } 
 
         public override string ToString()
         {
-            return $"{Name}: Use this to deal {Damage}!";
+            return $"Deal {Damage} Damage!";
         }
-        public override void Use(Fighter enemy)
+        public override void Use(Fighter attacker, Fighter enemy)
         {
             if (enemy.Health - Damage < 0)
             {
@@ -26,10 +26,16 @@ namespace Core
                 {
                     if (StrongAgainst.Contains(e.ErrorType))
                     {
-                        enemy.Health -= Damage * 2;
+                        int foundDamage = ((attacker.Attack + Damage * 2) - enemy.Defense);
+                        if (foundDamage < 0) return;
+                        enemy.Health -= foundDamage;
+                        return;
                     }
                 }
-                enemy.Health -= Damage;
+                        int otherdmg = ((attacker.Attack + Damage) - enemy.Defense);
+                        if (otherdmg < 0) return;
+                        enemy.Health -= otherdmg;
+                        return;
             }
         }
     }

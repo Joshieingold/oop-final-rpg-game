@@ -23,9 +23,26 @@ namespace Core
             Health = MaxHealth;
             Mana = MaxMana;
         }
-        public void UseAbility()
+        public void UseAbility(IAbility chosenAbility, Fighter target)
         {
-            return;
+            if (chosenAbility is DamageAbility da)
+            {
+                da.Use(this, target);
+            }
+            else if (chosenAbility is HealthAbility ha)
+            {
+                ha.Use(this, target);
+            }
+            else if (chosenAbility is BuffAbility ba)
+            {
+                ba.Use(this, target);
+            }
+        }
+        public bool ValidateAbility(IAbility chosenAbility)
+        {
+            if (this.Mana - chosenAbility.GetManaCost() < 0) return false;
+            if (!this.Abilities.Contains(chosenAbility)) return false;
+            return true;
         }
     }
 }

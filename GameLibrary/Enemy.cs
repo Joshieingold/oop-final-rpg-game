@@ -35,6 +35,13 @@ namespace Core
             }
 
         }
+        public IAbility ChooseRandomAbility()
+        {
+            Random rand = new Random();
+            int choiceIndex = rand.Next(Abilities.Count);
+            return Abilities[choiceIndex];
+
+        }
         private string DetermineImage(ProgLang lang)
         {
             switch(lang)

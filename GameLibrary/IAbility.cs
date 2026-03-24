@@ -6,9 +6,7 @@ namespace Core
 {
     public interface IAbility : IShopItem
     {
-        public void Use()
-        {
-            return;
-        }
+        public int GetManaCost();
+        public void Use(Fighter attacker, Fighter defender);
     }
 }

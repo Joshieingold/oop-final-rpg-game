@@ -108,6 +108,7 @@
                 </Grid>
             </Grid>
         </Grid>
+        <Button Grid.Column="2" Content="Button" HorizontalAlignment="Left" Margin="0,409,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
         <!-- 
         DEBUG BUTTONS
