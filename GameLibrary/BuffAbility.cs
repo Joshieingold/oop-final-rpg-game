@@ -12,10 +12,10 @@ namespace Core
 
         public override string ToString()
         {
-            return $"{Name}: Use this to permenantly gain {Buff} {TargetStat}";
+            return $"Permenantly gain {Buff} {TargetStat}";
         }
         // Use case for an enum if ive ever seen one
-        public override void Use(Fighter player)
+        public override void Use(Fighter player, Fighter enemy)
         {
             if (TargetStat == "MaxHealth")
             {

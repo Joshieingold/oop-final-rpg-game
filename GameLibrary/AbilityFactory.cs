@@ -1,4 +1,5 @@
-﻿using GameData;
+﻿using Core.State;
+using GameData;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -31,6 +32,7 @@ namespace Core
             else if (rAbility is DamageAbility da)
             {
                 da.Damage = rand.Next(100);
+                da.StrongAgainst = new List<ProgLang>() { ProgLang.Cpp, ProgLang.Javascript, ProgLang.Cs, ProgLang.C, ProgLang.Java, ProgLang.Python, ProgLang.Bash };
             }
             else if (rAbility is HealthAbility ha)
             {

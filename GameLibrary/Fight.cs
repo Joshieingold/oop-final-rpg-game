@@ -8,14 +8,16 @@ namespace Core
     {
         private Fighter attacker { get; set; }
         private Fighter defender { get; set; }
-        public List<Fighter> OnFinsh()
+
+        public Fight(Fighter inAttacker, Fighter inDefender, IAbility inAbility)
         {
-            StartFight();
-            return new List<Fighter>() { attacker,defender};
+            attacker = inAttacker;
+            defender = inDefender;
+            attacker.UseAbility(inAbility, defender);
         }
-        private void StartFight()
+        public List<Fighter> GetUpdatedFighters()
         {
-            return;
+            return new List<Fighter>() { attacker,defender};
         }
     }
 }

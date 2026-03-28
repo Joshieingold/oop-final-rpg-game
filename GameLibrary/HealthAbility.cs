@@ -10,9 +10,9 @@ namespace Core
 
         public override string ToString()
         {
-            return $"{Name}: Use this to heal {Boost}!";
+            return $"Heal {Boost} Health!";
         }
-        public override void Use(Fighter player)
+        public override void Use(Fighter player, Fighter enemy)
         {
             if (player.MaxHealth + Boost > player.MaxHealth)
             {

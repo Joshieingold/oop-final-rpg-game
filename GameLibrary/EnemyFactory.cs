@@ -42,14 +42,9 @@ namespace GameData
             }
             return rEnemy;
         }
-        private List<IAbility> GetAbilitiesByLang(ProgLang lang, int numAbilities) // MAKE THIS WORK WITH REAL ABILITIES
+        private List<IAbility> GetAbilitiesByLang(ProgLang lang, int numAbilities) // THIS DOES NOT CURRENTLY CARE ABOUT LANG CAUSE NO SUCH THING EXISTS
         {
-            List<IAbility> rList = new List<IAbility>();
-            for (int i = 0; i < numAbilities; i++)
-            {
-                rList.Add(new DamageAbility()); // obviously this is not ideal
-            }
-            return rList;
+            return new AbilityFactory().GetXNewAbilities(numAbilities);
         }
         private ProgLang GetEnemyProgLang()
         {

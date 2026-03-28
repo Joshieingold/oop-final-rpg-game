@@ -35,7 +35,7 @@ namespace Core
             {
                 case GameState.Battle:
                     CurrentState = GameState.Battle;
-                    CurrentBattleManager = new BattleManager(CurrentPlayer);
+                    CurrentBattleManager = new BattleManager(CurrentPlayer, GetCurrentEnemy());
                     break;
                 case GameState.Shop:
                     CurrentState = GameState.Shop;
