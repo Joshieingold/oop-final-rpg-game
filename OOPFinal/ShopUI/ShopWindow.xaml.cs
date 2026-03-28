@@ -1,4 +1,6 @@
-﻿using Core;
+﻿using Core.Entities;
+using Core.ItemsAndAbilities;
+using Core.Managers;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;

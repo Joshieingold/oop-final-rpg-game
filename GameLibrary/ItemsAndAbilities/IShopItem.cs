@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace Core.ItemsAndAbilities
 {
     public interface IShopItem
     {

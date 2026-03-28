@@ -1,9 +1,10 @@
-﻿using Core.State;
+﻿using Core.Entities;
+using Core.State;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace Core.Items
 {
     public sealed class DamageAbility : Ability
     {

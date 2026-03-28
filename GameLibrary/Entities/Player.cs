@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Core.ItemsAndAbilities;
+using Core.Factories;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace Core.Entities
 {
     public sealed class Player : Fighter
     {

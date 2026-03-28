@@ -1,10 +1,12 @@
-﻿using Core.State;
+﻿using Core.ItemsAndAbilities;
+using Core.Factories;
+using Core.State;
 using GameData;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace Core.Entities
 {
     public class Enemy : Fighter
     {

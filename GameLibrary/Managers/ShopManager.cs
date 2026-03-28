@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Core.ItemsAndAbilities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace Core.Managers
 {
     public class ShopManager
     {

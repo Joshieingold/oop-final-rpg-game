@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Core.Items;
+using Core.ItemsAndAbilities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace Core.Entities
 {
     public abstract class Fighter
     {

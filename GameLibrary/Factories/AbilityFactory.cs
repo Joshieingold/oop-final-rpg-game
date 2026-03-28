@@ -1,10 +1,12 @@
-﻿using Core.State;
+﻿using Core.Items;
+using Core.ItemsAndAbilities;
+using Core.State;
 using GameData;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace Core.Factories
 {
     public class AbilityFactory
     {
