@@ -31,11 +31,16 @@ namespace UI
             InitializeComponent();
             CurrentSession = inManager;
 
-            // Initialize the current Variables
-            currentPlayer = inManager.CurrentPlayer;
-            Random rand = new Random(); // PLACEHOLDER FOR LATER IN LIFE
-            currentEnemy = CurrentSession.GetCurrentEnemy();
             CurrentSession.UpdateState(GameState.Battle);
+            // Initialize the current Variables
+            if (inManager.CurrentBattleManager.CurrentPlayer is Player p)
+            {
+                currentPlayer = p;
+            }
+            if (inManager.CurrentBattleManager.CurrentEnemy is Enemy e)
+            {
+                currentEnemy = e;
+            }
 
             // Update UI
             UpdateUI();
@@ -71,7 +76,7 @@ namespace UI
         private void SetPlayerData()
         {
             picPlayerSprite.Source = SpriteHandler.CreateSprite(currentPlayer.PlayerSprite);
-            //lblTurn.Content = thisFight.State.ToString();
+            lblTurn.Content = CurrentSession.CurrentBattleManager.CurrentState.ToString();
             lblPlayerName.Content = currentPlayer.Name;
             lblPlayerHealth.Content = $"{currentPlayer.Health}/{currentPlayer.MaxHealth}";
             lblPlayerMana.Content = $"{currentPlayer.Mana}/{currentPlayer.MaxMana}";
@@ -87,6 +92,12 @@ namespace UI
         {
             ShopWindow sw = new ShopWindow(CurrentSession);
             sw.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentSession.CurrentBattleManager.DoPlayerMove(currentPlayer.Abilities[0]);
+            UpdateUI();
         }
     }
 }

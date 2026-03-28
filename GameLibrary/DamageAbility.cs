@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.State;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,10 +7,36 @@ namespace Core
 {
     public sealed class DamageAbility : Ability
     {
-        private int Damage { get; set; }
-        public override void Use()
+        public int Damage { get; set; }
+        public List<ProgLang> StrongAgainst { get; set; } 
+
+        public override string ToString()
         {
-            throw new NotImplementedException();
+            return $"Deal {Damage} Damage!";
+        }
+        public override void Use(Fighter attacker, Fighter enemy)
+        {
+            if (enemy.Health - Damage < 0)
+            {
+                enemy.Health = 0;
+            }
+            else
+            {
+                if (enemy is Enemy e)
+                {
+                    if (StrongAgainst.Contains(e.ErrorType))
+                    {
+                        int foundDamage = ((attacker.Attack + Damage * 2) - enemy.Defense);
+                        if (foundDamage < 0) return;
+                        enemy.Health -= foundDamage;
+                        return;
+                    }
+                }
+                        int otherdmg = ((attacker.Attack + Damage) - enemy.Defense);
+                        if (otherdmg < 0) return;
+                        enemy.Health -= otherdmg;
+                        return;
+            }
         }
     }
 }

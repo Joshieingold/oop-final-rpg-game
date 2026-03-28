@@ -28,6 +28,10 @@ namespace UI.ShopUI
             CurrentSession = inSession;
             CurrentPlayer = CurrentSession.CurrentPlayer;
             CurrentShop = CurrentSession.CurrentShopManager;
+            foreach (IAbility a in CurrentPlayer.Abilities)
+            {
+                Console.WriteLine(a.ToString());
+            }
         }
         private void HandleRoll()
         {
