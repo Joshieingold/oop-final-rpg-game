@@ -1,14 +1,19 @@
-﻿using Core.State;
+﻿using Core.ItemsAndAbilities;
+using Core.Factories;
+using Core.State;
 using GameData;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace Core.Entities
 {
     public class Enemy : Fighter
     {
         private int _maxMoves;
+        private ProgLang _errorType;
+
+        // Max moves creates a new list of abilities of that length
         public int MaxMoves
         {
             get { return _maxMoves; }
@@ -18,13 +23,8 @@ namespace Core
                 _maxMoves = value;
             }
         }
-        public string EnemySprite { get; private set; } // this is determined by their prog lang
-        private ProgLang _errorType;
-        public List<IAbility> Abilities { get; set; }
-        public Enemy()
-        {
-            Abilities = new AbilityFactory().GetXNewAbilities(4);
-        }
+
+        // Sets the enemies Sprite based on Programming language of enemy
         public ProgLang ErrorType
         {
             get { return _errorType; }
@@ -35,13 +35,24 @@ namespace Core
             }
 
         }
+
+        // Stores the path to the particular sprites image
+        public string EnemySprite { get; private set; } // this is determined by their prog lang
+        public List<IAbility> Abilities { get; set; }
+
+        public Enemy()
+        {
+            Abilities = new AbilityFactory().GetXNewAbilities(4);
+        }
+
+        // Selects a random ability from available Abilities
         public IAbility ChooseRandomAbility()
         {
             Random rand = new Random();
             int choiceIndex = rand.Next(Abilities.Count);
             return Abilities[choiceIndex];
-
         }
+        // returns path based on a proglang
         private string DetermineImage(ProgLang lang)
         {
             switch(lang)

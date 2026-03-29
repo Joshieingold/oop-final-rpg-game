@@ -1,11 +1,14 @@
 ﻿using Core;
+using Core.Entities;
+using Core.ItemsAndAbilities;
 using Core.State;
+using GameData;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace GameData
+namespace Core.Factories
 {
     public class EnemyFactory
     {

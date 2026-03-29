@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Media.Imaging;
 
-namespace UI
+namespace UI.Utils
 {
     public static class SpriteHandler
     {

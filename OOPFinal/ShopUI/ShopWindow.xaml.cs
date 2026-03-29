@@ -1,4 +1,6 @@
-﻿using Core;
+﻿using Core.Entities;
+using Core.ItemsAndAbilities;
+using Core.Managers;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
@@ -11,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UI.Utils;
 
 namespace UI.ShopUI
 {
@@ -32,6 +35,7 @@ namespace UI.ShopUI
             {
                 Console.WriteLine(a.ToString());
             }
+            imgAbility_1.Source = SpriteHandler.CreateSprite("ShopItems/PlaceHolder.png");
         }
         private void HandleRoll()
         {
@@ -55,7 +59,7 @@ namespace UI.ShopUI
             {
                 lblUpcomingFight.Content = $"Next Class: {CurrentSession.AllEnemies[CurrentSession.Round].ErrorType}"; // THIS WILL CAUSE AN EXEPTION ON
             }
-
+            ShowShopItems();
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -87,9 +91,59 @@ namespace UI.ShopUI
             if (CurrentPlayer.CheckCanAfford(CurrentShop.CurrentRollCost))
             {
                 CurrentPlayer.Money -= CurrentShop.CurrentRollCost;
-                CurrentShop.IncreaseRollCost();
+                CurrentShop.Roll();
                 UpdateUI();
                 HandleRoll();
+            }
+        }
+        private void ShowShopItems()
+        {
+            txtAbility_0.Content = CurrentShop.AvailableAbilities[0].Name;
+            txtAbility_1.Content = CurrentShop.AvailableAbilities[1].Name;
+            txtAbility_2.Content = CurrentShop.AvailableAbilities[2].Name;
+            imgAbility_0.Source = SpriteHandler.CreateSprite(CurrentShop.AvailableAbilities[0].Sprite);
+            imgAbility_1.Source = SpriteHandler.CreateSprite(CurrentShop.AvailableAbilities[1].Sprite);
+            imgAbility_2.Source = SpriteHandler.CreateSprite(CurrentShop.AvailableAbilities[2].Sprite);
+
+            txtStatItem_0.Content = CurrentShop.AvailableStatItems[0].Name;
+            txtStatItem_1.Content = CurrentShop.AvailableStatItems[1].Name;
+            imgStatItem_0.Source = SpriteHandler.CreateSprite(CurrentShop.AvailableStatItems[0].Sprite);
+            imgStatItem_1.Source = SpriteHandler.CreateSprite(CurrentShop.AvailableStatItems[1].Sprite);
+        }
+        private void TryLearn(string type, int index)
+        {
+            if (type == "btnStatItem")
+            {
+                IShopItem stat = CurrentShop.AvailableStatItems[index];
+                CurrentPlayer.TryBuy(stat);
+            }
+            else if ( type == "btnAbility")
+            {
+                IShopItem ability = CurrentShop.AvailableAbilities[index];
+                CurrentPlayer.TryBuy(ability);
+            }
+            else
+            {
+                MessageBox.Show("Invalid Type used for learn button click");
+            }
+            UpdateUI();
+        }
+
+        private void Learn_click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button b)
+            {
+                try
+                {
+                    string[] splitData = b.Name.Split("_");
+                    string itemType = splitData[0];
+                    int itemIndex = Convert.ToInt32(splitData[1]);
+                    TryLearn(itemType, itemIndex);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error Getting Ability\n{ex.Message}");
+                }
             }
         }
     }

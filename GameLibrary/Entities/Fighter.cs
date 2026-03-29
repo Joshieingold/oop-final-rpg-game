@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Core.Items;
+using Core.ItemsAndAbilities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace Core.Entities
 {
     public abstract class Fighter
     {
@@ -25,18 +27,7 @@ namespace Core
         }
         public void UseAbility(IAbility chosenAbility, Fighter target)
         {
-            if (chosenAbility is DamageAbility da)
-            {
-                da.Use(this, target);
-            }
-            else if (chosenAbility is HealthAbility ha)
-            {
-                ha.Use(this, target);
-            }
-            else if (chosenAbility is BuffAbility ba)
-            {
-                ba.Use(this, target);
-            }
+            chosenAbility.Use(this, target);
         }
         public bool ValidateAbility(IAbility chosenAbility)
         {

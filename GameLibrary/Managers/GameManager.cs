@@ -1,11 +1,13 @@
-﻿using Core.State;
+﻿using Core.Entities;
+using Core.State;
+using Core.Factories;
 using GameData;
 using System;
 using System.Collections.Generic;
 using System.Security.Principal;
 using System.Text;
 
-namespace Core
+namespace Core.Managers
 {
     public class GameManager
     {

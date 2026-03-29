@@ -9,7 +9,6 @@
   <ItemGroup>
     <None Remove="Items.txt" />
     <None Remove="ObjectData\AbilityNames.txt" />
-    <None Remove="ObjectData\Enemy.txt" />
     <None Remove="ObjectData\enemyNames.txt" />
   </ItemGroup>
 
@@ -29,29 +28,17 @@
     <Content Include="Images\CreatureArt\systemsnakes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\ShopItems\PlaceHolder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\ProtagonistSprites\nanon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\ProtagonistSprites\vimmi.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ObjectData\Ability.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="ObjectData\AbilityNames.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ObjectData\Enemy.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Images\JavascriptGirl.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\Player.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 

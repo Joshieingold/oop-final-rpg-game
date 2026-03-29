@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Core.Entities;
+using Core.Items;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace Core.ItemsAndAbilities
 {
     // I dont think this can be sealed and I will need to make further classses from this one specifically
     public class BuffAbility : Ability

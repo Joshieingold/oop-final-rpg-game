@@ -10,8 +10,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ShopUI\PlaceHolder.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GameData\GameData.csproj" />
     <ProjectReference Include="..\GameLibrary\Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ShopUI\PlaceHolder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

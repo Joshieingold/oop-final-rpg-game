@@ -1,13 +1,19 @@
-﻿using System;
+﻿using Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace Core.ItemsAndAbilities
 {
     public class StatItem : IShopItem
     {
+        public StatItem()
+        {
+            Sprite = "ShopItems/PlaceHolder.png"; // DO I EVEN NEED TO SAY IT?
+        }
         public string Name { get; set; }
         public int Price { get; set; }
+        public string Sprite { get; set; }
         private void Use(Fighter player)
         {
             return;

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Core.Entities;
+using Core.Items;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core
+namespace Core.ItemsAndAbilities
 {
     public sealed class HealthAbility : Ability
     {

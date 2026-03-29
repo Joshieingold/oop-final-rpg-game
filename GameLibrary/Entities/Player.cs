@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Core.ItemsAndAbilities;
+using Core.Factories;
 
-namespace Core
+namespace Core.Entities
 {
     public sealed class Player : Fighter
     {
-        public int Money { get; set; }
         private bool _isMale;
+        public int Money { get; set; }
         public string PlayerSprite { get; private set; } // this is determined by their gender
         public bool IsMale
         {
@@ -48,6 +47,16 @@ namespace Core
                 return true;
             }
             return false;
+        }
+        public void TryBuy(IShopItem item)
+        {
+            if (!CheckCanAfford(item.Price))
+            {
+                Console.WriteLine($"Cannot afford {item.Name}");
+                return;
+            }
+            item.Buy(this);
+            this.Money -= item.Price;
         }
     }
 }
