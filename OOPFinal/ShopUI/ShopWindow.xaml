@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.ShopUI"
         mc:Ignorable="d"
+        RenderOptions.BitmapScalingMode="NearestNeighbor"
         Title="ShopWindow" Height="450" Width="800" Closing="Window_Closing" WindowStartupLocation="CenterScreen" Activated="Window_Activated">
     <Grid Background="{StaticResource backgroundColor}">
         <Grid.ColumnDefinitions>
@@ -74,9 +75,36 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <!-- These will be their own card control-->
-                <Rectangle Grid.Column="0" Fill="{StaticResource bubbleColor}" Margin="10px" Height="70px" Width="70px"></Rectangle>
-                <Rectangle Grid.Column="1" Fill="{StaticResource bubbleColor}" Margin="10px" Height="70px" Width="70px"></Rectangle>
-                <Rectangle Grid.Column="2" Fill="{StaticResource bubbleColor}" Margin="10px" Height="70px" Width="70px"></Rectangle>
+                <Grid Margin="3px" Grid.Column="0" VerticalAlignment="Center" Background="{StaticResource barColor}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="txtAbility_0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Image x:Name="imgAbility_0" Grid.Row="1" ></Image>
+                    <Button x:Name="btnAbility_0" Click="Learn_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn"></Button>
+                </Grid>
+                <Grid Margin="3px" Grid.Column="1" VerticalAlignment="Center" Background="{StaticResource barColor}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="txtAbility_1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Image x:Name="imgAbility_1" Grid.Row="1" ></Image>
+                    <Button x:Name="btnAbility_1" Click="Learn_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn"></Button>
+                </Grid>
+                <Grid Grid.Column="2" Margin="3px" VerticalAlignment="Center" Background="{StaticResource barColor}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="txtAbility_2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Image x:Name="imgAbility_2" Grid.Row="1" ></Image>
+                    <Button x:Name="btnAbility_2" Click="Learn_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn"></Button>
+                </Grid>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -84,8 +112,26 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <!-- These will be their own card control-->
-                <Rectangle Grid.Column="0" Fill="{StaticResource bubbleColor}" Margin="10px" Height="70px" Width="70px"></Rectangle>
-                <Rectangle Grid.Column="1" Fill="{StaticResource bubbleColor}" Margin="10px" Height="70px" Width="70px"></Rectangle>
+                <Grid Grid.Column="0" Margin="3px" VerticalAlignment="Center" Background="{StaticResource barColor}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="txtStatItem_0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Image x:Name="imgStatItem_0" Grid.Row="1" ></Image>
+                    <Button x:Name="btnStatItem_0" Click="Learn_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn"></Button>
+                </Grid>
+                <Grid Grid.Column="1" Margin="3px" VerticalAlignment="Center" Background="{StaticResource barColor}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="txtStatItem_1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Image x:Name="imgStatItem_1" Grid.Row="1" ></Image>
+                    <Button x:Name="btnStatItem_1"  Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn" Click="Learn_click"></Button>
+                </Grid>
             </Grid>
         </Grid>
         <Grid Grid.Column="2">

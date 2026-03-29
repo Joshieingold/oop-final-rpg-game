@@ -9,6 +9,7 @@ namespace Core.ItemsAndAbilities
     {
         public string Name { get; set; }
         public int Price { get; set; }
+        public string Sprite { get; set; }
         public abstract void Buy(Fighter player);
     }
 }
