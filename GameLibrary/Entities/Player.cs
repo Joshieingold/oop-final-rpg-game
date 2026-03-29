@@ -48,5 +48,15 @@ namespace Core.Entities
             }
             return false;
         }
+        public void TryBuy(IShopItem item)
+        {
+            if (!CheckCanAfford(item.Price))
+            {
+                Console.WriteLine($"Cannot afford {item.Name}");
+                return;
+            }
+            item.Buy(this);
+            this.Money -= item.Price;
+        }
     }
 }
