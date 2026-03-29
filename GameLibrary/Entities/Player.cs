@@ -1,15 +1,12 @@
 ﻿using Core.ItemsAndAbilities;
 using Core.Factories;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Core.Entities
 {
     public sealed class Player : Fighter
     {
-        public int Money { get; set; }
         private bool _isMale;
+        public int Money { get; set; }
         public string PlayerSprite { get; private set; } // this is determined by their gender
         public bool IsMale
         {

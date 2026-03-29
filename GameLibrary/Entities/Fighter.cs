@@ -27,18 +27,7 @@ namespace Core.Entities
         }
         public void UseAbility(IAbility chosenAbility, Fighter target)
         {
-            if (chosenAbility is DamageAbility da)
-            {
-                da.Use(this, target);
-            }
-            else if (chosenAbility is HealthAbility ha)
-            {
-                ha.Use(this, target);
-            }
-            else if (chosenAbility is BuffAbility ba)
-            {
-                ba.Use(this, target);
-            }
+            chosenAbility.Use(this, target);
         }
         public bool ValidateAbility(IAbility chosenAbility)
         {
