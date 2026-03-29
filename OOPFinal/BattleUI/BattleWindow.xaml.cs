@@ -5,10 +5,6 @@ using System.Windows;
 using UI.ShopUI;
 using UI.Utils;
 
-
-// ISSUES //
-// Enemy sprite is static and should be based on the character name
-// Created Enemy is not informed on anything, it just creates JS enemies
 namespace UI
 {
     public partial class BattleWindow : Window
