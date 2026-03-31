@@ -76,4 +76,120 @@ public class FighterTest
         Assert.AreEqual(expected, actual);
     }
 
+    [TestMethod]
+    public void Fighter_HealthNegativeValue()
+    {
+        Player play = new Player("Test");
+        play.Health = -12; 
+
+        int actual = play.Health;
+        int expected = 0;
+
+        Assert.AreEqual(expected, actual);
+    }
+    [TestMethod]
+    public void Fighter_HealthPositiveValue()
+    {
+        Player play = new Player("Test");
+        play.Health = 12; 
+
+        int actual = play.Health;
+        int expected = 12;
+
+        Assert.AreEqual(expected, actual);
+    }
+    [TestMethod]
+    public void Fighter_HealthMoreThanMaxValue()
+    {
+        Player play = new Player("Test");
+        play.MaxHealth = 10;
+        play.Health = 12;
+
+        int actual = play.Health;
+        int expected = 10;
+
+        Assert.AreEqual(expected, actual);
+    }
+    //
+    [TestMethod]
+    public void Fighter_ManaNegativeValue()
+    {
+        Player play = new Player("Test");
+        play.Mana = -12; 
+
+        int actual = play.Mana;
+        int expected = 0;
+
+        Assert.AreEqual(expected, actual);
+    }
+    [TestMethod]
+    public void Fighter_ManaPositiveValue()
+    {
+        Player play = new Player("Test");
+        play.Mana = 12; 
+
+        int actual = play.Mana;
+        int expected = 12;
+
+        Assert.AreEqual(expected, actual);
+    }
+    [TestMethod]
+    public void Fighter_ManaMoreThanMaxValue()
+    {
+        Player play = new Player("Test");
+        play.MaxMana = 10;
+        play.Mana = 12;
+
+        int actual = play.Health;
+        int expected = 10;
+
+        Assert.AreEqual(expected, actual);
+    }
+    [TestMethod]
+    public void Fighter_AttackNegativeValue()
+    {
+        Player play = new Player("Test");
+        play.Attack = -20;
+
+        int actual = play.Attack;
+        int expected = 0;
+
+        Assert.AreEqual(expected, actual);
+    }
+
+    [TestMethod]
+    public void Fighter_AttackPositiveValue()
+    {
+        Player play = new Player("Test");
+        play.Attack = 20;
+
+        int actual = play.Attack;
+        int expected = 20;
+
+        Assert.AreEqual(expected, actual);
+    }
+
+    [TestMethod]
+    public void Fighter_DefenseNegativeValue()
+    {
+        Player play = new Player("Test");
+        play.Defense = -20;
+
+        int actual = play.Defense;
+        int expected = 0;
+
+        Assert.AreEqual(expected, actual);
+    }
+
+    [TestMethod]
+    public void Fighter_DefensePositiveValue()
+    {
+        Player play = new Player("Test");
+        play.Defense = 20;
+
+        int actual = play.Defense;
+        int expected = 20;
+
+        Assert.AreEqual(expected, actual);
+    }
 }
