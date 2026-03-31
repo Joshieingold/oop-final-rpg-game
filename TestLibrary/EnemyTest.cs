@@ -1,7 +1,7 @@
 ﻿using Core.Entities;
 using Core.ItemsAndAbilities;
 
-namespace Enemies 
+namespace EnemyTest
 {
     [TestClass]
     public sealed class TestCore 

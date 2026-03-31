@@ -1,6 +1,6 @@
 using Core.Entities;
 
-namespace Players;
+namespace PlayerTest;
 
 [TestClass]
 public class PlayerTest
