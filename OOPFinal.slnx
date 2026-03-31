@@ -4,4 +4,5 @@
   <Project Path="OOPFinal/UI.csproj">
     <BuildDependency Project="GameLibrary/Core.csproj" />
   </Project>
+  <Project Path="TestLibrary/TestCore.csproj" Id="b92d9eca-58e2-462c-a616-856c8c5fad25" />
 </Solution>
