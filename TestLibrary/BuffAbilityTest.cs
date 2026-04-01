@@ -1,5 +1,6 @@
 using Core.Entities;
 using Core.ItemsAndAbilities;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BuffAbilities;
 
@@ -46,14 +47,19 @@ public class BuffAbilityTest
     {
         //arrange
         Player firstP = new Player("name");
-        firstP.MaxHealth = -20;
+        // firstP.MaxHealth = -20;  Well obviously the player shouldnt have negative health. But we could test what happens if the buff was -20
+        firstP.MaxHealth = 20;
         Player secondP = new Player("name");
         BuffAbility buffAb = new BuffAbility();
-        buffAb.Buff = 30;
+        buffAb.Buff = -30;
         buffAb.TargetStat = "MaxHealth";
+        buffAb.Use(firstP, secondP);
+
+        int expected = 20;
+        int actual = firstP.MaxHealth;
 
         //act && assert
-        Assert.Throws<ArgumentException>(() => buffAb.Use(firstP, secondP));
+        Assert.AreEqual(expected, actual);
     }
     [TestMethod]
     public void Use_MaxMana_Test()
@@ -80,18 +86,21 @@ public class BuffAbilityTest
     {
         //arrange
         Player firstP = new Player("name");
-        firstP.MaxMana = -30;
+        firstP.MaxMana = 30;
         Player secondP = new Player("name");
         BuffAbility buffAb = new BuffAbility();
-        buffAb.Buff = 20;
+        buffAb.Buff = -20;
         buffAb.TargetStat = "MaxMana";
+        buffAb.Use(firstP, secondP);
 
-        //act && assert
-        Assert.Throws<ArgumentException>(() => buffAb.Use(firstP, secondP));
+        int actual = firstP.MaxMana;
+        int expected = 30;
+
+        Assert.AreEqual(expected, actual);
     }
 
     [TestMethod]
-    public void Use_Attack_Test()
+    public void Use_AttackBoost_Test()
     {
         //arrange
         Player firstP = new Player("name");
@@ -116,17 +125,21 @@ public class BuffAbilityTest
     {
         //arrange
         Player firstP = new Player("name");
-        firstP.Attack = -200;
+        firstP.Attack = 10;
         Player secondP = new Player("name");
         BuffAbility buffAb = new BuffAbility();
-        buffAb.Buff = 50;
+        buffAb.Buff = -5;
         buffAb.TargetStat = "Attack";
+        buffAb.Use(firstP, secondP);
 
-        //act && assert
-        Assert.Throws<ArgumentException>(() => buffAb.Use(firstP, secondP));
+        int expected = 10;
+        int actual = firstP.Attack;
+
+        Assert.AreEqual(expected, actual);
     }
+
     [TestMethod]
-    public void Use_Defense_Test()
+    public void Use_DefenseBuff_Test()
     {
         //arrange
         Player firstP = new Player("name");
@@ -146,17 +159,20 @@ public class BuffAbilityTest
         Assert.AreEqual(expected, actual);
     }
     [TestMethod]
-    public void Use_Defense_NegativeValue_Test()
+    public void Use_DefenseBuff_NegativeValue_Test()
     {
         //arrange
         Player firstP = new Player("name");
-        firstP.Defense = -2;
+        firstP.Defense = 20;
         Player secondP = new Player("name");
         BuffAbility buffAb = new BuffAbility();
-        buffAb.Buff = 30;
+        buffAb.Buff = -10;
         buffAb.TargetStat = "Defense";
+        buffAb.Use(firstP, secondP);
 
-        //act && assert
-        Assert.Throws<ArgumentException>(() => buffAb.Use(firstP, secondP));
+        int expected = 20;
+        int actual = firstP.Defense;
+
+        Assert.AreEqual(expected, actual);
     }
 }
