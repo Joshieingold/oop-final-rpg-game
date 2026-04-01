@@ -26,8 +26,8 @@ public class BuffAbilityTest
     public void Use_MaxHealth()
     {
         //arrange
-        Fighter player;
-        Fighter enemy;
+        Player p1 = new Player("test");
+        Player p2 = new Player("test");
         BuffAbility buffAb = new BuffAbility();
         buffAb.Buff = 30; // we add 30 to it so it should be 50;
         buffAb.TargetStat = "MaxHealth";
