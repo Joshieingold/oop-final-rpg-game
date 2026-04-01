@@ -6,8 +6,7 @@ using System.Text;
 
 namespace Core.ItemsAndAbilities
 {
-    // I dont think this can be sealed and I will need to make further classses from this one specifically
-    public class BuffAbility : Ability
+    public sealed class BuffAbility : Ability
     {
         public int Buff { get; set; }
         public string TargetStat { get; set; }
@@ -22,12 +21,10 @@ namespace Core.ItemsAndAbilities
             if (TargetStat == "MaxHealth")
             {
                 if (player.MaxHealth < 0)
-                { 
+                {
                     throw new ArgumentException();
                 }
-                else { 
-                    player.MaxHealth += Buff;
-                     }
+                player.MaxHealth += Buff;
             }
             else if (TargetStat == "MaxMana")
             {
@@ -35,10 +32,7 @@ namespace Core.ItemsAndAbilities
                 {
                     throw new ArgumentException();
                 }
-                else
-                {
-                    player.MaxMana += Buff;
-                }
+                player.MaxMana += Buff;
             }
             else if (TargetStat == "Attack")
             {
@@ -46,10 +40,7 @@ namespace Core.ItemsAndAbilities
                 {
                     throw new ArgumentException();
                 }
-                else
-                {
-                    player.Attack += Buff;
-                }
+                player.Attack += Buff;
             }
             else if (TargetStat == "Defense")
             {
@@ -57,10 +48,7 @@ namespace Core.ItemsAndAbilities
                 {
                     throw new ArgumentException();
                 }
-                else
-                {
-                    player.Defense += Buff;
-                }
+                player.Defense += Buff;
             }
         }
     }
