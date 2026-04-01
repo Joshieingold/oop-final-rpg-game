@@ -28,10 +28,10 @@ public class BuffAbilityTest
         //arrange
         Player p1 = new Player("test");
         Player p2 = new Player("test");
+        p1.MaxHealth = 20;
         BuffAbility buffAb = new BuffAbility();
         buffAb.Buff = 30; // we add 30 to it so it should be 50;
         buffAb.TargetStat = "MaxHealth";
-
         //act
         buffAb.Use(p1, p2);
 
