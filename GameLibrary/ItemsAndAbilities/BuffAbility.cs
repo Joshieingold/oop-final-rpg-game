@@ -42,11 +42,25 @@ namespace Core.ItemsAndAbilities
             }
             else if (TargetStat == "Attack")
             {
-                player.Attack += Buff;
+                if (player.Attack < 0)
+                {
+                    throw new ArgumentException();
+                }
+                else
+                {
+                    player.Attack += Buff;
+                }
             }
             else if (TargetStat == "Defense")
             {
-                player.Defense += Buff;
+                if (player.Defense < 0)
+                {
+                    throw new ArgumentException();
+                }
+                else
+                {
+                    player.Defense += Buff;
+                }
             }
         }
     }

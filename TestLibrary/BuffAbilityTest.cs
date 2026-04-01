@@ -53,7 +53,7 @@ public class BuffAbilityTest
         buffAb.Buff = 30;
         buffAb.TargetStat = "MaxHealth";
 
-        //act & assert
+        //act && assert
         Assert.Throws<ArgumentException>(() => buffAb.Use(firstP, secondP));
     }
     [TestMethod]
@@ -87,7 +87,77 @@ public class BuffAbilityTest
         buffAb.Buff = 20;
         buffAb.TargetStat = "MaxMana";
 
-        //act & assert
+        //act && assert
+        Assert.Throws<ArgumentException>(() => buffAb.Use(firstP, secondP));
+    }
+
+    [TestMethod]
+    public void Use_Attack_Test()
+    {
+        //arrange
+        Player firstP = new Player("name");
+        firstP.Attack = 10;
+        Player secondP = new Player("name");
+        BuffAbility buffAb = new BuffAbility();
+        buffAb.Buff = 80;
+        buffAb.TargetStat = "Attack";
+
+        //act
+        buffAb.Use(firstP, secondP);
+
+        int actual = firstP.Attack;
+        int expected = 90;
+
+        //assert
+        Assert.AreEqual(expected, actual);
+    }
+
+    [TestMethod]
+    public void Use_Attack_NegativeValue_Test()
+    {
+        //arrange
+        Player firstP = new Player("name");
+        firstP.Attack = -200;
+        Player secondP = new Player("name");
+        BuffAbility buffAb = new BuffAbility();
+        buffAb.Buff = 50;
+        buffAb.TargetStat = "Attack";
+
+        //act && assert
+        Assert.Throws<ArgumentException>(() => buffAb.Use(firstP, secondP));
+    }
+    [TestMethod]
+    public void Use_Defense_Test()
+    {
+        //arrange
+        Player firstP = new Player("name");
+        firstP.Defense = 60;
+        Player secondP = new Player("name");
+        BuffAbility buffAb = new BuffAbility();
+        buffAb.Buff = 40;
+        buffAb.TargetStat = "Defense";
+
+        //act
+        buffAb.Use(firstP, secondP);
+
+        int actual = firstP.Defense;
+            int expected = 100;
+
+        //assert
+        Assert.AreEqual(expected, actual);
+    }
+    [TestMethod]
+    public void Use_Defense_NegativeValue_Test()
+    {
+        //arrange
+        Player firstP = new Player("name");
+        firstP.Defense = -2;
+        Player secondP = new Player("name");
+        BuffAbility buffAb = new BuffAbility();
+        buffAb.Buff = 30;
+        buffAb.TargetStat = "Defense";
+
+        //act && assert
         Assert.Throws<ArgumentException>(() => buffAb.Use(firstP, secondP));
     }
 }
