@@ -4,7 +4,7 @@ using Core.ItemsAndAbilities;
 namespace EnemyTest
 {
     [TestClass]
-    public sealed class TestCore 
+    public class EnemyTest 
     {
         [TestMethod]
         public void Enemy_InitializedAbilitiesCount()
