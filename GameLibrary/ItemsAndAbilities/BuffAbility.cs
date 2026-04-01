@@ -21,11 +21,24 @@ namespace Core.ItemsAndAbilities
         {
             if (TargetStat == "MaxHealth")
             {
-                player.MaxHealth += Buff;
+                if (player.MaxHealth < 0)
+                { 
+                    throw new ArgumentException();
+                }
+                else { 
+                    player.MaxHealth += Buff;
+                     }
             }
             else if (TargetStat == "MaxMana")
             {
-                player.MaxMana += Buff;
+                if (player.MaxMana < 0)
+                {
+                    throw new ArgumentException();
+                }
+                else
+                {
+                    player.MaxMana += Buff;
+                }
             }
             else if (TargetStat == "Attack")
             {

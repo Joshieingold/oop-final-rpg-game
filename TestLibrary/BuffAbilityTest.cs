@@ -23,7 +23,7 @@ public class BuffAbilityTest
     }
 
     [TestMethod]
-    public void Use_MaxHealth()
+    public void Use_MaxHealth_Test()
     {
         //arrange
         Player firstP = new Player("name");
@@ -43,7 +43,7 @@ public class BuffAbilityTest
         Assert.AreEqual(expected, actual);
     }
     [TestMethod]
-    public void Use_MaxHealth_Negative()
+    public void Use_MaxHealth_NegativeValue_Test()
     {
         //arrange
         Player firstP = new Player("name");
@@ -53,13 +53,41 @@ public class BuffAbilityTest
         buffAb.Buff = 30;
         buffAb.TargetStat = "MaxHealth";
 
+        //act & assert
+        Assert.Throws<ArgumentException>(() => buffAb.Use(firstP, secondP));
+    }
+    [TestMethod]
+    public void Use_MaxMana_Test()
+    {
+        //arrange
+        Player firstP = new Player("name");
+        firstP.MaxMana = 40;
+        Player secondP = new Player("name");
+        BuffAbility buffAb = new BuffAbility();
+        buffAb.Buff = 70;
+        buffAb.TargetStat = "MaxMana";
+
         //act
         buffAb.Use(firstP, secondP);
 
-        int actual = firstP.MaxHealth;
-        int expected = 10;
+        int actual = firstP.MaxMana;
+        int expected = 110;
 
         //assert
+        Assert.AreEqual(expected, actual);
+    }
+    [TestMethod]
+    public void Use_MaxMana_NegativeValue_Test()
+    {
+        //arrange
+        Player firstP = new Player("name");
+        firstP.MaxMana = -30;
+        Player secondP = new Player("name");
+        BuffAbility buffAb = new BuffAbility();
+        buffAb.Buff = 20;
+        buffAb.TargetStat = "MaxMana";
+
+        //act & assert
         Assert.Throws<ArgumentException>(() => buffAb.Use(firstP, secondP));
     }
 }
