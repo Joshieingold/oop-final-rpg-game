@@ -21,22 +21,25 @@ public class BuffAbilityTest
         //assert
         Assert.AreEqual(expected, actual);
     }
-    //we'll come back to this
 
-    /*[TestMethod]
+    [TestMethod]
     public void Use_MaxHealth()
     {
         //arrange
-        Fighter player;
-        Fighter enemy;
+        Player p1 = new Player("test");
+        p1.MaxHealth = 20; // Hist max health is 20
+        Player p2 = new Player("test");
         BuffAbility buffAb = new BuffAbility();
-        buffAb.Buff = 30;
+        buffAb.Buff = 30; // we add 30 to it so it should be 50;
         buffAb.TargetStat = "MaxHealth";
-        
+
         //act
-        int expected = player.MaxHealth += buffAb.Buff;
+        buffAb.Use(p1, p2);
+
+        int actual = p1.MaxHealth; // Check what we got after using it
+        int expected = 50; // should be 50
 
         //assert
+        Assert.AreEqual(expected, actual);
     }
-    */
 }
