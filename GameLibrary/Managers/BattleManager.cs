@@ -10,6 +10,24 @@ namespace Core.Managers
     public class BattleManager
     {
         public Fighter CurrentPlayer { get; set; }
+        private int _reward;
+        public int Reward
+        {
+            get { return _reward; }
+            set
+            {
+                if (value < 0)
+                {
+                    _reward = 0;
+                }
+                else
+                {
+                    _reward = value;
+                }
+
+            }
+
+        }
         public Fighter CurrentEnemy { get; set; }
         public Fight CurrentFight { get; set; }
         public BattleState CurrentState { get; set; }
@@ -19,6 +37,7 @@ namespace Core.Managers
             CurrentEnemy = inEnemy;
             CurrentPlayer = inPlayer;
             CurrentState = BattleState.PlayerTurn;
+            Reward = new Random().Next(20);
             RollPointers();
         }
         public void DoPlayerMove(IAbility chosenAbility)
@@ -38,6 +57,7 @@ namespace Core.Managers
             {
                 DoEnemyMove();
             }
+            Reward -= 2;
         }
         private void DoEnemyMove()
         {
@@ -86,6 +106,10 @@ namespace Core.Managers
             else if (CurrentEnemy.Health <= 0)
             {
                 CurrentState = BattleState.Victory;
+                if (CurrentPlayer is Player p)
+                {
+                    p.Money += Reward;
+                }
             }
             else if (CurrentState == BattleState.EnemyTurn)
             {
