@@ -5,14 +5,23 @@ using GameData;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Core.Entities
 {
-    public class Enemy : Fighter
+    public class Enemy : Fighter, IComparable<Enemy>
     {
         private int _maxMoves;
         private ProgLang _errorType;
 
+        public int CompareTo(Enemy other)
+        {
+            if (other == null) return 1;
+
+            int thisCmp = (this.Attack + this.Defense + this.Mana + this.Abilities.Count) / 4;
+            int otherCmp = (other.Attack + other.Defense + other.Mana + other.Abilities.Count) / 4;
+            return thisCmp.CompareTo(otherCmp);
+        }
         // Max moves creates a new list of abilities of that length
         public int MaxMoves
         {

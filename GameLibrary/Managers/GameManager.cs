@@ -14,7 +14,7 @@ namespace Core.Managers
         public const int GAME_ROUNDS = 8;
         public GameState CurrentState { get; private set; }
         public Player CurrentPlayer { get; set; }
-        public List<Enemy> AllEnemies = new EnemyFactory().RequestXNewEnemies(GAME_ROUNDS);
+        public List<Enemy> AllEnemies { get; set; }
         public BattleManager CurrentBattleManager { get; set; }
         public ShopManager CurrentShopManager { get; set; }
         public int Round { get; set; }
@@ -25,6 +25,8 @@ namespace Core.Managers
             CurrentState = GameState.Shop;
             Round = 1;
             CurrentShopManager = new ShopManager();
+            AllEnemies = new EnemyFactory().RequestXNewEnemies(GAME_ROUNDS);
+            AllEnemies.Sort(); // Sorted for difficulty
         }
         public Enemy GetCurrentEnemy()
         {
