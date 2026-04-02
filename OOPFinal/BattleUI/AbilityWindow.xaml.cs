@@ -27,14 +27,15 @@ namespace UI.BattleUI
         public void UpdateUI()
         {
             // Update the cards
-            txtAbility_0.Content = ManagerRef.CurrentPlayer.Abilities[0];
-            txtAbility_1.Content = ManagerRef.CurrentPlayer.Abilities[1];
-            txtAbility_2.Content = ManagerRef.CurrentPlayer.Abilities[2];
-            txtAbility_3.Content = ManagerRef.CurrentPlayer.Abilities[3];
-            imgAbility_0.Source = SpriteHandler.CreateSprite(ManagerRef.CurrentPlayer.Abilities[0].Sprite);
-            imgAbility_1.Source = SpriteHandler.CreateSprite(ManagerRef.CurrentPlayer.Abilities[0].Sprite);
-            imgAbility_2.Source = SpriteHandler.CreateSprite(ManagerRef.CurrentPlayer.Abilities[0].Sprite);
-            // Update the parent
+            txtAbility_0.Content = ManagerRef.CurrentPlayer.Abilities[ManagerRef.PlayerHandIndexs[0]];
+            txtAbility_1.Content = ManagerRef.CurrentPlayer.Abilities[ManagerRef.PlayerHandIndexs[1]];
+            txtAbility_2.Content = ManagerRef.CurrentPlayer.Abilities[ManagerRef.PlayerHandIndexs[2]];
+            txtAbility_3.Content = ManagerRef.CurrentPlayer.Abilities[ManagerRef.PlayerHandIndexs[3]];
+
+            imgAbility_0.Source = SpriteHandler.CreateSprite(ManagerRef.CurrentPlayer.Abilities[ManagerRef.PlayerHandIndexs[0]].Sprite);
+            imgAbility_1.Source = SpriteHandler.CreateSprite(ManagerRef.CurrentPlayer.Abilities[ManagerRef.PlayerHandIndexs[1]].Sprite);
+            imgAbility_2.Source = SpriteHandler.CreateSprite(ManagerRef.CurrentPlayer.Abilities[ManagerRef.PlayerHandIndexs[2]].Sprite);
+            imgAbility_3.Source = SpriteHandler.CreateSprite(ManagerRef.CurrentPlayer.Abilities[ManagerRef.PlayerHandIndexs[3]].Sprite);
 
         }
         public void OnUpdateParentUI(EventArgs e)
@@ -52,9 +53,8 @@ namespace UI.BattleUI
                     string itemType = splitData[0];
                     int itemIndex = Convert.ToInt32(splitData[1]);
                     Console.Write(ManagerRef.CurrentPlayer.Name);
-                    ManagerRef.DoPlayerMove(ManagerRef.CurrentPlayer.Abilities[itemIndex]);
-                    ManagerRef.CurrentPlayer.Abilities.Shuffle();
-                    ManagerRef.UpdatePlayerHand();
+                    ManagerRef.DoPlayerMove(ManagerRef.CurrentPlayer.Abilities[ManagerRef.PlayerHandIndexs[itemIndex]]);
+                    ManagerRef.RollPointers();
                     UpdateUI();
                     OnUpdateParentUI(EventArgs.Empty);
                 }

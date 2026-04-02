@@ -19,7 +19,7 @@ namespace Core.Managers
             CurrentEnemy = inEnemy;
             CurrentPlayer = inPlayer;
             CurrentState = BattleState.PlayerTurn;
-            UpdatePlayerHand();
+            RollPointers();
         }
         public void DoPlayerMove(IAbility chosenAbility)
         {
@@ -39,10 +39,6 @@ namespace Core.Managers
                 DoEnemyMove();
             }
         }
-        public void UpdatePlayerHand()
-        {
-            CurrentPlayer.Abilities.Shuffle();
-        }
         private void DoEnemyMove()
         {
             if (CurrentState != BattleState.EnemyTurn)
@@ -59,6 +55,27 @@ namespace Core.Managers
                 CurrentPlayer = beatUpFighters[1];
                 CheckState();
             }
+        }
+        public void RollPointers()
+        {
+            PlayerHandIndexs = new List<int>();
+            int abilityRange = CurrentPlayer.Abilities.Count();
+            for (int i = 0; i < 4; i++)
+            {
+                bool foundNewNumber = false;
+                Random rand = new Random();
+                while (foundNewNumber != true)
+                {
+                    int newIndex = rand.Next(abilityRange);
+                    if (!PlayerHandIndexs.Contains(newIndex))
+                    {
+                        foundNewNumber = true;
+                        PlayerHandIndexs.Add(newIndex);
+
+                    }
+                }
+            }
+            Console.WriteLine(PlayerHandIndexs);
         }
         private void CheckState()
         {
