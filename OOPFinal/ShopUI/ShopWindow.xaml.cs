@@ -31,6 +31,8 @@ namespace UI.ShopUI
             CurrentSession = inSession;
             CurrentPlayer = CurrentSession.CurrentPlayer;
             CurrentShop = CurrentSession.CurrentShopManager;
+            // This should all be moved to onload
+            CurrentSession.UpdateState(Core.State.GameState.Shop);
             foreach (IAbility a in CurrentPlayer.Abilities)
             {
                 Console.WriteLine(a.ToString());
@@ -57,7 +59,7 @@ namespace UI.ShopUI
             }
             else
             {
-                lblUpcomingFight.Content = $"Next Class: {CurrentSession.AllEnemies[CurrentSession.Round].ErrorType}"; // THIS WILL CAUSE AN EXEPTION ON
+                lblUpcomingFight.Content = $"Next Class: {CurrentSession.AllEnemies[CurrentSession.Round].ErrorType}"; // THIS WILL CAUSE AN EXEPTION ON Round 8
             }
             ShowShopItems();
         }
