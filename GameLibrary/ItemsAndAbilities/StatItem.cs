@@ -23,7 +23,7 @@ namespace Core.ItemsAndAbilities
             if (player is Player p)
             {
                 // Take the money from the player and do the use;
-                Use(player);
+                Use(p);
                 return;
             }
             return;

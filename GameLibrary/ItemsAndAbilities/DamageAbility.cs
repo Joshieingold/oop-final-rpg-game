@@ -9,7 +9,7 @@ namespace Core.Items
     public sealed class DamageAbility : Ability
     {
         public int Damage { get; set; }
-        public List<ProgLang> StrongAgainst { get; set; } 
+        public List<ProgLang> StrongAgainst { get; set; }
 
         public override string ToString()
         {
@@ -33,10 +33,10 @@ namespace Core.Items
                         return;
                     }
                 }
-                        int otherdmg = ((attacker.Attack + Damage) - enemy.Defense);
-                        if (otherdmg < 0) return;
-                        enemy.Health -= otherdmg;
-                        return;
+                int otherdmg = ((attacker.Attack + Damage) - enemy.Defense);
+                if (otherdmg < 0) return;
+                enemy.Health -= otherdmg;
+                return;
             }
         }
     }
