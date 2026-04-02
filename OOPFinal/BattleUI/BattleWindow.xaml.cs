@@ -66,6 +66,10 @@ namespace UI
         {
             SetEnemyData();
             SetPlayerData();
+            if (CurrentSession.CurrentBattleManager.CurrentState == BattleState.Defeat || CurrentSession.CurrentBattleManager.CurrentState == BattleState.Victory)
+            {
+                this.Close();
+            }
         }
 
         // Sets UI Elements for the Enemy 
@@ -111,8 +115,24 @@ namespace UI
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             PlayerAbilities.Close();
-            ShopWindow sw = new ShopWindow(CurrentSession);
-            sw.Show();
+            if (CurrentSession.CurrentBattleManager.CurrentState == BattleState.Victory)
+            {
+                if (CurrentSession.Round == 8)
+                {
+                    GameOverWindow winner = new GameOverWindow("w");
+                    winner.Show();
+                }
+                else
+                {
+                    ShopWindow sw = new ShopWindow(CurrentSession);
+                    sw.Show();
+                }
+            }
+            else if (CurrentSession.CurrentBattleManager.CurrentState == BattleState.Defeat)
+            {
+                GameOverWindow loser = new GameOverWindow("l");
+                loser.Show();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
