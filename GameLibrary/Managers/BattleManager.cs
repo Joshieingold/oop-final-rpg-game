@@ -111,6 +111,7 @@ namespace Core.Managers
             if (CurrentPlayer.Health <= 0)
             {
                 CurrentState = BattleState.Defeat;
+
             }
             else if (CurrentEnemy.Health <= 0)
             {

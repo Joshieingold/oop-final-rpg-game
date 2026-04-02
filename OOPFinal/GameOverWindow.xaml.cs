@@ -1,5 +1,7 @@
-﻿using System;
+﻿using GameData;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,14 +30,27 @@ namespace UI
             {
                 ShowLoser();
             }
+            LoadRecords();
+        }
+        private void LoadRecords()
+        {
+            lstRecords.Items.Clear();
+            string path = DataPasser.GeneralLocation() + "/GameRecord.txt";
+            string[] lines = File.ReadAllLines(path);
+
+            foreach (string line in lines)
+            {
+                lstRecords.Items.Add(line);
+            }
+
         }
         private void ShowWinner()
         {
-            Console.WriteLine("YOU WIN!");
+            lblResult.Content = "You Win!";
         }
         private void ShowLoser()
         {
-            Console.WriteLine("YOU LOSE!");
+            lblResult.Content = "YOU LOSE!";
         }
     }
 }

@@ -26,44 +26,45 @@ namespace Core.Managers
             Round = 1;
             CurrentShopManager = new ShopManager();
         }
-        // This doesnt need to be like that can jsut be a get set.
         public Enemy GetCurrentEnemy()
         {
             return AllEnemies[Round - 1];
         }
         public void UpdateState(GameState newState)
         {
-            switch (newState)
+            if (newState == GameState.Battle)
             {
-                case GameState.Battle:
-                    CurrentState = GameState.Battle;
-                    CurrentBattleManager = new BattleManager(CurrentPlayer, GetCurrentEnemy());
-                    break;
-                case GameState.Shop:
-                    CurrentState = GameState.Shop;
-                    CurrentShopManager = new ShopManager();
-                    break;
-                    // Oviously we need the defeat and victory case some day
+                CurrentState = GameState.Battle;
+                CurrentBattleManager = new BattleManager(CurrentPlayer, GetCurrentEnemy());
             }
+            else if (newState == GameState.Shop)
+            {
+                CurrentState = GameState.Shop;
+                CurrentShopManager = new ShopManager();
+            }
+            else if (newState == GameState.Victory)
+            {
+                CurrentState = GameState.Victory;
+                UploadGame();
 
+            }
+            else if (newState == GameState.Defeat)
+            {
+                CurrentState = GameState.Defeat;
+                UploadGame();
+            }
         }
-        private void OnGameOver()
+        private void UploadGame()
         {
-
-        }
-        private void OnBattleOver()
-        {
-
+            string newRecord = $"{CurrentState} | {CurrentPlayer.Name} | {DateTime.Now} | Round {Round} " + Environment.NewLine;
+            string path = DataPasser.GeneralLocation() + "GameRecord.txt";
+            File.AppendAllText(path, newRecord);
         }
         public void OnShopOver(Player updatedPlayer)
         {
             CurrentPlayer = updatedPlayer;
             Round++;
             CurrentShopManager = new ShopManager();
-        }
-        private void OnGameStart()
-        {
-
         }
         
     }

@@ -12,7 +12,7 @@
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Label x:Name="lblResult" Grid.Row="0" Content="You Won!" FontSize="32" Foreground="Gold" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+        <Label x:Name="lblResult" Grid.Row="0" FontSize="32" Foreground="Gold" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
@@ -20,7 +20,7 @@
             </Grid.RowDefinitions>
 
             <Label Content="Previous Game Data" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Foreground="{StaticResource forgroundColor}" FontSize="16"></Label>
-            <ListBox Grid.Row="1" Margin="12px"></ListBox>
+            <ListBox x:Name="lstRecords" Grid.Row="1" Margin="12px" Background="{StaticResource bubbleColor}" Foreground="{StaticResource forgroundColor}"></ListBox>
         </Grid>
         <Button Grid.Row="2" Content="Thanks For Playing!" Width="200px" Height="70px" Background="{StaticResource bubbleColor}" Foreground="{StaticResource forgroundColor}"></Button>
 

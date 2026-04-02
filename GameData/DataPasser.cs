@@ -22,5 +22,9 @@ namespace GameData
         {
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
         }
+        public static string GeneralLocation()
+        {
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
+        }
     }
 }

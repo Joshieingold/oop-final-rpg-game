@@ -119,6 +119,7 @@ namespace UI
             {
                 if (CurrentSession.Round == 8)
                 {
+                    CurrentSession.UpdateState(GameState.Victory);
                     GameOverWindow winner = new GameOverWindow("w");
                     winner.Show();
                 }
@@ -130,6 +131,7 @@ namespace UI
             }
             else if (CurrentSession.CurrentBattleManager.CurrentState == BattleState.Defeat)
             {
+                CurrentSession.UpdateState(GameState.Defeat);
                 GameOverWindow loser = new GameOverWindow("l");
                 loser.Show();
             }
