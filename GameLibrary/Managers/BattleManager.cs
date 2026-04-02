@@ -26,7 +26,6 @@ namespace Core.Managers
                 }
 
             }
-
         }
         public Fighter CurrentEnemy { get; set; }
         public Fight CurrentFight { get; set; }

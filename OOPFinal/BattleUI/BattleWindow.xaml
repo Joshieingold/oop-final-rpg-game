@@ -71,13 +71,13 @@
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Label x:Name="lblPlayerName" Foreground="{StaticResource forgroundColor}" Grid.Column="1" HorizontalAlignment="Center"></Label>
-                            <Label x:Name="lblTurn" Foreground="{StaticResource forgroundColor}" Grid.Column="0" HorizontalAlignment="Center"></Label>
+                            <Label x:Name="lblReward" Foreground="{StaticResource forgroundColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
                             <Label x:Name="lblPlayerAttack" Foreground="{StaticResource forgroundColor}" Grid.Column="3" HorizontalAlignment="Center"></Label>
                             <Label x:Name="lblPlayerDefense" Foreground="{StaticResource forgroundColor}" Grid.Column="2" HorizontalAlignment="Center"></Label>
                         </Grid>

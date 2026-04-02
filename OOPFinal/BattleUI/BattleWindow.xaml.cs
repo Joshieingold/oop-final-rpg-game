@@ -85,7 +85,6 @@ namespace UI
         private void SetPlayerData()
         {
             picPlayerSprite.Source = SpriteHandler.CreateSprite(currentPlayer.PlayerSprite);
-            lblTurn.Content = CurrentSession.CurrentBattleManager.CurrentState.ToString();
             lblPlayerName.Content = currentPlayer.Name;
             lblPlayerHealth.Content = $"{currentPlayer.Health}/{currentPlayer.MaxHealth}";
             lblPlayerMana.Content = $"{currentPlayer.Mana}/{currentPlayer.MaxMana}";
@@ -97,6 +96,7 @@ namespace UI
             progPlayerMana.Maximum = currentPlayer.MaxMana;
             progPlayerMana.Minimum = 0;
             progPlayerMana.Value = currentPlayer.Mana;
+            lblReward.Content = $"Remaining Class Time: {CurrentSession.CurrentBattleManager.Reward}";
         }
         private async Task DisplayEnemyAttack()
         {
