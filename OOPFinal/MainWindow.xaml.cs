@@ -16,7 +16,7 @@ namespace GameUI
 {
     public partial class MainWindow : Window
     {
-        GameManager gameSession { get; set; }
+        public GameManager gameSession { get; set; }
         public MainWindow()
         {
             InitializeComponent();
