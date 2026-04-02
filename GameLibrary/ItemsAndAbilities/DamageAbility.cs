@@ -34,6 +34,8 @@ namespace Core.Items
                     }
                 }
                 int otherdmg = ((attacker.Attack + Damage) - enemy.Defense);
+                
+                attacker.Mana -= ManaCost;
                 if (otherdmg < 0) return;
                 enemy.Health -= otherdmg;
                 return;

@@ -50,6 +50,7 @@ namespace Core.ItemsAndAbilities
                 }
                 player.Defense += Buff;
             }
+            player.Mana -= ManaCost;
         }
     }
 }
