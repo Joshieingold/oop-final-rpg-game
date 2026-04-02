@@ -38,7 +38,7 @@ namespace UI.BattleUI
             imgAbility_3.Source = SpriteHandler.CreateSprite(ManagerRef.CurrentPlayer.Abilities[ManagerRef.PlayerHandIndexs[3]].Sprite);
 
         }
-        public void OnUpdateParentUI(EventArgs e)
+        public async void OnUpdateParentUI(EventArgs e)
         {
             UpdateParentUI.Invoke(this, e);
         }

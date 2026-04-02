@@ -4,6 +4,7 @@ using Core.State;
 using System.Security.Policy;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using UI.BattleUI;
 using UI.ShopUI;
 using UI.Utils;
@@ -40,10 +41,11 @@ namespace UI
             MoveWindowLocations();
             UpdateUI();
         }
-        private void OnRequestUpdateUI(object? sender, EventArgs e)
+        private async void OnRequestUpdateUI(object? sender, EventArgs e)
         {
-            Console.WriteLine("HIT!");
+            await DisplayEnemyAttack();
             UpdateUI();
+
         }
         private void MoveWindowLocations()
         {
@@ -70,7 +72,7 @@ namespace UI
         // Sets UI Elements for the Enemy 
         private void SetEnemyData()
         {
-            picEnemySprite.Source = SpriteHandler.CreateSprite(currentEnemy.EnemySprite); // TEMP, THIS SHOULD BE SET BASED ON THE ENEMY NAME 
+            picEnemySprite.Source = SpriteHandler.CreateSprite(currentEnemy.EnemySprite);
             lblEnemyName.Content= currentEnemy.Name;
             progEnemyHealth.Maximum = currentEnemy.MaxHealth;
             progEnemyHealth.Minimum = 0;
@@ -96,6 +98,15 @@ namespace UI
             progPlayerMana.Maximum = currentPlayer.MaxMana;
             progPlayerMana.Minimum = 0;
             progPlayerMana.Value = currentPlayer.Mana;
+        }
+        private async Task DisplayEnemyAttack()
+        {
+            var bubbleBrush = (SolidColorBrush)this.FindResource("bubbleColor");
+            lblEnemyAbilityText.Background = bubbleBrush;
+            lblEnemyAbilityText.Content = "Test";
+            await Task.Delay(1000);
+            lblEnemyAbilityText.Background = Brushes.Transparent;
+            lblEnemyAbilityText.Content = "";
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
