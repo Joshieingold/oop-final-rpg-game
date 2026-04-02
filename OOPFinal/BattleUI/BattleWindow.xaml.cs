@@ -88,6 +88,8 @@ namespace UI
             lblPlayerName.Content = currentPlayer.Name;
             lblPlayerHealth.Content = $"{currentPlayer.Health}/{currentPlayer.MaxHealth}";
             lblPlayerMana.Content = $"{currentPlayer.Mana}/{currentPlayer.MaxMana}";
+            lblPlayerAttack.Content = $"⚔: {currentPlayer.Attack.ToString()}";
+            lblPlayerDefense.Content = $"⛉: {currentPlayer.Defense.ToString()}";
             progPlayerHealth.Maximum = currentPlayer.MaxHealth;
             progPlayerHealth.Minimum = 0;
             progPlayerHealth.Value = currentPlayer.Health;
