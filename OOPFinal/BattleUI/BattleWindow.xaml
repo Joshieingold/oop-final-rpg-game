@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
         RenderOptions.BitmapScalingMode="NearestNeighbor"
-        Title="Battle" Height="450" Width="800" Closing="Window_Closing" WindowStartupLocation="CenterScreen" >
+        Title="Battle" Height="650" Width="1200" Closing="Window_Closing" >
     <Grid Background="{StaticResource backgroundColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"></ColumnDefinition>
@@ -50,6 +50,7 @@
                     </Grid.RowDefinitions>
                     <Ellipse Fill="{StaticResource bubbleColor}" Margin="40,199,40,67" Grid.RowSpan="2"/>
                     <Image x:Name="picEnemySprite" Grid.Row="0" />
+                    <Label x:Name="lblEnemyAbilityText"  Margin="40px" Foreground="{StaticResource forgroundColor}" FontSize="12pt"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1"></Label>
                 </Grid>
             </Grid>
         </Grid>
@@ -70,11 +71,15 @@
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Label x:Name="lblPlayerName" Foreground="{StaticResource forgroundColor}" Grid.Column="1" HorizontalAlignment="Center"></Label>
-                            <Label x:Name="lblTurn" Foreground="{StaticResource forgroundColor}" Grid.Column="0" HorizontalAlignment="Center"></Label>
+                            <Label x:Name="lblReward" Foreground="{StaticResource forgroundColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
+                            <Label x:Name="lblPlayerAttack" Foreground="{StaticResource forgroundColor}" Grid.Column="3" HorizontalAlignment="Center"></Label>
+                            <Label x:Name="lblPlayerDefense" Foreground="{StaticResource forgroundColor}" Grid.Column="2" HorizontalAlignment="Center"></Label>
                         </Grid>
                         <Grid Grid.Row="1">
                             <Grid Margin="20,0,20,10">
@@ -108,12 +113,6 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Button Grid.Column="2" Content="Button" HorizontalAlignment="Left" Margin="0,409,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
-        <!-- 
-        DEBUG BUTTONS
-            <Button Content="CPU Attack" HorizontalAlignment="Left" Margin="291,398,0,0" VerticalAlignment="Top" Width="217" Grid.ColumnSpan="2" Click="Button_Click_1"/>
-            <Button Content="Player Attack" HorizontalAlignment="Left" Margin="291,373,0,0" VerticalAlignment="Top" Width="216" Click="Button_Click" Grid.ColumnSpan="2"/>
-        -->
     </Grid>
 </Window>

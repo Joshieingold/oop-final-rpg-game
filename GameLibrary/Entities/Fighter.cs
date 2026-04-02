@@ -31,7 +31,7 @@ namespace Core.Entities
         }
         public bool ValidateAbility(IAbility chosenAbility)
         {
-            if (this.Mana - chosenAbility.GetManaCost() < 0) return false;
+            if (this.Mana - chosenAbility.GetManaCost() < 0) return false; // Likely dont need to be using a method for this
             if (!this.Abilities.Contains(chosenAbility)) return false;
             return true;
         }

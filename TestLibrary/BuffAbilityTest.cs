@@ -28,6 +28,8 @@ public class BuffAbilityTest
     {
         //arrange
         Player p1 = new Player("test");
+        p1.MaxHealth = 20;
+        Console.WriteLine(p1.MaxHealth);
         Player p2 = new Player("test");
         p1.MaxHealth = 20;
         BuffAbility buffAb = new BuffAbility();
