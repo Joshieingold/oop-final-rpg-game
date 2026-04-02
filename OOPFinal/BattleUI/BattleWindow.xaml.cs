@@ -1,7 +1,9 @@
 ﻿using Core.Entities;
 using Core.Managers;
 using Core.State;
+using System.Security.Policy;
 using System.Windows;
+using System.Windows.Controls;
 using UI.BattleUI;
 using UI.ShopUI;
 using UI.Utils;
@@ -10,7 +12,7 @@ namespace UI
 {
     public partial class BattleWindow : Window
     {
-        GameManager CurrentSession { get; set; }
+        private GameManager CurrentSession { get; set; }
         private Player currentPlayer {get; set;}
         private Enemy currentEnemy {get; set;}
         public AbilityWindow PlayerAbilities { get; set; }
@@ -19,10 +21,11 @@ namespace UI
         {
             InitializeComponent();
             CurrentSession = inManager;
-            PlayerAbilities = new AbilityWindow();
+            CurrentSession.UpdateState(GameState.Battle);
+            PlayerAbilities = new AbilityWindow(CurrentSession.CurrentBattleManager);
+            PlayerAbilities.UpdateParentUI += OnRequestUpdateUI;
             PlayerAbilities.Show();
 
-            CurrentSession.UpdateState(GameState.Battle);
             // Initialize the current Variables
             if (inManager.CurrentBattleManager.CurrentPlayer is Player p)
             {
@@ -35,6 +38,11 @@ namespace UI
 
             // Update UI
             MoveWindowLocations();
+            UpdateUI();
+        }
+        private void OnRequestUpdateUI(object? sender, EventArgs e)
+        {
+            Console.WriteLine("HIT!");
             UpdateUI();
         }
         private void MoveWindowLocations()
@@ -90,6 +98,7 @@ namespace UI
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            PlayerAbilities.Close();
             ShopWindow sw = new ShopWindow(CurrentSession);
             sw.Show();
         }

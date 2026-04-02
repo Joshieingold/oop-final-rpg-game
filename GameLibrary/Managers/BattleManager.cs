@@ -13,11 +13,13 @@ namespace Core.Managers
         public Fighter CurrentEnemy { get; set; }
         public Fight CurrentFight { get; set; }
         public BattleState CurrentState { get; set; }
+        public List<int> PlayerHandIndexs { get; set; }
         public BattleManager(Player inPlayer, Enemy inEnemy)
         {
             CurrentEnemy = inEnemy;
             CurrentPlayer = inPlayer;
             CurrentState = BattleState.PlayerTurn;
+            UpdatePlayerHand();
         }
         public void DoPlayerMove(IAbility chosenAbility)
         {
@@ -36,6 +38,10 @@ namespace Core.Managers
             {
                 DoEnemyMove();
             }
+        }
+        public void UpdatePlayerHand()
+        {
+            CurrentPlayer.Abilities.Shuffle();
         }
         private void DoEnemyMove()
         {
@@ -72,14 +78,6 @@ namespace Core.Managers
             {
                 CurrentState = BattleState.EnemyTurn;
             }
-        }
-        private void GetUpdatedFighters()
-        {
-
-        }
-        private Fighter RequestPlayer()
-        {
-            return CurrentPlayer;
         }
     }
 }
