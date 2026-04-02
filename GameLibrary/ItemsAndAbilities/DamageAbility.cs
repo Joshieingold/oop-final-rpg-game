@@ -29,6 +29,7 @@ namespace Core.Items
                     {
                         int foundDamage = ((attacker.Attack + Damage * 2) - enemy.Defense);
                         if (foundDamage < 0) return;
+                        attacker.Mana -= ManaCost;
                         enemy.Health -= foundDamage;
                         return;
                     }
