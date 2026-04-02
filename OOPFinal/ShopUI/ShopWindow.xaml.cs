@@ -31,6 +31,7 @@ namespace UI.ShopUI
             CurrentSession = inSession;
             CurrentPlayer = CurrentSession.CurrentPlayer;
             CurrentShop = CurrentSession.CurrentShopManager;
+            CurrentSession.UpdateState(Core.State.GameState.Shop);
             foreach (IAbility a in CurrentPlayer.Abilities)
             {
                 Console.WriteLine(a.ToString());

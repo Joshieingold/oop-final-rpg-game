@@ -2,6 +2,7 @@
 using Core.Managers;
 using Core.State;
 using System.Windows;
+using UI.BattleUI;
 using UI.ShopUI;
 using UI.Utils;
 
@@ -12,11 +13,14 @@ namespace UI
         GameManager CurrentSession { get; set; }
         private Player currentPlayer {get; set;}
         private Enemy currentEnemy {get; set;}
+        public AbilityWindow PlayerAbilities { get; set; }
 
         public BattleWindow(GameManager inManager) // Uses reference for the player, this will be useful for the shop
         {
             InitializeComponent();
             CurrentSession = inManager;
+            PlayerAbilities = new AbilityWindow();
+            PlayerAbilities.Show();
 
             CurrentSession.UpdateState(GameState.Battle);
             // Initialize the current Variables
@@ -30,7 +34,16 @@ namespace UI
             }
 
             // Update UI
+            MoveWindowLocations();
             UpdateUI();
+        }
+        private void MoveWindowLocations()
+        {
+            int heightOffsetValue = 200;
+            this.Left = (SystemParameters.WorkArea.Width - this.Width) / 2;
+            this.Top = (SystemParameters.WorkArea.Height - (this.Height + heightOffsetValue - 50)) / 2;
+            PlayerAbilities.Left = (SystemParameters.WorkArea.Width - this.Width) / 2;
+            PlayerAbilities.Top = (SystemParameters.WorkArea.Height - (this.Height - heightOffsetValue - PlayerAbilities.Height )) ;
         }
 
         // Updates the UI from the childs ping
