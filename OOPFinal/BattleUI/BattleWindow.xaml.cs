@@ -64,7 +64,6 @@ namespace UI
         // Updates all UI Elements with reference data
         private void UpdateUI()
         {
-            //lblTurn.Content = CurrentSession.CurrentBattleManager.CurrentFight.ToString();
             SetEnemyData();
             SetPlayerData();
         }
@@ -103,8 +102,8 @@ namespace UI
         {
             var bubbleBrush = (SolidColorBrush)this.FindResource("bubbleColor");
             lblEnemyAbilityText.Background = bubbleBrush;
-            lblEnemyAbilityText.Content = "Test";
-            await Task.Delay(1000);
+            lblEnemyAbilityText.Content = CurrentSession.CurrentBattleManager.GetLastAttackString();
+            await Task.Delay(1500);
             lblEnemyAbilityText.Background = Brushes.Transparent;
             lblEnemyAbilityText.Content = "";
         }

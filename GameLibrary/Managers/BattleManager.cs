@@ -31,6 +31,7 @@ namespace Core.Managers
         public Fighter CurrentEnemy { get; set; }
         public Fight CurrentFight { get; set; }
         public BattleState CurrentState { get; set; }
+        private string lastEnemyAttackString { get; set; }
         public List<int> PlayerHandIndexs { get; set; }
         public BattleManager(Player inPlayer, Enemy inEnemy)
         {
@@ -57,24 +58,33 @@ namespace Core.Managers
             {
                 DoEnemyMove();
             }
+            else if (CurrentState == BattleState.Victory)
+            {
+                lastEnemyAttackString = $"{CurrentEnemy.Name} Has been debugged!";
+            }
             Reward -= 2;
         }
         private void DoEnemyMove()
         {
             if (CurrentState != BattleState.EnemyTurn)
             {
+                lastEnemyAttackString = $"{CurrentEnemy.Name} Has been debugged!";
                 return;
             } 
             if (CurrentEnemy is Enemy e)
             {
                 IAbility chosenAbility = e.ChooseRandomAbility();
-                Console.WriteLine($"{CurrentEnemy.Name} Used {chosenAbility.Name} to {chosenAbility.ToString()}");
+                lastEnemyAttackString = ($"{CurrentEnemy.Name} Used {chosenAbility.Name} to {chosenAbility.ToString()}");
                 CurrentFight = new Fight(CurrentEnemy, CurrentPlayer, chosenAbility);
                 List<Fighter> beatUpFighters = CurrentFight.GetUpdatedFighters();
                 CurrentEnemy = beatUpFighters[0];
                 CurrentPlayer = beatUpFighters[1];
                 CheckState();
             }
+        }
+        public string GetLastAttackString()
+        {
+            return lastEnemyAttackString;
         }
         public void RollPointers()
         {
