@@ -103,14 +103,23 @@ namespace UI.ShopUI
             txtAbility_0.Content = CurrentShop.AvailableAbilities[0].Name;
             txtAbility_1.Content = CurrentShop.AvailableAbilities[1].Name;
             txtAbility_2.Content = CurrentShop.AvailableAbilities[2].Name;
+
             imgAbility_0.Source = SpriteHandler.CreateSprite(CurrentShop.AvailableAbilities[0].Sprite);
             imgAbility_1.Source = SpriteHandler.CreateSprite(CurrentShop.AvailableAbilities[1].Sprite);
             imgAbility_2.Source = SpriteHandler.CreateSprite(CurrentShop.AvailableAbilities[2].Sprite);
 
+            imgAbility_0.ToolTip = CurrentShop.AvailableAbilities[0].ToString();
+            imgAbility_1.ToolTip = CurrentShop.AvailableAbilities[1].ToString();
+            imgAbility_2.ToolTip = CurrentShop.AvailableAbilities[2].ToString();
+
             txtStatItem_0.Content = CurrentShop.AvailableStatItems[0].Name;
             txtStatItem_1.Content = CurrentShop.AvailableStatItems[1].Name;
+
             imgStatItem_0.Source = SpriteHandler.CreateSprite(CurrentShop.AvailableStatItems[0].Sprite);
             imgStatItem_1.Source = SpriteHandler.CreateSprite(CurrentShop.AvailableStatItems[1].Sprite);
+
+            imgStatItem_0.ToolTip = CurrentShop.AvailableStatItems[0].ToString();
+            imgStatItem_1.ToolTip = CurrentShop.AvailableStatItems[1].ToString();
         }
         private void TryLearn(string type, int index)
         {
