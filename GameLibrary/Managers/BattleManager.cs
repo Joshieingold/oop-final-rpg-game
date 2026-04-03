@@ -38,6 +38,7 @@ namespace Core.Managers
             CurrentPlayer = inPlayer;
             CurrentState = BattleState.PlayerTurn;
             Reward = new Random().Next(20);
+            CurrentPlayer.Mana = CurrentPlayer.MaxMana;
             RollPointers();
         }
         public void DoPlayerMove(IAbility chosenAbility)

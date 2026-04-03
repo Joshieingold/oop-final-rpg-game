@@ -55,7 +55,7 @@ namespace Core.Factories
         }
         private int GetRandomManaCost()
         {
-            return rand.Next(100);
+            return rand.Next(20);
         }
         private int GetRandomPrice()
         {
