@@ -16,7 +16,7 @@ namespace Core.ItemsAndAbilities
         }
         public override void Use(Fighter player, Fighter enemy)
         {
-            if (player.MaxHealth + Boost > player.MaxHealth)
+            if (player.Health + Boost > player.MaxHealth)
             {
                 player.Health = player.MaxHealth;
             }
@@ -24,6 +24,7 @@ namespace Core.ItemsAndAbilities
             {
                 player.Health += Boost;
             }
+            player.Mana -= ManaCost;
         }
     }
 }

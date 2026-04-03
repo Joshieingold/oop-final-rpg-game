@@ -29,11 +29,14 @@ namespace Core.Items
                     {
                         int foundDamage = ((attacker.Attack + Damage * 2) - enemy.Defense);
                         if (foundDamage < 0) return;
+                        attacker.Mana -= ManaCost;
                         enemy.Health -= foundDamage;
                         return;
                     }
                 }
                 int otherdmg = ((attacker.Attack + Damage) - enemy.Defense);
+                
+                attacker.Mana -= ManaCost;
                 if (otherdmg < 0) return;
                 enemy.Health -= otherdmg;
                 return;
