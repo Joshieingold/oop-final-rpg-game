@@ -140,7 +140,7 @@ public class FighterTest
         play.MaxMana = 10;
         play.Mana = 12;
 
-        int actual = play.Health;
+        int actual = play.Mana;
         int expected = 10;
 
         Assert.AreEqual(expected, actual);

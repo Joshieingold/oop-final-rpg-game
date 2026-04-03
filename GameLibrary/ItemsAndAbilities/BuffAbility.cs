@@ -8,7 +8,23 @@ namespace Core.ItemsAndAbilities
 {
     public sealed class BuffAbility : Ability
     {
-        public int Buff { get; set; }
+        private int _buff;
+        public int Buff
+        {
+            get { return _buff; }
+            set
+            {
+                if (value < 0)
+                {
+                    _buff = 0;
+                }
+                else
+                {
+                    _buff = value;
+                }
+            }
+
+        }
         public string TargetStat { get; set; }
 
         public override string ToString()

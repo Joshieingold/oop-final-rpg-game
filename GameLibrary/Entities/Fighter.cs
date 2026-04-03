@@ -8,13 +8,123 @@ namespace Core.Entities
 {
     public abstract class Fighter
     {
-        public int MaxHealth { get; set; }
-        public int Health { get; set; }
-        public int MaxMana { get; set; }
-        public int Mana { get; set; }
-        public string Name { get; set; }
-        public int Attack { get; set; }
-        public int Defense { get; set; }
+        private int _maxHealth;
+        public int MaxHealth
+        {
+            get { return _maxHealth; }
+            set
+            {
+                if (value < 0)
+                {
+                    _maxHealth = 0;
+                }
+                else
+                {
+                    _maxHealth = value;
+                }
+            }
+        }
+        private int _health;
+        public int Health
+        {
+            get { return _health; }
+            set
+            {
+                if (value < 0)
+                {
+                    _health = 0;
+                }
+                else if (value > MaxHealth)
+                {
+                    _health = MaxHealth;
+                }
+                else
+                {
+                    _health = value;
+                }
+
+            }
+        }
+        private int _maxMana;
+        public int MaxMana
+        {
+            get { return _maxMana; }
+            set
+            {
+                if (value < 0)
+                {
+                    _maxMana = 0;
+                }
+                else
+                {
+                    _maxMana = value;
+                }
+
+            }
+        }
+        private int _mana;
+        public int Mana
+        {
+            get { return _mana; }
+            set
+            {
+                if (value < 0)
+                {
+                    _mana = 0;
+                }
+                else if (value > MaxMana)
+                {
+                    _mana = MaxMana;
+                }
+                else
+                {
+                    _mana = value;
+                }
+            }
+        }
+        private string _name;
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (value == "")
+                { _name = "Unknown Programer"; }
+                else { _name = value; }
+            }
+        }
+        private int _attack;
+        public int Attack
+        {
+            get { return _attack; }
+            set
+            {
+                if (value < 0)
+                {
+                    _attack = 0;
+                }
+                else
+                {
+                    _attack = value;
+                }
+            }
+        }
+        private int _defense;
+        public int Defense
+        {
+            get { return _defense; }
+            set
+            {
+                if (value < 0)
+                {
+                    _defense = 0;
+                }
+                else
+                {
+                    _defense = value;
+                }
+            }
+        }
         public List<IAbility> Abilities { get; set; }
         public Fighter()
         {
