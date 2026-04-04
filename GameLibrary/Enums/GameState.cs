@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Core.State
+﻿namespace Core.State
 {
+    // Overall Gamestates for the lifecycle of the program.
     public enum GameState 
     {
         Battle,
