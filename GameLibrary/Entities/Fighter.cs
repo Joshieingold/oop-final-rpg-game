@@ -1,8 +1,4 @@
-﻿using Core.Items;
-using Core.ItemsAndAbilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Core.ItemsAndAbilities;
 
 namespace Core.Entities
 {
