@@ -69,11 +69,10 @@ namespace Core.Entities
         {
             if (!CheckCanAfford(item.Price))
             {
-                Console.WriteLine($"Cannot afford {item.Name}");
                 return;
             }
             item.Buy(this);
-            this.Money -= item.Price;
+            Money -= item.Price;
         }
     }
 }

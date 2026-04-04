@@ -105,7 +105,6 @@ namespace Core.Managers
                     }
                 }
             }
-            Console.WriteLine(PlayerHandIndexs);
         }
         private void CheckState()
         {

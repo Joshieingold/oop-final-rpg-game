@@ -49,9 +49,16 @@ namespace Core.Factories
         }
         private string GetRandomName()
         {
-            string[] names = File.ReadAllLines(DataPasser.EntityDataLocation("AbilityNames.txt"));
-            int maxIndex = names.Length;
-            return names[rand.Next(maxIndex)];
+            try
+            {
+                string[] names = File.ReadAllLines(DataPasser.EntityDataLocation("AbilityNames.txt"));
+                int maxIndex = names.Length;
+                return names[rand.Next(maxIndex)];
+            }
+            catch (Exception ex)
+            {
+                throw new FileNotFoundException();
+            }
         }
         private int GetRandomManaCost()
         {
@@ -73,8 +80,7 @@ namespace Core.Factories
                 case 2:
                     return new HealthAbility();
                 default:
-                    Console.WriteLine("There was an error creating an ability");
-                    return new DamageAbility();
+                    throw new KeyNotFoundException();
             }
         }
     }

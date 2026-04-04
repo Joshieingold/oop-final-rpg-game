@@ -82,8 +82,7 @@ namespace Core.Factories
                 case ProgLang.Bash:
                     return "Bash";
                 default:
-                    Console.WriteLine("ErrorName not found");
-                    return "Generic";
+                    throw new ArgumentException();
             }
 
         }

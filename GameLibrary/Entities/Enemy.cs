@@ -81,8 +81,7 @@ namespace Core.Entities
                 case ProgLang.Bash:
                     return "/CreatureArt/basher.png";
                 default:
-                    Console.WriteLine("Error: Image location not set");
-                    return "Generic";
+                    throw new NotImplementedException(); // Throws if image cannot be determined.
             }
         }
     }

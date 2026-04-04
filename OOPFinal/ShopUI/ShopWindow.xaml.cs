@@ -33,10 +33,6 @@ namespace UI.ShopUI
             CurrentShop = CurrentSession.CurrentShopManager;
             // This should all be moved to onload
             CurrentSession.UpdateState(Core.State.GameState.Shop);
-            foreach (IAbility a in CurrentPlayer.Abilities)
-            {
-                Console.WriteLine(a.ToString());
-            }
             imgAbility_1.Source = SpriteHandler.CreateSprite("ShopItems/PlaceHolder.png");
         }
         private void HandleRoll()
@@ -100,6 +96,8 @@ namespace UI.ShopUI
         }
         private void ShowShopItems()
         {
+            try
+            {
             txtAbility_0.Content = CurrentShop.AvailableAbilities[0].Name;
             txtAbility_1.Content = CurrentShop.AvailableAbilities[1].Name;
             txtAbility_2.Content = CurrentShop.AvailableAbilities[2].Name;
@@ -120,6 +118,12 @@ namespace UI.ShopUI
 
             imgStatItem_0.ToolTip = CurrentShop.AvailableStatItems[0].ToString();
             imgStatItem_1.ToolTip = CurrentShop.AvailableStatItems[1].ToString();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void TryLearn(string type, int index)
         {
