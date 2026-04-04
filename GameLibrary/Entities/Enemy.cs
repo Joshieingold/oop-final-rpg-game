@@ -1,11 +1,6 @@
 ﻿using Core.ItemsAndAbilities;
 using Core.Factories;
 using Core.State;
-using GameData;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Core.Entities
 {
