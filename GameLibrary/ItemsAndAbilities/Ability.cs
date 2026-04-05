@@ -5,13 +5,6 @@ namespace Core.Items
 {
     public abstract class Ability : IAbility
     {
-        /////////////////
-        // Constructor //
-        /////////////////
-        public Ability()
-        {
-            Sprite =  "ShopItems/PlaceHolder.png"; // DO I EVEN NEED TO SAY IT?
-        }
         ////////////
         // Fields //
         ////////////
