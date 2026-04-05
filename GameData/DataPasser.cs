@@ -4,9 +4,9 @@ using System.Text;
 
 namespace GameData
 {
-    public static class DataPasser
+    public static class DataPasser // Passes the locacation of a file after compilation to the requester
     {
-        public static string AbilityLocation()
+        public static string AbilityLocation() 
         {
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ObjectData", "Ability.txt");
         }
