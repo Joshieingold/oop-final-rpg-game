@@ -1,27 +1,27 @@
 ﻿using Core.Managers;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using UI;
-using UI.ShopUI;
 
 namespace GameUI 
 {
     public partial class MainWindow : Window
     {
-        public GameManager gameSession { get; set; }
+        /////////////////
+        // Constructor //
+        /////////////////
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        ////////////////
+        // Properties //
+        ////////////////
+        public GameManager gameSession { get; set; } // Main Game Session Reference that will be used in the life cycle of the app.
+
+        /////////////
+        // Methods //
+        /////////////
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -33,8 +33,7 @@ namespace GameUI
             }
             catch
             {
-                // If they do something wrong just dont let them progress.
-                return;
+                return; // If they do something wrong just dont let them progress.
             }
         }
     }
