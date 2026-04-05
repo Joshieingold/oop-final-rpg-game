@@ -39,6 +39,7 @@ namespace Core.Items
             {
                 if (value == "") _name = "UnknownSkll";
                 else _name = value;
+                Sprite = DetermineSprite(_name);
             }
         }
         public int Price // cannot cost less than 1.
@@ -62,6 +63,26 @@ namespace Core.Items
         public int GetManaCost() // Required because of IAbility..
         {
             return ManaCost;
+        }
+        private string DetermineSprite(string key) // Sets the sprite based on name of item.
+        {
+            var AbilityNames = new Dictionary<string, string>
+            {
+                {"Vim", "ShopItems/vim.png"  },
+                {"Breakpoints", "ShopItems/breakpoint.png"  },
+                {"For Loop", "ShopItems/forLoop.png"  },
+                {"Vs Code", "ShopItems/vsCode.png"  },
+                {"Code Completion", "ShopItems/codeCompletion.png"  },
+                {"Database Power", "ShopItems/database.png"  },
+            };
+            if (AbilityNames.TryGetValue(key, out string sprite))
+            {
+                return sprite;
+            }
+            else
+            {
+                return "ShopItems/PlaceHolder.png";
+            }
         }
     }
 }
