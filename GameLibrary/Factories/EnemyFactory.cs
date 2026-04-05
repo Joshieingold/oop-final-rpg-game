@@ -1,19 +1,16 @@
-﻿using Core;
-using Core.Entities;
-using Core.ItemsAndAbilities;
+﻿using Core.Entities;
 using Core.State;
 using GameData;
-using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace Core.Factories
 {
     public class EnemyFactory
     {
-        private Random rand = new Random();
-        public List<Enemy> RequestXNewEnemies(int amount)
+        
+        //////////////////
+        // Main Methods //
+        //////////////////
+        public List<Enemy> RequestXNewEnemies(int amount) // Returns a list of enemies in accordance with the amount requested
         {
             List<Enemy> rList = new List<Enemy>();
             for (int i = 0; i < amount; i++)
@@ -22,22 +19,21 @@ namespace Core.Factories
             }
             return rList;
         }
-        public Enemy RequestRandomEnemy(int roundNumber)
+        public Enemy RequestRandomEnemy(int roundNumber) // creates a random Enemy.
         {
-
+            Random rand = new Random();
             Enemy rEnemy = new Enemy();
             try
             {
-                rEnemy.MaxMoves = 4 + roundNumber;
-                rEnemy.ErrorType = GetEnemyProgLang();
-                rEnemy.Name = GetEnemyName(rEnemy.ErrorType);
+                rEnemy.MaxMoves = rEnemy.MaxMoves + roundNumber;
+                rEnemy.ErrorType = CreateEnemyProgLang();
+                rEnemy.Name = CreateEnemyName(rEnemy.ErrorType);
                 rEnemy.Attack = rEnemy.Attack * rand.Next(1, roundNumber);
                 rEnemy.Defense = rEnemy.Defense * rand.Next(1, roundNumber);
                 rEnemy.MaxHealth = rEnemy.MaxHealth * rand.Next(1, roundNumber);
                 rEnemy.MaxMana = rEnemy.MaxMana * rand.Next(1, roundNumber);
                 rEnemy.Health = rEnemy.MaxHealth;
                 rEnemy.Mana = rEnemy.MaxMana;
-                rEnemy.Abilities = GetAbilitiesByLang(rEnemy.ErrorType, rEnemy.MaxMoves);
             }
             catch (Exception ex)
             {
@@ -45,12 +41,13 @@ namespace Core.Factories
             }
             return rEnemy;
         }
-        private List<IAbility> GetAbilitiesByLang(ProgLang lang, int numAbilities) // THIS DOES NOT CURRENTLY CARE ABOUT LANG CAUSE NO SUCH THING EXISTS
+
+        ////////////////////
+        // Helper Methods //
+        ////////////////////
+        private ProgLang CreateEnemyProgLang() // Returns a random programming langauge for an enemy.
         {
-            return new AbilityFactory().GetXNewAbilities(numAbilities);
-        }
-        private ProgLang GetEnemyProgLang()
-        {
+            Random rand = new Random();
             string[] allLangs = Enum.GetNames(typeof(ProgLang));
             int maxIndex = allLangs.Length;
             try
@@ -63,7 +60,7 @@ namespace Core.Factories
                 return ProgLang.Javascript;
             }
         }
-        private string GetErrorTypeFromProgLang(ProgLang lang)
+        private string GetErrorNameFromProgLang(ProgLang lang) // Gets the nice name of an enemy based on ProgLang.
         {
             switch(lang)
             {
@@ -82,17 +79,17 @@ namespace Core.Factories
                 case ProgLang.Bash:
                     return "Bash";
                 default:
-                    Console.WriteLine("ErrorName not found");
-                    return "Generic";
+                    throw new ArgumentException();
             }
-
         }
-        private string GetEnemyName(ProgLang lang)
+        private string CreateEnemyName(ProgLang lang) // Creates an enemy name based on its language and txt file genration
         {
-            string ErrorStringName = GetErrorTypeFromProgLang(lang);
+            Random rand = new Random();
+            string ErrorStringName = GetErrorNameFromProgLang(lang);
             string[] names = File.ReadAllLines(DataPasser.EntityDataLocation("EnemyNames.txt"));
             int maxIndex = names.Length;
-            return lang + names[rand.Next(maxIndex)];
+            // Gets random suffix from the file.
+            return ErrorStringName + names[rand.Next(maxIndex)];
         }
     }
 }

@@ -8,24 +8,35 @@ namespace Core.Managers
 {
     public class ShopManager
     {
-        public int CurrentRollCost { get; set; }
-        public List<IShopItem> AvailableAbilities { get; private set; }
-        public List<IShopItem> AvailableStatItems { get; private set; }
+        /////////////////
+        // Constructor //
+        /////////////////
         public ShopManager()
         {
             CurrentRollCost = 1;
-            Roll();
+            Roll(); // Initialize with random values
         }
-        private void IncreaseRollCost()
+       
+        ////////////////
+        // Properties //
+        ////////////////
+        public int CurrentRollCost { get; set; } // Cost for the player to roll.
+        public List<IShopItem> AvailableAbilities { get; private set; } 
+        public List<IShopItem> AvailableStatItems { get; private set; } // Not yet containing stat items.
+
+        /////////////
+        // Methods //
+        /////////////
+        private void IncreaseRollCost() // Applies exponential growth to the cost of rolling.
         {
             CurrentRollCost = CurrentRollCost * 2;
         }
-        public void Roll()
+        public void Roll() // Gets and sets the values of the current availiable items.
         {
             AvailableAbilities = new List<IShopItem>();
             AvailableAbilities.AddRange(new AbilityFactory().GetXNewAbilities(3));
             AvailableStatItems = new List<IShopItem>();
-            AvailableStatItems.AddRange(new AbilityFactory().GetXNewAbilities(3)); // FIX ME THIS SHOULD BE THE Stat items that are not implemented yet
+            AvailableStatItems.AddRange(new AbilityFactory().GetXNewAbilities(3)); // NOT YET IMPLEMENTED SO ARE ABILITIES.
             IncreaseRollCost();
         }
     }

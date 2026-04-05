@@ -35,12 +35,19 @@ namespace UI
         private void LoadRecords()
         {
             lstRecords.Items.Clear();
-            string path = DataPasser.GeneralLocation() + "/GameRecord.txt";
-            string[] lines = File.ReadAllLines(path);
-
-            foreach (string line in lines)
+            try
             {
-                lstRecords.Items.Add(line);
+                string path = DataPasser.GeneralLocation() + "/GameRecord.txt";
+                string[] lines = File.ReadAllLines(path);
+
+                foreach (string line in lines)
+                {
+                    lstRecords.Items.Add(line);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -51,6 +58,11 @@ namespace UI
         private void ShowLoser()
         {
             lblResult.Content = "YOU LOSE!";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

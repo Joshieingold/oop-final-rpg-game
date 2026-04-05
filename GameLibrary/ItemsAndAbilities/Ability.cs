@@ -1,27 +1,65 @@
 ﻿using Core.Entities;
 using Core.ItemsAndAbilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Core.Items
 {
     public abstract class Ability : IAbility
     {
-        public string Name { get; set; }
+        /////////////////
+        // Constructor //
+        /////////////////
         public Ability()
         {
             Sprite =  "ShopItems/PlaceHolder.png"; // DO I EVEN NEED TO SAY IT?
         }
-        public int ManaCost { get; set; } 
-        public int Price { get; set; }
+        ////////////
+        // Fields //
+        ////////////
+        private string _name;
+        private int _price;
+        private int _manaCost;
+
+        ////////////////
+        // Properties //
+        ////////////////
         public string Sprite { get; set; }
-        public abstract void Use(Fighter attacker, Fighter defender);
-        public virtual void Buy(Fighter player) 
+        public int ManaCost // Cannot be less than 1.
         {
-            player.Abilities.Add(this);
+            get { return _manaCost; }
+            set
+            {
+                if (value < 1) _manaCost = 1;
+                else _manaCost = value;
+            }
         }
-        public int GetManaCost()
+        public string Name // Name cannot be set to none
+        {
+            get { return _name; }
+            set
+            {
+                if (value == "") _name = "UnknownSkll";
+                else _name = value;
+            }
+        }
+        public int Price // cannot cost less than 1.
+        {
+            get { return _price; }
+            set
+            {
+                if (value < 1) _price = 1;
+                else _price = value;
+            }
+        }
+
+        //////////////////////////
+        // Methods To Implement //
+        //////////////////////////
+        public abstract void Use(Fighter attacker, Fighter defender); // how a player handles using an ability.
+        public virtual void Buy(Fighter player) // How a player handles buying an ability.
+        {
+            player.Abilities.Add(this); //default is just to gain access to it.
+        }
+        public int GetManaCost() // Required because of IAbility..
         {
             return ManaCost;
         }

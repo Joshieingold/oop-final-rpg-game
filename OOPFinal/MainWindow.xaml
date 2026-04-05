@@ -36,7 +36,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label Foreground="{DynamicResource forgroundColor}" Grid.Row="0" Content="Gender" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-                <RadioButton Foreground="{DynamicResource forgroundColor}" Width="75"  Grid.Row="1" x:Name="radMale" Content="Male" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="RadioButton_Checked" IsChecked="True"/>
+                <RadioButton Foreground="{DynamicResource forgroundColor}" Width="75"  Grid.Row="1" x:Name="radMale" Content="Male" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="True"/>
                 <RadioButton Foreground="{DynamicResource forgroundColor}" Width="75" Grid.Row="2" x:Name="radFemale" Content="Female" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 
             </Grid>

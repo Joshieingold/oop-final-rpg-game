@@ -22,7 +22,7 @@
             <Label Content="Previous Game Data" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Foreground="{StaticResource forgroundColor}" FontSize="16"></Label>
             <ListBox x:Name="lstRecords" Grid.Row="1" Margin="12px" Background="{StaticResource bubbleColor}" Foreground="{StaticResource forgroundColor}"></ListBox>
         </Grid>
-        <Button Grid.Row="2" Content="Thanks For Playing!" Width="200px" Height="70px" Background="{StaticResource bubbleColor}" Foreground="{StaticResource forgroundColor}"></Button>
+        <Button Grid.Row="2" Content="Thanks For Playing!" Width="200px" Height="70px" Background="{StaticResource bubbleColor}" Foreground="{StaticResource forgroundColor}" Click="Button_Click"></Button>
 
     </Grid>
 </Window>

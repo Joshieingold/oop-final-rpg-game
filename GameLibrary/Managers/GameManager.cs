@@ -2,37 +2,47 @@
 using Core.State;
 using Core.Factories;
 using GameData;
-using System;
-using System.Collections.Generic;
-using System.Security.Principal;
-using System.Text;
 
 namespace Core.Managers
 {
-    public class GameManager
+    public class GameManager // Manages the session the entire game will be using.
     {
+        ///////////////
+        // Constants //
+        ///////////////
         public const int GAME_ROUNDS = 8;
-        public GameState CurrentState { get; private set; }
-        public Player CurrentPlayer { get; set; }
-        public List<Enemy> AllEnemies { get; set; }
-        public BattleManager CurrentBattleManager { get; set; }
-        public ShopManager CurrentShopManager { get; set; }
-        public int Round { get; set; }
 
+        /////////////////
+        // Constructor //
+        /////////////////
         public GameManager(string playerName, bool gender)
         {
             CurrentPlayer = new Player(playerName, gender);
-            CurrentState = GameState.Shop;
+            CurrentState = GameState.Battle; // Starts as a battle
             Round = 1;
             CurrentShopManager = new ShopManager();
             AllEnemies = new EnemyFactory().RequestXNewEnemies(GAME_ROUNDS);
             AllEnemies.Sort(); // Sorted for difficulty
         }
-        public Enemy GetCurrentEnemy()
+
+        ////////////////
+        // Properties //
+        ////////////////
+        public GameState CurrentState { get; private set; } 
+        public Player CurrentPlayer { get; set; } 
+        public List<Enemy> AllEnemies { get; set; } // Contains all enemies for each round
+        public BattleManager CurrentBattleManager { get; set; } 
+        public ShopManager CurrentShopManager { get; set; }
+        public int Round { get; set; }
+
+        /////////////
+        // Methods //
+        /////////////
+        public Enemy GetCurrentEnemy() // Gets reference to the enemy for the upcoming round.
         {
             return AllEnemies[Round - 1];
         }
-        public void UpdateState(GameState newState)
+        public void UpdateState(GameState newState) // Creates appropriate new managers for game state.
         {
             if (newState == GameState.Battle)
             {
@@ -56,18 +66,17 @@ namespace Core.Managers
                 UploadGame();
             }
         }
-        private void UploadGame()
+        private void UploadGame() // Saves game data to text document for record keeping.
         {
             string newRecord = $"{CurrentState} | {CurrentPlayer.Name} | {DateTime.Now} | Round {Round} " + Environment.NewLine;
             string path = DataPasser.GeneralLocation() + "GameRecord.txt";
             File.AppendAllText(path, newRecord);
         }
-        public void OnShopOver(Player updatedPlayer)
+        public void OnShopOver(Player updatedPlayer) // Updates round when window is closed.
         {
             CurrentPlayer = updatedPlayer;
             Round++;
             CurrentShopManager = new ShopManager();
         }
-        
     }
 }

@@ -1,46 +1,55 @@
 ﻿using Core.Entities;
 using Core.State;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Core.Items
 {
     public sealed class DamageAbility : Ability
     {
-        public int Damage { get; set; }
-        public List<ProgLang> StrongAgainst { get; set; }
+        ////////////
+        // Fields //
+        ////////////
+        private int _damage;
 
+        ////////////////
+        // Properties //
+        ////////////////
+        public List<ProgLang> StrongAgainst { get; set; } // List of Programming lanaguges this ability is good against.
+        public int Damage // Damage must be at least 1.
+        {
+            get { return _damage; }
+            set
+            {
+                if (value < 1) _damage = 1;
+                else _damage = value;
+            }
+        }
+
+        /////////////
+        // Methods //
+        /////////////
         public override string ToString()
         {
             return $"Deal {Damage} Damage!";
         }
-        public override void Use(Fighter attacker, Fighter enemy)
+        public override void Use(Fighter attacker, Fighter enemy) // Deals damage to a Figher and inflicts bonus on qualifying Enemies.
         {
-            if (enemy.Health - Damage < 0)
+            if (enemy is Enemy e) // If its an enemy we need to check if it needs extra damage.
             {
-                enemy.Health = 0;
-            }
-            else
-            {
-                if (enemy is Enemy e)
+                if (StrongAgainst.Contains(e.ErrorType)) // If this skill is good against this enemy apply bonus damage and leave early.
                 {
-                    if (StrongAgainst.Contains(e.ErrorType))
-                    {
-                        int foundDamage = ((attacker.Attack + Damage * 2) - enemy.Defense);
-                        if (foundDamage < 0) return;
-                        attacker.Mana -= ManaCost;
-                        enemy.Health -= foundDamage;
-                        return;
-                    }
+                    int foundDamage = ((attacker.Attack + Damage * 2) - enemy.Defense);
+                    if (foundDamage < 0) return;
+                    attacker.Mana -= ManaCost;
+                    enemy.Health -= foundDamage;
+                    return;
                 }
-                int otherdmg = ((attacker.Attack + Damage) - enemy.Defense);
-                
-                attacker.Mana -= ManaCost;
-                if (otherdmg < 0) return;
-                enemy.Health -= otherdmg;
-                return;
             }
+
+            // Otherwise deal normal damage to player or enemy.
+            int otherdmg = ((attacker.Attack + Damage) - enemy.Defense);
+            attacker.Mana -= ManaCost;
+            if (otherdmg < 0) return;
+            enemy.Health -= otherdmg;
         }
     }
 }
