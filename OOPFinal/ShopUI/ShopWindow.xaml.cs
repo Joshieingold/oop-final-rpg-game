@@ -102,6 +102,13 @@ namespace UI.ShopUI
             txtAbility_1.Content = CurrentShop.AvailableAbilities[1].Name;
             txtAbility_2.Content = CurrentShop.AvailableAbilities[2].Name;
 
+                btnAbility_0.Content = $"Learn (Costs {CurrentShop.AvailableAbilities[0].Price}h)";
+                btnAbility_1.Content = $"Learn (Costs {CurrentShop.AvailableAbilities[1].Price}h)";
+                btnAbility_2.Content = $"Learn (Costs {CurrentShop.AvailableAbilities[2].Price}h)";
+
+                btnStatItem_0.Content = $"Learn (Costs {CurrentShop.AvailableAbilities[0].Price}h)";
+                btnStatItem_1.Content = $"Learn (Costs {CurrentShop.AvailableAbilities[1].Price}h)";
+
             imgAbility_0.Source = SpriteHandler.CreateSprite(CurrentShop.AvailableAbilities[0].Sprite);
             imgAbility_1.Source = SpriteHandler.CreateSprite(CurrentShop.AvailableAbilities[1].Sprite);
             imgAbility_2.Source = SpriteHandler.CreateSprite(CurrentShop.AvailableAbilities[2].Sprite);
