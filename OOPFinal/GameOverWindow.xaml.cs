@@ -1,38 +1,32 @@
 ﻿using GameData;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace UI
 {
-    /// <summary>
-    /// Interaction logic for GameOverWindow.xaml
-    /// </summary>
     public partial class GameOverWindow : Window
     {
-        public GameOverWindow(string determination)
+        /////////////////
+        // Constructor //
+        /////////////////
+        public GameOverWindow(bool isWin)
         {
             InitializeComponent();
-            if (determination == "w")
+            if (isWin)
             {
-                ShowWinner();
+                lblResult.Content = "You Win!";
             }
-            else if (determination == "l")
+            else 
             {
-                ShowLoser();
+                lblResult.Content = "You lose..";
             }
-            LoadRecords();
+            LoadRecords(); // Shows the player records.
         }
-        private void LoadRecords()
+
+        /////////////
+        // Methods //
+        /////////////
+        private void LoadRecords() // Populates the list box with the text file of game records.
         {
             lstRecords.Items.Clear();
             try
@@ -51,16 +45,7 @@ namespace UI
             }
 
         }
-        private void ShowWinner()
-        {
-            lblResult.Content = "You Win!";
-        }
-        private void ShowLoser()
-        {
-            lblResult.Content = "YOU LOSE!";
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e) // Closes the app.
         {
             this.Close();
         }

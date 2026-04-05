@@ -1,9 +1,7 @@
 ﻿using Core.Entities;
 using Core.Managers;
 using Core.State;
-using System.Security.Policy;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 using UI.BattleUI;
 using UI.ShopUI;
@@ -13,16 +11,25 @@ namespace UI
 {
     public partial class BattleWindow : Window
     {
-        private GameManager CurrentSession { get; set; }
-        private Player currentPlayer {get; set;}
-        private Enemy currentEnemy {get; set;}
-        public AbilityWindow PlayerAbilities { get; set; }
+        ///////////////
+        // Constants //
+        ///////////////
+        private const int WINDOW_OFFSET = 200;
+        private const int MESSAGE_WINDOW_TIMER = 1500;
+        private const int GAME_ROUNDS = 8;
 
+        
+        /////////////////
+        // Constructor //
+        /////////////////
         public BattleWindow(GameManager inManager) // Uses reference for the player, this will be useful for the shop
         {
             InitializeComponent();
+            // Setting up the component.
             CurrentSession = inManager;
             CurrentSession.UpdateState(GameState.Battle);
+
+            // Initializing the ability selection window.
             PlayerAbilities = new AbilityWindow(CurrentSession.CurrentBattleManager);
             PlayerAbilities.UpdateParentUI += OnRequestUpdateUI;
             PlayerAbilities.Show();
@@ -36,31 +43,36 @@ namespace UI
             {
                 currentEnemy = e;
             }
-
             // Update UI
             MoveWindowLocations();
             UpdateUI();
         }
-        private async void OnRequestUpdateUI(object? sender, EventArgs e)
+
+        ////////////////
+        // Properties //
+        ////////////////
+        public AbilityWindow PlayerAbilities { get; set; } // Window that player chooses attacks from.
+        private GameManager CurrentSession { get; set; } // Reference to the games session.
+        private Player currentPlayer {get; set;} // Current player that is derived from the game session.
+        private Enemy currentEnemy {get; set;} // Current player that is derived from the game session.
+
+        /////////////
+        // Methods //
+        /////////////
+        private async void OnRequestUpdateUI(object? sender, EventArgs e) // Event listener method that will update all screen UI.
         {
             await DisplayEnemyAttack();
             UpdateUI();
-
         }
-        private void MoveWindowLocations()
+        private void MoveWindowLocations() // Places window locations so they can both be visable and consitently in the right spot.
         {
-            int heightOffsetValue = 200;
+            int heightOffsetValue = WINDOW_OFFSET;
             this.Left = (SystemParameters.WorkArea.Width - this.Width) / 2;
             this.Top = (SystemParameters.WorkArea.Height - (this.Height + heightOffsetValue - 50)) / 2;
             PlayerAbilities.Left = (SystemParameters.WorkArea.Width - this.Width) / 2;
             PlayerAbilities.Top = (SystemParameters.WorkArea.Height - (this.Height - heightOffsetValue - PlayerAbilities.Height )) ;
         }
 
-        // Updates the UI from the childs ping
-        private void AbilityWindow_UiUpdate(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
         // Updates all UI Elements with reference data
         private void UpdateUI()
         {
@@ -71,9 +83,7 @@ namespace UI
                 this.Close();
             }
         }
-
-        // Sets UI Elements for the Enemy 
-        private void SetEnemyData()
+        private void SetEnemyData() // Sets UI Elements for the Enemy 
         {
             picEnemySprite.Source = SpriteHandler.CreateSprite(currentEnemy.EnemySprite);
             lblEnemyName.Content= currentEnemy.Name;
@@ -85,8 +95,7 @@ namespace UI
             lblEnemyDef.Content = $"⛉: {currentEnemy.Defense.ToString()}";
         }
 
-        // Sets UI Elements for the player
-        private void SetPlayerData()
+        private void SetPlayerData() // Sets UI Elements for the player
         {
             picPlayerSprite.Source = SpriteHandler.CreateSprite(currentPlayer.PlayerSprite);
             lblPlayerName.Content = currentPlayer.Name;
@@ -102,25 +111,29 @@ namespace UI
             progPlayerMana.Value = currentPlayer.Mana;
             lblReward.Content = $"Remaining Class Time: {CurrentSession.CurrentBattleManager.Reward}";
         }
-        private async Task DisplayEnemyAttack()
+        private async Task DisplayEnemyAttack() // Shows a window with attack message that will disappear after a timer.
         {
+            // Attack message is shown.
             var bubbleBrush = (SolidColorBrush)this.FindResource("bubbleColor");
             lblEnemyAbilityText.Background = bubbleBrush;
             lblEnemyAbilityText.Content = CurrentSession.CurrentBattleManager.lastEnemyAttackString;
-            await Task.Delay(1500);
+            await Task.Delay(MESSAGE_WINDOW_TIMER);
+
+            // Attack message is cleaned up.
             lblEnemyAbilityText.Background = Brushes.Transparent;
             lblEnemyAbilityText.Content = "";
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) // Handles cleaning up when window is closing.
         {
-            PlayerAbilities.Close();
+            PlayerAbilities.Close(); // Ability window is not used in the shop.
+
             if (CurrentSession.CurrentBattleManager.CurrentState == BattleState.Victory)
             {
-                if (CurrentSession.Round == 8)
+                if (CurrentSession.Round == GAME_ROUNDS) // Checks to see if that was the final round of the game
                 {
                     CurrentSession.UpdateState(GameState.Victory);
-                    GameOverWindow winner = new GameOverWindow("w");
+                    GameOverWindow winner = new GameOverWindow(true); // is a win so it takes in true.
                     winner.Show();
                 }
                 else
@@ -129,18 +142,12 @@ namespace UI
                     sw.Show();
                 }
             }
-            else if (CurrentSession.CurrentBattleManager.CurrentState == BattleState.Defeat)
+            else if (CurrentSession.CurrentBattleManager.CurrentState == BattleState.Defeat) // Player lost and it is game over
             {
                 CurrentSession.UpdateState(GameState.Defeat);
-                GameOverWindow loser = new GameOverWindow("l");
+                GameOverWindow loser = new GameOverWindow(false); // Not a win so takes in false.
                 loser.Show();
             }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            CurrentSession.CurrentBattleManager.DoPlayerMove(currentPlayer.Abilities[0]);
-            UpdateUI();
         }
     }
 }
