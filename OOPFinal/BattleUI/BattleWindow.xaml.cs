@@ -106,7 +106,7 @@ namespace UI
         {
             var bubbleBrush = (SolidColorBrush)this.FindResource("bubbleColor");
             lblEnemyAbilityText.Background = bubbleBrush;
-            lblEnemyAbilityText.Content = CurrentSession.CurrentBattleManager.GetLastAttackString();
+            lblEnemyAbilityText.Content = CurrentSession.CurrentBattleManager.lastEnemyAttackString;
             await Task.Delay(1500);
             lblEnemyAbilityText.Background = Brushes.Transparent;
             lblEnemyAbilityText.Content = "";
