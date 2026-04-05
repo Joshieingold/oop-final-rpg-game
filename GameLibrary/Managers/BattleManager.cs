@@ -1,9 +1,6 @@
 ﻿using Core.Entities;
 using Core.ItemsAndAbilities;
 using Core.State;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Core.Managers
 {
