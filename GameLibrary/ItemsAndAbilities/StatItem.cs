@@ -1,19 +1,27 @@
 ﻿using Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Core.ItemsAndAbilities
 {
-    public class StatItem : IShopItem
+    public class StatItem : IShopItem // NOT IMPLEMENTED YET //
     {
+        /////////////////
+        // Constructor //
+        /////////////////
         public StatItem()
         {
-            Sprite = "ShopItems/PlaceHolder.png"; // DO I EVEN NEED TO SAY IT?
+            Sprite = "ShopItems/PlaceHolder.png"; 
         }
+
+        ////////////////
+        // Properties //
+        ////////////////
         public string Name { get; set; }
         public int Price { get; set; }
         public string Sprite { get; set; }
+
+        /////////////
+        // Methods //
+        /////////////
         private void Use(Fighter player)
         {
             return;
@@ -24,9 +32,7 @@ namespace Core.ItemsAndAbilities
             {
                 // Take the money from the player and do the use;
                 Use(p);
-                return;
             }
-            return;
         }
     }
 }

@@ -1,20 +1,23 @@
 ﻿using Core.Entities;
 using Core.Items;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Core.ItemsAndAbilities
 {
     public sealed class HealthAbility : Ability
     {
+        ////////////////
+        // Properties //
+        ////////////////
         public int Boost { get; set; }
 
+        /////////////
+        // Methods //
+        /////////////
         public override string ToString()
         {
             return $"Heal {Boost} Health!";
         }
-        public override void Use(Fighter player, Fighter enemy)
+        public override void Use(Fighter player, Fighter enemy) // Heals a character and ensures their health doesnt exceed maximum.
         {
             if (player.Health + Boost > player.MaxHealth)
             {

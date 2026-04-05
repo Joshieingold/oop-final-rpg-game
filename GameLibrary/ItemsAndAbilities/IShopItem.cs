@@ -1,10 +1,8 @@
 ﻿using Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Core.ItemsAndAbilities
 {
+    // Shop item interface.
     public interface IShopItem
     {
         public string Name { get; set; }

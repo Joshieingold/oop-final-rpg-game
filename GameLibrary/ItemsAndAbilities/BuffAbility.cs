@@ -1,15 +1,20 @@
 ﻿using Core.Entities;
 using Core.Items;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Core.ItemsAndAbilities
 {
     public sealed class BuffAbility : Ability
     {
+        ////////////
+        // Fields //
+        ////////////
         private int _buff;
-        public int Buff
+
+        ////////////////
+        // Properties //
+        ////////////////
+        public string TargetStat { get; set; } // The stat this ability will add value to.
+        public int Buff // cannot be less than 0.
         {
             get { return _buff; }
             set
@@ -25,48 +30,34 @@ namespace Core.ItemsAndAbilities
             }
 
         }
-        public string TargetStat { get; set; }
 
+        /////////////
+        // Methods //
+        /////////////
         public override string ToString()
         {
             return $"Permenantly gain {Buff} {TargetStat}";
         }
-        // Use case for an enum if ive ever seen one
-        public override void Use(Fighter player, Fighter enemy)
+        public override void Use(Fighter player, Fighter enemy) // Implementation of how to use.
         {
+            // The stat will be chosen based on this abilities target and will gain value based on it.
             if (TargetStat == "MaxHealth")
             {
-                if (player.MaxHealth < 0)
-                {
-                    throw new ArgumentException();
-                }
                 player.MaxHealth += Buff;
             }
             else if (TargetStat == "MaxMana")
             {
-                if (player.MaxMana < 0)
-                {
-                    throw new ArgumentException();
-                }
                 player.MaxMana += Buff;
             }
             else if (TargetStat == "Attack")
             {
-                if (player.Attack < 0)
-                {
-                    throw new ArgumentException();
-                }
                 player.Attack += Buff;
             }
             else if (TargetStat == "Defense")
             {
-                if (player.Defense < 0)
-                {
-                    throw new ArgumentException();
-                }
                 player.Defense += Buff;
             }
-            player.Mana -= ManaCost;
+            player.Mana -= ManaCost; // Always lose the mana if use could happen.
         }
     }
 }
