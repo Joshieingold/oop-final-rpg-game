@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\ShopItems\breakpoint.png" />
+    <None Remove="Images\ShopItems\codeCompletion.png" />
+    <None Remove="Images\ShopItems\database.png" />
+    <None Remove="Images\ShopItems\forLoop.png" />
+    <None Remove="Images\ShopItems\vim.png" />
+    <None Remove="Images\ShopItems\vsCode.png" />
     <None Remove="Items.txt" />
     <None Remove="ObjectData\AbilityNames.txt" />
     <None Remove="ObjectData\enemyNames.txt" />
@@ -28,6 +34,18 @@
     <Content Include="Images\CreatureArt\systemsnakes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\ShopItems\breakpoint.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ShopItems\codeCompletion.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ShopItems\database.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ShopItems\forLoop.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\ShopItems\PlaceHolder.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -35,6 +53,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\ProtagonistSprites\vimmi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ShopItems\vim.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ShopItems\vsCode.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ObjectData\AbilityNames.txt">
