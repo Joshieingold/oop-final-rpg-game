@@ -1,15 +1,38 @@
-﻿using Core.Items;
-using Core.ItemsAndAbilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Core.ItemsAndAbilities;
 
 namespace Core.Entities
 {
     public abstract class Fighter
     {
+        /////////////////
+        // Constructor //
+        /////////////////
+        public Fighter()
+        {
+            // Default Creation of a fighter.
+            MaxHealth = 100; 
+            MaxMana = 100;
+            Defense = 30;
+            Attack = 20;
+            Health = MaxHealth;
+            Mana = MaxMana;
+        }
+
+        ////////////
+        // Fields //
+        ////////////
         private int _maxHealth;
-        public int MaxHealth
+        private int _health;
+        private int _maxMana;
+        private int _mana;
+        private int _defense;
+        private int _attack;
+        private string _name;
+
+        ////////////////
+        // Properties //
+        ////////////////
+        public int MaxHealth // MaxHealth can never be below 0.
         {
             get { return _maxHealth; }
             set
@@ -24,8 +47,7 @@ namespace Core.Entities
                 }
             }
         }
-        private int _health;
-        public int Health
+        public int Health // Health can never be below 0 or above MaxHealth.
         {
             get { return _health; }
             set
@@ -45,8 +67,8 @@ namespace Core.Entities
 
             }
         }
-        private int _maxMana;
-        public int MaxMana
+        public int MaxMana // MaxMana can never be below 0.
+
         {
             get { return _maxMana; }
             set
@@ -62,8 +84,7 @@ namespace Core.Entities
 
             }
         }
-        private int _mana;
-        public int Mana
+        public int Mana // Mana can never be below 0 or above MaxMana.
         {
             get { return _mana; }
             set
@@ -82,8 +103,7 @@ namespace Core.Entities
                 }
             }
         }
-        private string _name;
-        public string Name
+        public string Name // Name will be given a default if it is made with an empty string.
         {
             get { return _name; }
             set
@@ -93,8 +113,7 @@ namespace Core.Entities
                 else { _name = value; }
             }
         }
-        private int _attack;
-        public int Attack
+        public int Attack // Attack can never be below 0.
         {
             get { return _attack; }
             set
@@ -109,8 +128,7 @@ namespace Core.Entities
                 }
             }
         }
-        private int _defense;
-        public int Defense
+        public int Defense // Defense can never be below 0.
         {
             get { return _defense; }
             set
@@ -125,24 +143,21 @@ namespace Core.Entities
                 }
             }
         }
-        public List<IAbility> Abilities { get; set; }
-        public Fighter()
-        {
-            MaxHealth = 100;
-            MaxMana = 100;
-            Defense = 40;
-            Attack = 20;
-            Health = MaxHealth;
-            Mana = MaxMana;
-        }
-        public void UseAbility(IAbility chosenAbility, Fighter target)
+        public List<IAbility> Abilities { get; set; } // List of abilities the fighter can use.
+
+
+        /////////////
+        // Methods //
+        /////////////
+        public void UseAbility(IAbility chosenAbility, Fighter target) // Uses an ability to attack another Fighter
         {
             chosenAbility.Use(this, target);
         }
-        public bool ValidateAbility(IAbility chosenAbility)
+        public bool ValidateAbility(IAbility chosenAbility) // Validates if an ability can be used.
         {
-            if (this.Mana - chosenAbility.GetManaCost() < 0) return false; // Likely dont need to be using a method for this
-            if (!this.Abilities.Contains(chosenAbility)) return false;
+            // Ideally this would be private, however UI needs to be able to check first if it can be used.
+            if (this.Mana - chosenAbility.GetManaCost() < 0) return false; // Not enough mana.
+            if (!this.Abilities.Contains(chosenAbility)) return false; // Using an invalid ability somehow.
             return true;
         }
     }

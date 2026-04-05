@@ -1,68 +1,71 @@
 ﻿using Core.ItemsAndAbilities;
 using Core.Factories;
 using Core.State;
-using GameData;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Core.Entities
 {
     public class Enemy : Fighter, IComparable<Enemy>
     {
-        private int _maxMoves;
-        private ProgLang _errorType;
-
-        public int CompareTo(Enemy other)
+        /////////////////
+        // Constructor //
+        /////////////////
+        public Enemy()
         {
-            if (other == null) return 1;
-
-            int thisCmp = (this.Attack + this.Defense + this.Mana + this.Abilities.Count) / 4;
-            int otherCmp = (other.Attack + other.Defense + other.Mana + other.Abilities.Count) / 4;
-            return thisCmp.CompareTo(otherCmp);
+            MaxMoves = 4; // Sets abilities list as well.
         }
-        // Max moves creates a new list of abilities of that length
-        public int MaxMoves
+
+        ////////////
+        // Fields //
+        ////////////
+        private ProgLang _errorType;
+        private int _maxMoves;
+
+        ////////////////
+        // Properties //
+        ////////////////
+        public string EnemySprite { get; private set; } // Determined only by ProgLang.
+        public List<IAbility> Abilities { get; set; } // Can be manually changed.
+        public int MaxMoves // Determines the amount of abilities an enemy has.
         {
             get { return _maxMoves; }
             set
             {
+                // Enemies Abilities are automatically set to be random x amount of abilities.
                 Abilities = new AbilityFactory().GetXNewAbilities(value);
                 _maxMoves = value;
             }
         }
-
-        // Sets the enemies Sprite based on Programming language of enemy
-        public ProgLang ErrorType
+        public ProgLang ErrorType // Associtated Programming Language of the enemy
         {
             get { return _errorType; }
             set
             {
+                // EnemySprite is set based on their ProgLang.
                 EnemySprite = DetermineImage(value);
                 _errorType = value;
             }
-
         }
 
-        // Stores the path to the particular sprites image
-        public string EnemySprite { get; private set; } // this is determined by their prog lang
-        public List<IAbility> Abilities { get; set; }
-
-        public Enemy()
+        /////////////
+        // Methods //
+        /////////////
+        public int CompareTo(Enemy other) // Implementing IComparable for Lists of Enemies
         {
-            Abilities = new AbilityFactory().GetXNewAbilities(4);
+            // Comparison is done by adding together stats for the monster and averaging it compared to the next.
+            if (other == null) return 1;
+            int thisCmp = (this.Attack + this.Defense + this.Health) / 3;
+            int otherCmp = (other.Attack + other.Defense + other.Health) / 3;
+            return thisCmp.CompareTo(otherCmp);
         }
 
-        // Selects a random ability from available Abilities
-        public IAbility ChooseRandomAbility()
+        public IAbility ChooseRandomAbility() // Selects a random ability from Enemies available Abilities
         {
             Random rand = new Random();
             int choiceIndex = rand.Next(Abilities.Count);
             return Abilities[choiceIndex];
         }
-        // returns path based on a proglang
-        private string DetermineImage(ProgLang lang)
+
+        private string DetermineImage(ProgLang lang) // returns sprite path based on a proglang
         {
             switch(lang)
             {

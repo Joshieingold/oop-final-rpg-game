@@ -1,13 +1,10 @@
 ﻿using Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Core.ItemsAndAbilities
 {
     public interface IAbility : IShopItem
     {
-        public int GetManaCost();
-        public void Use(Fighter attacker, Fighter defender);
+        public int GetManaCost(); // retrieves the cost cost of the ability to cast. 
+        public void Use(Fighter attacker, Fighter defender); // For how an enemy will use a skill against another.
     }
 }
