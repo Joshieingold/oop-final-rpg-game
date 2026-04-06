@@ -1,6 +1,9 @@
 ﻿using Core.Entities;
 using Core.ItemsAndAbilities;
 using Core.Managers;
+using System.Collections.Generic;
+using System.Data.SqlTypes;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using UI.Utils;
@@ -76,10 +79,19 @@ namespace UI.ShopUI
             {
                 CurrentPlayer.Money -= CurrentShop.CurrentRollCost;
                 CurrentShop.Roll();
+                EnableAllButtons();
                 UpdateUI();
             }
         }
-        private void ShowShopItems() // Sets the UI of the shop items to match the managers Items
+        private void EnableAllButtons() // Enables all buttons in the ui again after a reroll.
+        {
+            btnAbility_0.IsEnabled = true;
+            btnAbility_1.IsEnabled = true;
+            btnAbility_2.IsEnabled = true;
+            btnStatItem_0.IsEnabled = true;
+            btnStatItem_1.IsEnabled = true;
+        }
+        private void ShowShopItems() // displays in the ui all shop items with the Core managers data.
         {
             try
             {
@@ -141,10 +153,15 @@ namespace UI.ShopUI
             {
                 try
                 {
+                    int originalAbilities = CurrentPlayer.Abilities.Count(); // to know if we should disable the button or not.
                     string[] splitData = b.Name.Split("_");
                     string itemType = splitData[0];
                     int itemIndex = Convert.ToInt32(splitData[1]);
                     TryLearn(itemType, itemIndex);
+                    if (originalAbilities < CurrentPlayer.Abilities.Count()) // they achieved a new ability.
+                    {
+                        b.IsEnabled = false; // disable it until a reroll.
+                    }
                 }
                 catch (Exception ex)
                 {
