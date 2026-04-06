@@ -1,9 +1,6 @@
 ﻿using Core.Entities;
 using Core.ItemsAndAbilities;
 using Core.Managers;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using UI.Utils;
