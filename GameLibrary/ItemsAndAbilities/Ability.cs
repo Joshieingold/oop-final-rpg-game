@@ -51,7 +51,7 @@ namespace Core.Items
         public abstract void Use(Fighter attacker, Fighter defender); // how a player handles using an ability.
         public virtual void Buy(Fighter player) // How a player handles buying an ability.
         {
-            player.Abilities.Add(this); //default is just to gain access to it.
+            player+=(this); // OPERATOR OVERLOAD EVERYONE IM SO COOL.
         }
         public int GetManaCost() // Required because of IAbility..
         {
