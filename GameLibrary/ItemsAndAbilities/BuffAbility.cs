@@ -38,26 +38,46 @@ namespace Core.ItemsAndAbilities
         {
             return $"Permenantly gain {Buff} {TargetStat}";
         }
-        public override void Use(Fighter player, Fighter enemy) // Implementation of how to use.
+        public override void Use(Fighter attacker, Fighter defender) // Implementation of how to use. Needs to be accounted for.
         {
             // The stat will be chosen based on this abilities target and will gain value based on it.
             if (TargetStat == "MaxHealth")
             {
-                player.MaxHealth += Buff;
+                attacker.MaxHealth += Buff;
             }
             else if (TargetStat == "MaxMana")
             {
-                player.MaxMana += Buff;
+                attacker.MaxMana += Buff;
             }
             else if (TargetStat == "Attack")
             {
-                player.Attack += Buff;
+                attacker.Attack += Buff;
             }
             else if (TargetStat == "Defense")
             {
-                player.Defense += Buff;
+                attacker.Defense += Buff;
             }
-            player.Mana -= ManaCost; // Always lose the mana if use could happen.
+            attacker.Mana -= ManaCost; // Always lose the mana if use could happen.
         }
+        public void Use(Fighter attacker) // Doesnt need defender reference
+        {
+            if (TargetStat == "MaxHealth")
+            {
+                attacker.MaxHealth += Buff;
+            }
+            else if (TargetStat == "MaxMana")
+            {
+                attacker.MaxMana += Buff;
+            }
+            else if (TargetStat == "Attack")
+            {
+                attacker.Attack += Buff;
+            }
+            else if (TargetStat == "Defense")
+            {
+                attacker.Defense += Buff;
+            }
+            attacker.Mana -= ManaCost; // Always lose the mana if use could happen.
+        } 
     }
 }

@@ -17,17 +17,29 @@ namespace Core.ItemsAndAbilities
         {
             return $"Heal {Boost} Health!";
         }
-        public override void Use(Fighter player, Fighter enemy) // Heals a character and ensures their health doesnt exceed maximum.
+        public override void Use(Fighter attacker, Fighter defender) // Heals a character and ensures their health doesnt exceed maximum.
         {
-            if (player.Health + Boost > player.MaxHealth)
+            if (attacker.Health + Boost > attacker.MaxHealth)
             {
-                player.Health = player.MaxHealth;
+                attacker.Health = attacker.MaxHealth;
             }
             else
             {
-                player.Health += Boost;
+                attacker.Health += Boost;
             }
-            player.Mana -= ManaCost;
+            attacker.Mana -= ManaCost;
+        }
+        public void Use(Fighter attacker) // overload because defender is not affected
+        {
+            if (attacker.Health + Boost > attacker.MaxHealth)
+            {
+                attacker.Health = attacker.MaxHealth;
+            }
+            else
+            {
+                attacker.Health += Boost;
+            }
+            attacker.Mana -= ManaCost;
         }
     }
 }
