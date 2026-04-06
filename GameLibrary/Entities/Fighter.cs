@@ -153,7 +153,22 @@ namespace Core.Entities
         /////////////
         public void UseAbility(IAbility chosenAbility, Fighter target) // Uses an ability to attack another Fighter
         {
-            chosenAbility.Use(this, target);
+            if (chosenAbility is DamageAbility da)
+            {
+                da.Use(this, target);
+            }
+            else if (chosenAbility is HealthAbility ha)
+            {
+                ha.Use(this);
+            }
+            else if (chosenAbility is BuffAbility ba)
+            {
+                ba.Use(this);
+            }
+            else
+            {
+                chosenAbility.Use(this, target);
+            }
         }
         public bool ValidateAbility(IAbility chosenAbility) // Validates if an ability can be used.
         {
