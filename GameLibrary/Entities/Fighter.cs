@@ -1,4 +1,6 @@
-﻿using Core.ItemsAndAbilities;
+﻿using Core.Items;
+using Core.ItemsAndAbilities;
+using System.Numerics;
 
 namespace Core.Entities
 {
@@ -159,6 +161,11 @@ namespace Core.Entities
             if (this.Mana - chosenAbility.GetManaCost() < 0) return false; // Not enough mana.
             if (!this.Abilities.Contains(chosenAbility)) return false; // Using an invalid ability somehow.
             return true;
+        }
+        public static Fighter operator +(Fighter inFighter, Ability inAbility) // OPERATOR OVERLOADING!!!!
+        {
+            inFighter.Abilities.Add(inAbility);
+            return inFighter;
         }
     }
 }
