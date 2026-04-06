@@ -6,12 +6,17 @@ namespace Core.Entities
 {
     public class Enemy : Fighter, IComparable<Enemy>
     {
+        ///////////////
+        // Constants //
+        ///////////////
+        private const int DEFAULT_MAX_MOVES = 4;
+
         /////////////////
         // Constructor //
         /////////////////
         public Enemy()
         {
-            MaxMoves = 4; // Sets abilities list as well.
+            MaxMoves = DEFAULT_MAX_MOVES; // Sets abilities list as well.
         }
 
         ////////////

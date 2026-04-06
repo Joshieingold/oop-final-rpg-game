@@ -31,25 +31,25 @@ namespace Core.Items
         {
             return $"Deal {Damage} Damage!";
         }
-        public override void Use(Fighter attacker, Fighter enemy) // Deals damage to a Figher and inflicts bonus on qualifying Enemies.
+        public override void Use(Fighter attacker, Fighter defender) // Deals damage to a Figher and inflicts bonus on qualifying Enemies.
         {
-            if (enemy is Enemy e) // If its an enemy we need to check if it needs extra damage.
+            if (defender is Enemy e) // If its an enemy we need to check if it needs extra damage.
             {
                 if (StrongAgainst.Contains(e.ErrorType)) // If this skill is good against this enemy apply bonus damage and leave early.
                 {
-                    int foundDamage = ((attacker.Attack + Damage * 2) - enemy.Defense);
+                    int foundDamage = ((attacker.Attack + Damage * 2) - defender.Defense);
                     if (foundDamage < 0) return;
                     attacker.Mana -= ManaCost;
-                    enemy.Health -= foundDamage;
+                    defender.Health -= foundDamage;
                     return;
                 }
             }
 
             // Otherwise deal normal damage to player or enemy.
-            int otherdmg = ((attacker.Attack + Damage) - enemy.Defense);
+            int otherdmg = ((attacker.Attack + Damage) - defender.Defense);
             attacker.Mana -= ManaCost;
             if (otherdmg < 0) return;
-            enemy.Health -= otherdmg;
+            defender.Health -= otherdmg;
         }
     }
 }

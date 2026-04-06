@@ -78,6 +78,21 @@ namespace Core.Factories
                 throw new FileNotFoundException();
             }
         }
+        private string GetRandomName(int fileIndex) // Allows choice of which name an item will have from the txt file // METHOD OVERLOAD
+        {
+            // If we got to it, this is how it would be easier to smooth over creating not random items with a JSON.
+            try
+            {
+                string[] names = File.ReadAllLines(DataPasser.EntityDataLocation("AbilityNames.txt")); // Try to retrieve it.
+                int maxIndex = names.Length;
+                return names[fileIndex];
+            }
+            catch (Exception ex)
+            {
+                throw new FileNotFoundException();
+            }
+
+        }
         private int GetRandomManaCost() // Creates Mana cost of an ability
         {
             Random rand = new Random();
