@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\ProtagonistSprites\chris.png" />
     <None Remove="Images\ShopItems\break.png" />
     <None Remove="Images\ShopItems\breakpoint.png" />
     <None Remove="Images\ShopItems\codeCompletion.png" />
@@ -40,6 +41,9 @@
     </Content>
     <Content Include="Images\CreatureArt\systemsnakes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ProtagonistSprites\chris.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\ShopItems\break.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
