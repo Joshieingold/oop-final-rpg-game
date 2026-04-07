@@ -21,7 +21,7 @@ namespace Core.Managers
             CurrentState = GameState.Battle; // Starts as a battle
             Round = 1;
             CurrentShopManager = new ShopManager();
-            AllEnemies = new EnemyFactory().RequestXNewEnemies(GAME_ROUNDS);
+            AllEnemies = EnemyFactory.RequestXNewEnemies(GAME_ROUNDS);
             AllEnemies.Sort(); // Sorted for difficulty
         }
 

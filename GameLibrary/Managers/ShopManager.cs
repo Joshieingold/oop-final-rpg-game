@@ -34,9 +34,9 @@ namespace Core.Managers
         public void Roll() // Gets and sets the values of the current availiable items.
         {
             AvailableAbilities = new List<IShopItem>();
-            AvailableAbilities.AddRange(new AbilityFactory().GetXNewAbilities(3));
+            AvailableAbilities.AddRange(AbilityFactory.GetXNewAbilities(3));
             AvailableStatItems = new List<IShopItem>();
-            AvailableStatItems.AddRange(new AbilityFactory().GetXNewAbilities(3)); // NOT YET IMPLEMENTED SO ARE ABILITIES.
+            AvailableStatItems.AddRange(AbilityFactory.GetXNewAbilities(3)); // NOT YET IMPLEMENTED SO ARE ABILITIES.
             IncreaseRollCost();
         }
     }

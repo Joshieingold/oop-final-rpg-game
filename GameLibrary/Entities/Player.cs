@@ -13,7 +13,7 @@ namespace Core.Entities
             Money = 5;
             Name = inName;
             IsMale = true;
-            Abilities = new AbilityFactory().GetXNewAbilities(4);
+            Abilities = AbilityFactory.GetXNewAbilities(4);
         }
         public Player(string inName, bool inIsMale) // Creates a player with a name passed in and their gender for the sprite.
         {
@@ -21,7 +21,7 @@ namespace Core.Entities
             Name = inName;
             IsMale = inIsMale;
             Abilities = new List<IAbility>();
-            Abilities = new AbilityFactory().GetXNewAbilities(4);
+            Abilities = AbilityFactory.GetXNewAbilities(4);
         }
 
         ////////////

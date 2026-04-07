@@ -35,7 +35,7 @@ namespace Core.Entities
             set
             {
                 // Enemies Abilities are automatically set to be random x amount of abilities.
-                Abilities = new AbilityFactory().GetXNewAbilities(value);
+                Abilities = AbilityFactory.GetXNewAbilities(value);
                 _maxMoves = value;
             }
         }
