@@ -66,7 +66,7 @@
     </li>
     <li>
         <h4>Static Classes</h4>
-        <p>The application uses a static class "DataPasser" helping to pass reference to files in the data storage project to the others. Ideally both the factories could have been made into static as well.</p>
+        <p>The application uses a static class "DataPasser" helping to pass reference to files in the data storage project to the others. Both the Ability and Enemy factory are also static.</p>
     </li>
     <li>
         <h4>Exception Handling</h4>
