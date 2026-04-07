@@ -66,7 +66,11 @@ namespace Core.Items
                 {"For Loop", "ShopItems/forLoop.png"  },
                 {"Vs Code", "ShopItems/vsCode.png"  },
                 {"Code Completion", "ShopItems/codeCompletion.png"  },
-                {"Database Power", "ShopItems/database.png"  },
+                {"Database Power", "ShopItems/databasePOW.png"  },
+                {"Debug", "ShopItems/debugging.png"  },
+                {"Recurssion", "ShopItems/recurssion.png"  },
+                {"Linked List", "ShopItems/linkedList.png"  },
+                {"Notepad++", "ShopItems/notepad.png"  },
             };
             if (AbilityNames.TryGetValue(abilityName, out string sprite))
             {
