@@ -7,9 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\ProtagonistSprites\chris.png" />
+    <None Remove="Images\ShopItems\break.png" />
     <None Remove="Images\ShopItems\breakpoint.png" />
     <None Remove="Images\ShopItems\codeCompletion.png" />
+    <None Remove="Images\ShopItems\completion.png" />
     <None Remove="Images\ShopItems\database.png" />
     <None Remove="Images\ShopItems\databasePOW.png" />
     <None Remove="Images\ShopItems\debugging.png" />
@@ -40,13 +41,16 @@
     <Content Include="Images\CreatureArt\systemsnakes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\ProtagonistSprites\chris.png">
+    <Content Include="Images\ShopItems\break.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\ShopItems\breakpoint.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\ShopItems\codeCompletion.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ShopItems\completion.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\ShopItems\database.png">
