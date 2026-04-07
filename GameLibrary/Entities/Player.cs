@@ -18,8 +18,8 @@ namespace Core.Entities
         public Player(string inName, bool inIsMale) // Creates a player with a name passed in and their gender for the sprite.
         {
             Money = 5;
-            Name = inName;
             IsMale = inIsMale;
+            Name = inName;
             Abilities = new List<IAbility>();
             Abilities = AbilityFactory.GetXNewAbilities(4);
         }
@@ -62,6 +62,12 @@ namespace Core.Entities
                 else
                 {
                     _name = value;
+                }
+                // For Chris Easter Egg
+                if (value.ToLower() == "chris")
+                {
+                    PlayerSprite = "/ProtagonistSprites/chris.png";
+
                 }
             }
         }
