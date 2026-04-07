@@ -29,7 +29,6 @@ namespace Core.Entities
         // Properties //
         ////////////////
         public string EnemySprite { get; private set; } // Determined only by ProgLang.
-        public List<IAbility> Abilities { get; set; } // Can be manually changed.
         public int MaxMoves // Determines the amount of abilities an enemy has.
         {
             get { return _maxMoves; }

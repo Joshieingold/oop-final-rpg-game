@@ -19,7 +19,7 @@ namespace Core.Factories
             }
             return rList;
         }
-        public Enemy RequestRandomEnemy(int roundNumber) // creates a random Enemy.
+        private Enemy RequestRandomEnemy(int roundNumber) // creates a random Enemy.
         {
             Random rand = new Random();
             Enemy rEnemy = new Enemy();

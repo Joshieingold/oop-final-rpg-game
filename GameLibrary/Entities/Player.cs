@@ -50,7 +50,7 @@ namespace Core.Entities
             }
         }
         public string PlayerSprite { get; private set; } // this is determined by their gender
-        public string Name // Name of the player.
+        public new string Name // Name of the player. has its own logic
         {
             get { return _name; }
             set

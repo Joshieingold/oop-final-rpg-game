@@ -51,7 +51,7 @@ namespace UI
         ////////////////
         // Properties //
         ////////////////
-        public AbilityWindow PlayerAbilities { get; set; } // Window that player chooses attacks from.
+        private AbilityWindow PlayerAbilities { get; set; } // Window that player chooses attacks from.
         private GameManager CurrentSession { get; set; } // Reference to the games session.
         private Player currentPlayer {get; set;} // Current player that is derived from the game session.
         private Enemy currentEnemy {get; set;} // Current player that is derived from the game session.

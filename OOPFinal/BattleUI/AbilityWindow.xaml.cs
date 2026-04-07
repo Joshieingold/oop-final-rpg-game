@@ -26,7 +26,7 @@ namespace UI.BattleUI
         /////////////
         // Methods //
         /////////////
-        public void UpdateUI() // Updates the UI Based on data in the
+        private void UpdateUI() // Updates the UI Based on data in the
         {
             // Update the cards texts using the game managers indexes.
             txtAbility_0.Content = ManagerRef.CurrentPlayer.Abilities[ManagerRef.PlayerHandIndexs[0]];
