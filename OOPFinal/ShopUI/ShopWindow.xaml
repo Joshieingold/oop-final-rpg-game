@@ -24,8 +24,8 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" x:Name="lblRoundInfo" Foreground="{StaticResource forgroundColor}" Content="Round #" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-                <Label Grid.Row="1" x:Name="lblUpcomingFight" Foreground="{StaticResource forgroundColor}" Content="Enemy Type" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                <Label Grid.Row="0" x:Name="lblRoundInfo" Foreground="{StaticResource foregroundColor}" Content="Round #" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                <Label Grid.Row="1" x:Name="lblUpcomingFight" Foreground="{StaticResource foregroundColor}" Content="Enemy Type" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
             </Grid>
             <Grid>
                 <Grid.RowDefinitions>
@@ -38,14 +38,14 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" x:Name="lblPlayerMoney"  Foreground="{StaticResource forgroundColor}" Content="Time Left To Study" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                <Label Grid.Row="0" x:Name="lblPlayerMoney"  Foreground="{StaticResource foregroundColor}" Content="Time Left To Study" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="btnRoll" Grid.Column="0" Margin="10px" Background="{StaticResource bubbleColor}" Foreground="{StaticResource forgroundColor}" Content="Search Google" Click="btnRoll_Click"></Button>
-                    <Button x:Name="btnBattle" Grid.Column="1" Margin="10px" Background="{StaticResource  bubbleColor}" Foreground="{StaticResource forgroundColor}" Content="Go To Class" Click="btnBattle_Click"></Button>
+                    <Button x:Name="btnRoll" Grid.Column="0" Margin="10px" Background="{StaticResource bubbleColor}" Foreground="{StaticResource foregroundColor}" Content="Search Google" Click="btnRoll_Click"></Button>
+                    <Button x:Name="btnBattle" Grid.Column="1" Margin="10px" Background="{StaticResource  bubbleColor}" Foreground="{StaticResource foregroundColor}" Content="Go To Class" Click="btnBattle_Click"></Button>
                 </Grid>
             </Grid>
             <Grid Grid.Row="2" Background="{StaticResource bubbleColor}" Margin="20px">
@@ -56,10 +56,10 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" x:Name="lblPlayerAttack" Foreground="{StaticResource forgroundColor}" Content="Player Attack" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-                    <Label Grid.Row="1" x:Name="lblPlayerDefense" Foreground="{StaticResource forgroundColor}" Content="Player Defense" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-                    <Label Grid.Row="2" x:Name="lblBestLang" Foreground="{StaticResource forgroundColor}" Content="Player Best Language" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-                    <Label Grid.Row="3" x:Name="lblWorstLang" Foreground="{StaticResource forgroundColor}" Content="Player Worst Language" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    <Label Grid.Row="0" x:Name="lblPlayerAttack" Foreground="{StaticResource foregroundColor}" Content="Player Attack" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    <Label Grid.Row="1" x:Name="lblPlayerDefense" Foreground="{StaticResource foregroundColor}" Content="Player Defense" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    <Label Grid.Row="2" x:Name="lblBestLang" Foreground="{StaticResource foregroundColor}" Content="Player Best Language" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    <Label Grid.Row="3" x:Name="lblWorstLang" Foreground="{StaticResource foregroundColor}" Content="Player Worst Language" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                 </Grid>
             </Grid>
         </Grid>
@@ -80,9 +80,9 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label x:Name="txtAbility_0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Label x:Name="txtAbility_0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource foregroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
                     <Image x:Name="imgAbility_0" Grid.Row="1" ></Image>
-                    <Button x:Name="btnAbility_0" Click="Learn_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn"></Button>
+                    <Button x:Name="btnAbility_0" Click="Learn_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource foregroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn"></Button>
                 </Grid>
                 <Grid Margin="3px" Grid.Column="1" VerticalAlignment="Center" Background="{StaticResource barColor}">
                     <Grid.RowDefinitions>
@@ -90,9 +90,9 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label x:Name="txtAbility_1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Label x:Name="txtAbility_1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource foregroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
                     <Image x:Name="imgAbility_1" Grid.Row="1" ></Image>
-                    <Button x:Name="btnAbility_1" Click="Learn_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn"></Button>
+                    <Button x:Name="btnAbility_1" Click="Learn_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource foregroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn"></Button>
                 </Grid>
                 <Grid Grid.Column="2" Margin="3px" VerticalAlignment="Center" Background="{StaticResource barColor}">
                     <Grid.RowDefinitions>
@@ -100,9 +100,9 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label x:Name="txtAbility_2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Label x:Name="txtAbility_2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource foregroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
                     <Image x:Name="imgAbility_2" Grid.Row="1" ></Image>
-                    <Button x:Name="btnAbility_2" Click="Learn_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn"></Button>
+                    <Button x:Name="btnAbility_2" Click="Learn_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource foregroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn"></Button>
                 </Grid>
             </Grid>
             <Grid Grid.Row="1">
@@ -117,9 +117,9 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label x:Name="txtStatItem_0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Label x:Name="txtStatItem_0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource foregroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
                     <Image x:Name="imgStatItem_0" Grid.Row="1" ></Image>
-                    <Button x:Name="btnStatItem_0" Click="Learn_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn"></Button>
+                    <Button x:Name="btnStatItem_0" Click="Learn_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource foregroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn"></Button>
                 </Grid>
                 <Grid Grid.Column="1" Margin="3px" VerticalAlignment="Center" Background="{StaticResource barColor}">
                     <Grid.RowDefinitions>
@@ -127,9 +127,9 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label x:Name="txtStatItem_1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Label x:Name="txtStatItem_1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource foregroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
                     <Image x:Name="imgStatItem_1" Grid.Row="1" ></Image>
-                    <Button x:Name="btnStatItem_1"  Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn" Click="Learn_click"></Button>
+                    <Button x:Name="btnStatItem_1"  Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource foregroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Learn" Click="Learn_click"></Button>
                 </Grid>
             </Grid>
         </Grid>
@@ -139,8 +139,8 @@
                     <RowDefinition Height="1*"></RowDefinition> 
                     <RowDefinition Height="9*"></RowDefinition> 
                 </Grid.RowDefinitions>
-                <Label Background="{StaticResource bubbleColor}" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Content="Your Skills" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
-                <ListBox Margin="20px" Grid.Row="1" x:Name="lstPlayerSkill" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}"></ListBox>
+                <Label Background="{StaticResource bubbleColor}" Foreground="{StaticResource foregroundColor}" Grid.Row="0" Content="Your Skills" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                <ListBox Margin="20px" Grid.Row="1" x:Name="lstPlayerSkill" Foreground="{StaticResource foregroundColor}" Background="{StaticResource bubbleColor}"></ListBox>
             </Grid>
         </Grid>
     </Grid>

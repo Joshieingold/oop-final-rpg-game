@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <SolidColorBrush x:Key="backgroundColor" Color="#0F2B48"/>
     <SolidColorBrush x:Key="bubbleColor" Color="#0A1E32"/>
-    <SolidColorBrush x:Key="forgroundColor" Color="White"/>
+    <SolidColorBrush x:Key="foregroundColor" Color="White"/>
     <SolidColorBrush x:Key="healthColor" Color="#CE5F6A"/>
     <SolidColorBrush x:Key="manaColor" Color="#6EC0FF"/>
     <SolidColorBrush x:Key="barColor" Color="#3D6084"/>

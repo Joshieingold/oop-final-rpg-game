@@ -19,9 +19,9 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label x:Name="txtAbility_0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Label x:Name="txtAbility_0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource foregroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
                     <Image x:Name="imgAbility_0" Grid.Row="1" ></Image>
-                    <Button x:Name="btnAbility_0" Click="Use_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Use!"></Button>
+                    <Button x:Name="btnAbility_0" Click="Use_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource foregroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Use!"></Button>
                 </Grid>
                 <Grid Margin="20px" Grid.Column="1" VerticalAlignment="Center" Background="{StaticResource barColor}">
                     <Grid.RowDefinitions>
@@ -29,9 +29,9 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label x:Name="txtAbility_1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Label x:Name="txtAbility_1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource foregroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
                     <Image x:Name="imgAbility_1" Grid.Row="1" ></Image>
-                    <Button x:Name="btnAbility_1" Click="Use_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Use!"></Button>
+                    <Button x:Name="btnAbility_1" Click="Use_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource foregroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Use!"></Button>
                 </Grid>
                 <Grid Margin="20px" Grid.Column="2" VerticalAlignment="Center" Background="{StaticResource barColor}">
                     <Grid.RowDefinitions>
@@ -39,9 +39,9 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label x:Name="txtAbility_2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Label x:Name="txtAbility_2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource foregroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
                     <Image x:Name="imgAbility_2" Grid.Row="1" ></Image>
-                    <Button x:Name="btnAbility_2" Click="Use_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Use!"></Button>
+                    <Button x:Name="btnAbility_2" Click="Use_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource foregroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Use!"></Button>
                 </Grid>
                 <Grid Margin="20px" Grid.Column="3" VerticalAlignment="Center" Background="{StaticResource barColor}">
                     <Grid.RowDefinitions>
@@ -49,9 +49,9 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label x:Name="txtAbility_3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource forgroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
+                    <Label x:Name="txtAbility_3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,10px" Content="placeholder" Foreground="{StaticResource foregroundColor}" Grid.Row="0" Background="{StaticResource bubbleColor}"></Label>
                     <Image x:Name="imgAbility_3" Grid.Row="1" ></Image>
-                    <Button x:Name="btnAbility_3" Click="Use_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource forgroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Use!"></Button>
+                    <Button x:Name="btnAbility_3" Click="Use_click" Margin="5px" BorderBrush="{StaticResource backgroundColor}" Foreground="{StaticResource foregroundColor}" Background="{StaticResource bubbleColor}" Grid.Row="2" Content="Use!"></Button>
                 </Grid>
         
     </Grid>
