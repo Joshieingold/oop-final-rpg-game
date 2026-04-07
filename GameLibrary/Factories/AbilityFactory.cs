@@ -5,7 +5,7 @@ using GameData;
 
 namespace Core.Factories
 {
-    public class AbilityFactory // Possibly a use case for static, but I dont need this loaded all the time. I think..
+    public static class AbilityFactory // Possibly a use case for static, but I dont need this loaded all the time. I think..
     {
         ///////////////
         // Constants //
@@ -17,7 +17,7 @@ namespace Core.Factories
         //////////////////
         // Main Methods //
         //////////////////
-        public List<IAbility> GetXNewAbilities(int amount) // Returns a list of abilities of the amount requested.
+        public static List<IAbility> GetXNewAbilities(int amount) // Returns a list of abilities of the amount requested.
         {
             List<IAbility> rList = new List<IAbility>();
             for (int i = 0; i < amount; i++)
@@ -26,7 +26,7 @@ namespace Core.Factories
             }
             return rList;
         }
-        private IAbility GetRandomAbility() // Generates one random ability
+        private static IAbility GetRandomAbility() // Generates one random ability
         {
             Random rand = new Random();
             Ability rAbility = DetermineAbilityType(); 
@@ -40,7 +40,7 @@ namespace Core.Factories
         ////////////////////
         // Helper Methods //
         ////////////////////
-        private void AddCustomPowers(Ability inAbility)
+        private static void AddCustomPowers(Ability inAbility)
         {
             Random rand = new Random();
             if (inAbility is BuffAbility ba)
@@ -58,13 +58,13 @@ namespace Core.Factories
                 ha.Boost = rand.Next(MAX_STAT_POWER);
             }
         }
-        private string GetTargetStat() // Determines target stat for statboost abilities.
+        private static string GetTargetStat() // Determines target stat for statboost abilities.
         {
             Random rand = new Random();
             string[] allStats = new string[] { "MaxHealth", "MaxMana", "Attack", "Defense"};
             return allStats[rand.Next(allStats.Length)];
         }
-        private string GetRandomName() // Generates the name of an ability from text file.
+        private static string GetRandomName() // Generates the name of an ability from text file.
         {
             Random rand = new Random();
             try
@@ -78,7 +78,7 @@ namespace Core.Factories
                 throw new FileNotFoundException();
             }
         }
-        private string GetRandomName(int fileIndex) // Allows choice of which name an item will have from the txt file // METHOD OVERLOAD
+        private static string GetRandomName(int fileIndex) // Allows choice of which name an item will have from the txt file // METHOD OVERLOAD
         {
             // If we got to it, this is how it would be easier to smooth over creating not random items with a JSON.
             try
@@ -93,17 +93,17 @@ namespace Core.Factories
             }
 
         }
-        private int GetRandomManaCost() // Creates Mana cost of an ability
+        private static int GetRandomManaCost() // Creates Mana cost of an ability
         {
             Random rand = new Random();
             return rand.Next(MAX_MANA_COST);
         }
-        private int GetRandomPrice() // Creates the cost of the ability.
+        private static int GetRandomPrice() // Creates the cost of the ability.
         {
             Random rand = new Random();
             return rand.Next(MAX_PRICE);
         }
-        private Ability DetermineAbilityType() // Creates A different derived class of Ability based on chance.
+        private static Ability DetermineAbilityType() // Creates A different derived class of Ability based on chance.
         {
             Random rand = new Random();
             int randomInt = rand.Next(3); // There are 3 types of abilities.

@@ -4,13 +4,13 @@ using GameData;
 
 namespace Core.Factories
 {
-    public class EnemyFactory
+    public static class EnemyFactory
     {
         
         //////////////////
         // Main Methods //
         //////////////////
-        public List<Enemy> RequestXNewEnemies(int amount) // Returns a list of enemies in accordance with the amount requested
+        public static List<Enemy> RequestXNewEnemies(int amount) // Returns a list of enemies in accordance with the amount requested
         {
             List<Enemy> rList = new List<Enemy>();
             for (int i = 0; i < amount; i++)
@@ -19,7 +19,7 @@ namespace Core.Factories
             }
             return rList;
         }
-        private Enemy RequestRandomEnemy(int roundNumber) // creates a random Enemy.
+        private static Enemy RequestRandomEnemy(int roundNumber) // creates a random Enemy.
         {
             Random rand = new Random();
             Enemy rEnemy = new Enemy();
@@ -45,7 +45,7 @@ namespace Core.Factories
         ////////////////////
         // Helper Methods //
         ////////////////////
-        private ProgLang CreateEnemyProgLang() // Returns a random programming langauge for an enemy.
+        private static ProgLang CreateEnemyProgLang() // Returns a random programming langauge for an enemy.
         {
             Random rand = new Random();
             string[] allLangs = Enum.GetNames(typeof(ProgLang));
@@ -60,7 +60,7 @@ namespace Core.Factories
                 return ProgLang.Javascript;
             }
         }
-        private string GetErrorNameFromProgLang(ProgLang lang) // Gets the nice name of an enemy based on ProgLang.
+        private static string GetErrorNameFromProgLang(ProgLang lang) // Gets the nice name of an enemy based on ProgLang.
         {
             switch(lang)
             {
@@ -82,7 +82,7 @@ namespace Core.Factories
                     throw new ArgumentException();
             }
         }
-        private string CreateEnemyName(ProgLang lang) // Creates an enemy name based on its language and txt file genration
+        private static string CreateEnemyName(ProgLang lang) // Creates an enemy name based on its language and txt file genration
         {
             Random rand = new Random();
             string ErrorStringName = GetErrorNameFromProgLang(lang);
