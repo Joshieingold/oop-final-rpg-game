@@ -62,10 +62,10 @@ namespace Core.Items
             var AbilityNames = new Dictionary<string, string>
             {
                 {"Vim", "ShopItems/vim.png"  },
-                {"Breakpoints", "ShopItems/breakpoint.png"  },
+                {"Breakpoints", "ShopItems/break.png"  },
                 {"For Loop", "ShopItems/forLoop.png"  },
                 {"Vs Code", "ShopItems/vsCode.png"  },
-                {"Code Completion", "ShopItems/codeCompletion.png"  },
+                {"Code Completion", "ShopItems/completion.png"  },
                 {"Database Power", "ShopItems/databasePOW.png"  },
                 {"Debug", "ShopItems/debugging.png"  },
                 {"Recurssion", "ShopItems/recurssion.png"  },
