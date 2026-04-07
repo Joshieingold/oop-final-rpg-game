@@ -6,10 +6,15 @@ namespace UI
 {
     public partial class GameOverWindow : Window
     {
+        ////////////////
+        // Properties //
+        ////////////////
+        private bool IsChris { get; set; }
+
         /////////////////
         // Constructor //
         /////////////////
-        public GameOverWindow(bool isWin)
+        public GameOverWindow(bool isWin, bool isChris)
         {
             InitializeComponent();
             if (isWin)
@@ -21,6 +26,7 @@ namespace UI
                 lblResult.Content = "You lose..";
             }
             LoadRecords(); // Shows the player records.
+            IsChris = isChris; 
         }
 
         /////////////
@@ -47,6 +53,11 @@ namespace UI
         }
         private void Button_Click(object sender, RoutedEventArgs e) // Closes the app.
         {
+            if (IsChris)
+            {
+                ChrisWindow cw = new ChrisWindow();
+                cw.Show();
+            }
             this.Close();
         }
     }

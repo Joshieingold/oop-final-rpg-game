@@ -133,7 +133,7 @@ namespace UI
                 if (CurrentSession.Round == GAME_ROUNDS) // Checks to see if that was the final round of the game
                 {
                     CurrentSession.UpdateState(GameState.Victory);
-                    GameOverWindow winner = new GameOverWindow(true); // is a win so it takes in true.
+                    GameOverWindow winner = new GameOverWindow(true, currentPlayer.Name.ToLower() == "chris"); // is a win so it takes in true.
                     winner.Show();
                 }
                 else
@@ -145,7 +145,7 @@ namespace UI
             else if (CurrentSession.CurrentBattleManager.CurrentState == BattleState.Defeat) // Player lost and it is game over
             {
                 CurrentSession.UpdateState(GameState.Defeat);
-                GameOverWindow loser = new GameOverWindow(false); // Not a win so takes in false.
+                GameOverWindow loser = new GameOverWindow(false, currentPlayer.Name.ToLower() == "chris"); // Not a win so takes in false.
                 loser.Show();
             }
         }
