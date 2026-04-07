@@ -10,7 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Chris.png" />
     <None Remove="ShopUI\PlaceHolder.png" />
+    <None Remove="Styles\Chris.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +24,13 @@
     <Content Include="ShopUI\PlaceHolder.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Styles\Chris.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Chris.png" />
   </ItemGroup>
 
 </Project>
