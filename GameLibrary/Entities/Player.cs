@@ -69,6 +69,10 @@ namespace Core.Entities
                     PlayerSprite = "/ProtagonistSprites/chris.png";
 
                 }
+                else if (value.ToLower() == "get sued")
+                {
+                    PlayerSprite = "/ProtagonistSprites/mario.png";
+                }
             }
         }
         public bool IsMale // Sets the sprite for the player based on this.
