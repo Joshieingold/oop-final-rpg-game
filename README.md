@@ -1,5 +1,7 @@
 <h1>Coders Crypt</h1>
 <h2>Final Project By Joshua Lynch, Elijah Renault, and Lucas Nevelos</h2>
+<h1>UML</h1>
+<img src="./OOP-FinalDiagram.png">
 <h1>Requirements and their Implementations</h1>
 <h3>The Hierarchy</h3>
 <ul>
