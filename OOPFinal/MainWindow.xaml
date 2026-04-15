@@ -12,8 +12,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <!-- THIS CAN BE REPLACE WITH TITLE ART SHOULD WE GET THERE -->
-        <TextBlock Text="Coders Crypt" Foreground="{DynamicResource foregroundColor}" TextAlignment="Center" Grid.Row="0" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        <!-- New Image for title! -->
+        <Image Grid.Row="0" Source="/Styles/title-art.png" Stretch="UniformToFill" Margin="10"/>
         <Grid Grid.Row="1" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
