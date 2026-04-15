@@ -2,7 +2,7 @@
 <h2>Final Project By Joshua Lynch, Elijah Renault, and Lucas Nevelos</h2>
 <h1>To Use</h1>
 <p>This project was made in Visual Studio 2026, so only .net10 is supported</p>
-<p>Should that be an issue the code is viewable in all forms and in the releases I have added the compiled code to see execution</p>
+<p>Should that be an issue the code is viewable in any medium and in the releases I have added the compiled code to test execution</p>
 <h1>UML</h1>
 <img src="./OOP-FinalDiagram.png">
 <h1>Requirements and their Implementations</h1>
